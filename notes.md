@@ -7,3 +7,8 @@
 	- web development
 	- server side apps
 	- data science etc.
+
+- Kotlin is fully compatible with Java, and works on multiple platforms - windows, mac, linux, pi, etc.
+
+
+## 
