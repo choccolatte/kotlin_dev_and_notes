@@ -1070,22 +1070,493 @@ for (x in cars){
 // outputs all the array elements one by one
 `
 
+
 ## For Loop
+
+- often, when you work with arrays, you need to loop through all of the elements.
+- to loop through array elements, use the `for` loop together with the `in` operator.
+- example -
+`
+val cars = arrayOf("Volvo", "BMW", "Ford", "Mazda")
+for (x in cars){
+	println(x)
+}
+`
+
+- you can loop through all kinds of arrays. In the example above, we used an array of strings.
+- in the example below, we loop through an array of integers:
+- example - 
+`
+val nums = arrayOf(1, 5, 10, 15, 20, 25)
+for (x in nums){
+	println(x)
+}
+`
+
+### Traditional For Loop
+
+- unlike Java, and other programming languages, there is no traditional `for` loop in Kotlin.
+- in Kotlin, the `for` loop is used to loop through arrays, ranges, and other things that contains a countable number of values.
+
 
 ## Ranges
 
+- with the `for` loop, you can also create ranges of values with '..':
+- example - print the whole alphabet:
+`
+for (char in 'a'..'z'){
+	println(char)
+}
+`
+
+- you can also create ranges of numbers:
+- example -
+`
+for (nums in 5..50){
+	println(nums)
+}
+`
+
+- **note:**
+- the first and the last value is included in the range.
+
+
+### Check if a Value Exists
+
+- you can also use the `in` operator to check if a value exists in a range:
+- example - 
+`
+val nums = arrayOf(2, 4, 6, 8, 10)
+if (2 in nums){
+	println("It exists!")
+} else {
+	println("It doesnt exist!")
+}
+`
+
+- example 2 -
+`
+val cars = arrayOf("Volvo", "BMW", "Ford", "Mazda")
+if ("BMW" in cars){
+	println("It exists!")
+} else {
+	println("It doesnt exist!")
+}
+`
+
+
+### Break or Continue a Range
+
+- you can also use the `break` and `continue` keywords in a range/`for` loop:
+- example - stop the loop when `nums` is equal to `10`:
+`
+for (nums in 5..50){
+	if (nums == 10){
+		break // will break the loop when condition meets 
+	}
+	println(nums)
+}
+`
+
+- example 2 - skip the value of 10 in the loop, and continue with the next iteration:
+`
+for (nums in 5..50){
+	if (nums == 10){
+		continue // will skip 10 and then continue with the loop
+	}
+	println(nums)
+}
+`
+
+
 ## Functions
 
+- a function is a block of code which only runs when its called.
+- you can pass data, known as parameters, into a function.
+- Functions are used to perform certain actions, and they are also known as methods.
 
-## Classes
+
+### Predefined Functions
+
+- so it turns out you already known what a function is. You have been using it the whole time here.
+- for example, `println()` is a function. It is used to output/print text to the screen:
+- example - 
+`
+fun main(){
+	println("Hello World!")
+}
+`
+
+### Create Your Own Functions
+
+- to create your own function, use the `fun` keyword, and write the name of the function, followed by parantheses():
+- example - create a function named "myFun" that should output some text:
+`
+fun myFun(){
+	println("New Function")
+}
+`
+
+### Calling a Function
+
+- now that we have already created a function, we can execute it by calling it.
+- to call a function, write the name of the function followed by a parantheses ().
+- in the following example, `myFun()` will print some text (the action), when its called:
+- example -
+`
+fun myFun(){
+	println("New Function")
+}
+
+fun main(){
+	myFun() // calls myFun
+}
+
+// output: New Function
+`
+
+- a function can be called multiple times, if you want.
+- example -
+`
+fun main(){
+	myFun()
+	myFun()
+	myFun()
+}
+// output: New Function
+// output: New Function
+// output: New Function
+`
+
+### Function Parameters
+
+- information can be passed to functions as parameters.
+- parameters are specified after the function name, inside the parantheses. you can add as many parameters as you want, just seperate them with a comma. Just note that you must specify the type of each parameter (Int, String, etc.)
+- the following example has a function that takes a `string` called fname as paraeter. When the function is caled, we pass along a first name, which is used inside the function to print the full name:
+- example -
+`
+fun myFunc(fname: String){
+	println(fname + " Doe")
+}
+
+fun main(){
+	myFunc("John")
+	myFunc("Joe")
+	myFunc("George")
+}
+
+//output: John Doe
+//output: Joe Doe
+//output: George Doe
+`
+
+- **Note:**
+- when a parameter is passed to the function, it is called an - argument. So, from the example above: `fname` is a parameter, while John, Joe and George are arguments.
+
+
+### Multiple Parameters
+
+- you can have as many parameters as you like:
+- example - 
+`
+fun myFunc(fname: String, age: Int){
+	println(fname + " is " age)
+}
+
+fun main(){
+	myFunc("John", 25)
+	myFunc("Joe", 30)
+	myFunc("George", 18)
+}
+
+// output: John is 25
+// output: Joe is 30
+// output: George is 18
+`
+
+- **Note:**
+- when working with multiple parameters, the function call must have the same number of arguments as there are parameters, and the arguments must be passed in the same order.
+
+
+### Return Values
+
+- in the example above, we used functions to output a value. In the following example, we will use a function to return a value and assign it to a variable.
+- to return a value, we use the `return` keyword, and specify the return type after the function's parantheses (`Int` in this example):
+- example - a function with one `Int` parameter and an `Int` return type -
+`
+fun myFun(x: Int): Int {
+	return (x + 5)
+} 
+
+fun main(){
+	var result = myFunc(50)
+	println(result)
+}
+
+// output - 55 (5 + 50)
+`
+
+- using two parameters;
+- example - a function with two `Int` parameters, and `Int` return type -
+`
+fun myFun(x: Int, y: Int): Int {
+	return (x + y)
+} 
+
+fun main(){
+	var result = myFunc(50, 500)
+	println(result)
+}
+
+// output - 550 (50 + 500)
+`
+
+
+### Shorter Syntax for Return Values
+
+- there is also a shorter syntax for returning values. You can use the `=` operator instead of `return` without specifying the return type. 
+- Kotlin is smart enough to automatically find out what it is:
+- example -
+`
+fun myFunc(x: Int, y:Int) = x + y
+
+fun main(){
+	var result = myFunc(50, 500)
+	println(result)
+}
+
+//output - 550 (50, 500)
+`
+
+
 ## Classes - OOP
+
+- OOP stands for Object Oriented Programming.
+- procedural programming is about writing procedures or methods that perform operations on the data, while object-oriented programming is about creating objects that contain both data and methods.
+
+- Object-oriented programming has several advantages over procedural programming -
+	- OOP is faster and easier to execute.
+	- OOP provides a clear structure for the programs.
+	- OOP helps to keep the Kotlin code DRY "Dont Repeat Yourself", and makes the code easier to maintain, modify and debug.
+	- OOP makes it possible to create full reusable applications with less code and shorter development time.
+
+- **Tips:**
+- The - DRY "Dont Repeat Yourself" principle is about reducing the repetations of code. You should extract out the codes that are common for the application, and place them at a singleplace and reuse them instead of repeating it.
+
+
+### What are Classes and Objects?
+
+- classes and objects are two main aspects of object-oriented programming.
+- example - 
+- class - fruit
+- objects - Apple, Banana, Mango
+
+- example 2
+- Class - Car
+- Objects - Volvo, BMW, Audi
+
+- So, a class is a template for objects, and an object is an instance (an example, or a single occurance) of a class.
+- when the individual objects are created, they inherit all the variables and methods from the class.
+
 
 ## Classes - Classes/Objects
 
+- everything in Kotlin is associated with classes and objkects, along with its properties, and functions. 
+- For example, in real life, a car is an object. The car has properties, such as brand, weight and color, and functions, such as drive and brake.
+- a Class is like an object constructor, or a 'blueprint' for creating objects.
+
+
+### Creating a Class
+
+- to create a class, use the `class` keyword, and specify the name of the class.
+- example - create a Car class with some properties (brand, model and year)
+`
+class Car{
+	var brand = ""
+	var model = ""
+	var year = 0
+}
+`
+
+- a property is basically a variable that belongs to the class.
+- Tip: It is considered a good practise to start the name of the class with an upper case letter, for better organization.
+
+
+### Create an Object
+
+- now we can use the class named Car to create objects.
+- in the example below, we create an object of Car called c1, and then we access the properties of c1 by uising the dot syntax (.), just like we did to access arrays and string properties:
+- example -
+`
+// create a c1 object of the Car class
+val c1 = Car()
+
+// access the properties and add some values to it
+c1.brand = "Ford"
+c1.model = "Bronco"
+c1.brand = 2025
+
+println(c1.brand)
+println(c1.model)
+println(c1.year)
+`
+
+### Multiple Objects
+
+- you can also create multiple objects of one class:
+- example -
+`
+// create a c1 object of the Car class
+val c1 = Car()
+
+c1.brand = "Ford"
+c1.model = "Bronco"
+c1.brand = 2025
+
+val c2 = Car()
+
+c2.brand = "BMW"
+c2.model = "M5"
+c2.brand = 2024
+
+val c3 = Car()
+
+c3.brand = "Toyota"
+c3.model = "Supra"
+c3.brand = 2025
+
+println(c1.brand)
+println(c2.model)
+println(c3.year)
+`
+
+
 ## Classes - Constructors
+
+- earlier, we created an object of a class, and specified the properties inside the class, like this:
+- example -
+`
+class Car{
+	var brand = ""
+	var model = ""
+	var year = 0
+}
+
+fun main(){
+	val c1 = Car()
+	c1.brand = "Ford"
+	c1.model = "Bronco"
+	c1.brand = 2025
+}
+`
+
+- in Kotlin, there's a faster way of doing this, by using a constructor.
+- a constructor is a special function, and it is defined by using two parantheses `()` after the class name. You can specify the properties inside of the parantheses (like passing parameters into a regular function).
+- the constructor will initialize the proeprties when you create an object of a class. Just remember to specify the type of the property/variable:
+
+- example -
+`
+class Car(var brand: String, var model: String, var year: Int)
+
+fun main(){
+	val c1 = Car("Ford", "Bronco", 2025)
+}
+`
+
+- now its even easier to specify multiple objects of one class:
+- example -
+`
+class Car(var brand: String, var model: String, var year: Int)
+
+fun main(){
+	val c1 = Car("Ford", "Bronco", 2025)
+	val c2 = Car("BMW", "M5", 2024)
+}
+`
+
 
 ## Classes Functions
 
-## Classes - Class Functions
+- you can also use functions inside a class, to perform certain actions:
+- example - create a `drive()` function inside the `Car` class and call it:
+`
+class Car(var brand: String, var model: String, var year: Int) {
+	// class function
+	fun drive(){
+		println("Vroooooooooooommmm!!!")
+	}
+}
+
+fun main(){
+	val c1 = Car("Ford", "Bronco", 2025)
+	val c2 = Car("BMW", "M5", 2024)
+
+	// calling the function
+	c1.drive()
+	c2.drive()
+}
+`
+
+- Tip:
+	- when a function is declared inside a class, it is known as a class function, or a member function.
+
+- Note:
+	- when an object of the class is created, it has access to all of the class functions.
+
+
+### Class Fnction Parameters
+
+- just like with regular functions, you can pass parameters to a class function:
+- example - create two functions: `drive()` and `speed()` and pass parameters to the `speed()` function:
+`
+class Car(var brand: String, var model: String, var year: Int) {
+	// class function
+	fun drive(){
+		println("Vroooooooooooommmm!!!")
+	}
+
+	// class function with parameters
+	fun speed(maxSpeed: Int){
+		println("Max speed is: " + maxSpeed)
+	}
+}
+
+fun main(){
+	val c1 = Car("Ford", "Bronco", 2025)
+	val c2 = Car("BMW", "M5", 2024)
+
+	// calling the function
+	c1.drive()
+	c2.speed(200)
+}
+`
+
 
 ## Classes - Inheritance
+
+- in Kotlin, it is possible to inherit class properties and functions from one class to another. We group the 'inheritence concept' into two categories:
+
+	- Subclass (child) - the class that inherits from another class
+	- Superclass (parent) - the class being inherited from
+
+- in the example below, `MyChildClass` (subclass) inherits the properties from `MyParentClass` (superclass):
+- example -
+`
+// Superclass
+open class MyParentClass{
+	val x = 5
+}
+
+// subclass
+class MyChildClass: MyParentClass(){
+	fun myFunc(){
+		println(x) // x is now inherited from the superclass
+	}
+}
+
+// create an object(instance) of MyChildClass and call myFunc
+fun main(){
+	val myObj = MyChildClass()
+	myObj.myFunc()
+}
+`
