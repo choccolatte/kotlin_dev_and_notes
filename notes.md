@@ -730,8 +730,362 @@ println(10 == 15) // returns false, because 10 is not equal to 15
 
 ## Conditions and If ... Else
 
+- we already know that Kotlin supports familiar comparison conditions from maths, suchas -
+	- Less than: a < b
+	- Less than or equal to: a <= b
+	- Greater than: a > b
+	- Greater than or equal to: a >= b
+	- Equal to a == b
+	- Not Equal to: a != b
+
+- you can use these conditions to perform different actions for different decisions.
+- Kotlin has the following conditionals - 
+	- Use `if` to specify a block of code to be executed, ifa specified conditionis true
+	- Use `else` to specify a block of code to be executed, if the same condition is false
+	- Use `else if` to specify a new condition to test, if the first condition is false
+	- Use `when` to specify many alternative blocks of code to be executed
+
+- **Note:**
+- unlike Java, `if...else` can be used as a statement or as an expression(to assign a value to a variable) in Kotlin.
+
+
 ### If
+
+- Use `if` to specify a block of code to be executed, if a specified conditionis `true`
+- syntax - 
+`
+if (condition){
+	// block of code to be exected if the condition is true
+}
+`
+
+- Note that, `if` is in lowercase letters. Uppercase letters (If or IF) will generate an error.
+
+- in the example below, we test two values to find out if 20 is greater than 18. If the condition is `true`, print some text:
+- example - 
+`
+if (20 > 18){
+	println("20 is greater than 18")
+}
+`
+
+- we can also test variables:
+- example - 
+`
+val x = 20
+val y = 18
+if (x > y){
+	println("x is greater than y")
+}
+`
+
+- examples explained
+- in the example above, we use two variables, x and y, to test whether x is greater than y (using the `>` operator). As x is 20 and y is 18, and we know that 20 is greater than 18, we print to the screen that "x is greater than y".
+
+
 ### else
+
+- Use `else` to specify a block of code to be executed, if the same condition is `false`
+- syntax - 
+- if (condition){
+	// block of code to be exected if the condition is true
+} else {
+	// block of code to be executed if the condition is true
+}
+
+- example - 
+`
+val time = 20
+if (time < 18){
+	println("Good day!")
+} else {
+	println("Good evening.")
+}
+// outputs "GOod evening."
+`
+
+- example explained -
+- in the example above, time (20) is greater than 18, so the condition is `false`, so we move on to the `else` condition and print to the screen "Good evening." If the time was less than 18, the program would print "Good day".
+
+
 ### else if
+
+- Use `else if` to specify a new condition to test, if the first condition is `false`.
+- syntax - 
+`
+if (condition1){
+	// block of code to be executed if condition1 is true
+} else if (condition2) {
+	// block of code to be executed if condition1 is false and condition2 is true
+} else{
+	// block of code to be executed if condition1 and condition2 is false
+}
+`
+
+- example - 
+`
+val time = 22
+if (time < 10){
+	println("Good morning.")
+} else if(time < 20>){
+	println("Good day.")
+} else {
+	println("Good evening!")
+}
+// outputs "Good evening"
+`
+
+- example explained - 
+- in the example above, time(22) is greater than 10, so the first condition if `false`. The next condition, in the `else if` statement, is also `fasle`, so we move on to the `else` condition since condition1 and condition2 is both `false` - and print to the screen "Good evening."
+- However, if the time was 14, our program would print "Good day."
+
+
 ### if ... else Expressions
 
+- In Kotlin, we use if...else statements as expressions (assign a value to a variable and return it):
+- example - 
+`
+val time = 20
+val greeting = if (time < 18) {
+	"Good day."
+} else {
+	"Good evening!"
+}
+println(greeting)
+`
+
+- **note:**
+- when using `if` as an expression, you must also include `else` (required).
+- You can also omit the curly braces `{}` when `if` has only one statement.
+
+- example - 
+`
+
+fun main(){
+	val time = 20
+	val greeting = if (time < 18) "Good day."else "Good evening!"
+	println(greeting)
+}
+`
+
+- this example is similar to the 'ternary operator' (short hand if....else) in Java.
+
+
+## When
+
+- instead of writing many `if...else` conditions, you can use the `when` expression which is much easier to read.
+- it is used to select one of many code blocks to be executed:
+- example - use the weekday number to calculate the weekday name:
+`
+val day = 4
+val result = when (day){
+	1 -> "Monday"
+	2 -> "Tuesday"
+	3 -> "Wednesday"
+	4 -> "Thursday"
+	5 -> "Friday"
+	6 -> "Satday"
+	7 -> "Sunday"
+	else -> "Invalid day"
+}
+println(result)
+// outputs "Thursday" (day 4)
+`
+
+- the `when` expression is similar to the `switch` statement in Java.
+
+- this is how it works -
+	- the `when` variable (day) is evaluated once
+	- the value of the day variable is compared with the values of each 'branch'
+	- each branch starts with a value, followed by an arrow (->) and a result
+	- if there is a match, the associated block of code is executed
+	- `else` is used to specify some code to run if there is no match (base case)
+	- in the example above, the value of `day` is `4`, meaning, "Thursday" will be printed.
+
+
+## While Loop
+
+- loops can execute a block of code as long as a specified condition is reached.
+- loops are handy because they save time, reduce errors, and they make code more readable.
+
+- the `while` loop loops through a block of code as long as a specified condition is `true`:
+- syntax -
+`
+while (condition){
+	// code block to be executed
+}
+`
+
+- in the example below, the code in the loop will run, over and over again, as long as the counter variable(i) is less than 5:
+- example - 
+`
+var i = 0
+while (i < 5){
+	println(i)
+	i++
+}
+`
+
+- **Note:**
+- do not forget to increase the variable used in the condition, else the loop will never end since the condition will always meet whenever the code enters the loop.
+
+
+### the Do...While loop
+
+- the `do...while` loop is a variant of the `while` loop. This loop will execute the code block once, before checking if the condition is true, thenit will repeat the loop as long as the condition is true.
+- syntax - 
+`
+do {
+	// code blockto be executed
+}
+while (condition);
+`
+
+- the example below uses a `do...while` loop. The loop will always be executed at least once, even if the condition is false, because the code block is executed before the condition is tested:
+- example - 
+`
+var i = 0
+do {
+	println(i)
+	i++
+}
+while (i < 5)
+`
+
+- **Note:**
+- do not forget to increase the variable used in the condition, else the loop will never end since the condition will always meet whenever the code enters the loop.
+
+
+## Break/Continue
+
+### Break
+
+- the `break` statement is used to jump our of a loop.
+- this example jumps out of the loop when i is equal to 4:
+- example -
+`
+var i = 0
+while (i < 10){
+	println(i)
+	i++
+
+	if (i == 4){
+		break
+	}
+}
+`
+
+### Continue
+
+- the `continue` statement breaks one iteration (in the loop), if a specified condition occurs, and continues with the next iteration in the loop.
+- this example skips the value of 4:
+`
+var i = 0
+while (i < 10){
+	if (i == 4){
+		i++
+		contiue
+	}
+
+	println(i)
+	i++	
+}
+`
+
+
+## Arrays
+
+- arrays are used to store multiple values in a single variable, instead of creating seperate variables, for each value.
+- to create an array, we use the `arrayOf()` function, and place the values in a comma-seperated list inside it:
+- syntax - 
+`
+val cars = arrayOf("Volvo", "BMW", "Ford", "Mazda")
+`
+
+### Access the Elemenets of Array
+
+- we can access an aray elements by referring to the index number, inside square brackets.
+- in this example, we access the value of the first element in cars:
+- example -
+`
+val cars = arrayOf("Volvo", "BMW", "Ford", "Mazda")
+println(cars[0])
+//outputs volvo
+`
+
+- **Note:**
+- just like with Strings, Array indexes start with 0:[0] is the first element. [1] is the second, [2] the third, and so on.....
+
+
+### Change an Array Element
+
+- to change the value of a specific element, refer to the index number:
+- syntax -
+`
+cars[0] = "Audi"
+`
+- example - 
+`
+val cars = arrayOf("Volvo", "BMW", "Ford", "Mazda")
+cars[0] = "Audi"
+println(cars[0])
+// now the output will be Audi instead of Volvo
+`
+
+### Array Length / Size
+
+- to find out how many elements an array have, use the `size` property.
+- example -
+`
+val cars = arrayOf("Volvo", "BMW", "Ford", "Mazda")
+println(cars.size)
+// outputs 4
+`
+
+### Check if an Element Exists
+
+- you can use the `in` operator to check if an element exists in an array.
+- example -
+`
+val cars = arrayOf("Volvo", "BMW", "Ford", "Mazda")
+if ("Volvo" in cars){
+	println("It exists")
+} else {
+	println("DOesnt exist.")
+}
+// output: It exists
+`
+
+### Loop Through an Array
+
+- often when you work with an arrays, you need to loop through all of the elements.
+- you can loop throuigh the array elements with the `for` loop.
+- the following example outputs all elements in the cars array:
+- example -
+`
+val cars = arrayOf("Volvo", "BMW", "Ford", "Mazda")
+for (x in cars){
+	println(x)
+}
+// outputs all the array elements one by one
+`
+
+## For Loop
+
+## Ranges
+
+## Functions
+
+
+## Classes
+## Classes - OOP
+
+## Classes - Classes/Objects
+
+## Classes - Constructors
+
+## Classes Functions
+
+## Classes - Class Functions
+
+## Classes - Inheritance

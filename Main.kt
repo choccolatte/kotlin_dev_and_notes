@@ -32,3 +32,31 @@ println("The length of the txt string is:" + txt.length )
 var fname = "John"
 var lname = "Smith"
 println("My name is $fname $lname")
+
+// using when condition
+val day = 4
+val result = when (day){
+	1 -> "Monday"
+	2 -> "Tuesday"
+	3 -> "Wednesday"
+	4 -> "Thursday"
+	5 -> "Friday"
+	6 -> "Satday"
+	7 -> "Sunday"
+	else -> "Invalid day"
+}
+println(result)
+// outputs "Thursday" (day 4)
+
+// do while loop example 
+var i = 0
+do {
+	println(i)
+	i++
+}
+while (i < 5)
+
+// playing with array
+val cars = arrayOf("Volvo", "BMW", "Ford", "Mazda")
+println(cars[0])
+//outputs volvo
