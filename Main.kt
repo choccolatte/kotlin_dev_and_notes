@@ -21,3 +21,14 @@ println("Hello " + fulname)
 val x = 5
 val y = 6
 println(x + y) // prints the value of x + y
+
+// finding length of a string 
+
+var txt = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+println("The length of the txt string is:" + txt.length )
+
+
+// concatenating a string
+var fname = "John"
+var lname = "Smith"
+println("My name is $fname $lname")
