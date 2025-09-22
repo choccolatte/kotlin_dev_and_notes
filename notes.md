@@ -1560,3 +1560,11 @@ fun main(){
 	myObj.myFunc()
 }
 `
+
+### Example explained
+
+- Use the `open` keyword in front of the superclass/parent class, to make this the class other classes should inherit properties and functions from.
+- to inherit from a class, specify the name of the subclass, followed by a colon `:`, adn then the name of the superclass.
+
+- Why and when to use 'Inheritence'?
+- it is useful for code reusability: reuse properties and functions of an existing class when you create a new class.
