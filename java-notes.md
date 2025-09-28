@@ -87,3 +87,13 @@ System.out.println("Java is fun!');
 	- the first statement is executed first (print "Hello World!" to the screen).
 	- the second statement is executed last (print "Java is fun!" to the screen).
 
+
+## Output/Print
+
+### Print Text
+
+- we already know that we can use `println()` method to output alues or print text in Java:
+- example 
+`
+System.out.println("Hello World!");
+`
