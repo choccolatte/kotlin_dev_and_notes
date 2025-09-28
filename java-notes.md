@@ -97,3 +97,58 @@ System.out.println("Java is fun!');
 `
 System.out.println("Hello World!");
 `
+
+- we can also add as many `println()` methods as we wnat, note that it will add a new line for each method:
+- example - 
+`
+System.out.println("Hello World');
+System.out.println("Java is fun!');
+`
+
+### Double Quotes
+
+- text must be wrapped inside double quotations marks`""`.
+- if you forget the double quotes, an error occurs:
+- example 
+`
+System.out.println("Hello World!"); // correct
+`
+
+- wrong way to use it
+`
+System.out.println(Hello World!); // incorrect
+`
+
+### The Print() Method
+
+- there is also a `print()` method, which is similar to `println()`
+- the only difference is that it does not insert a new line at the end of the output.
+- example -
+`
+System.out.print("Hello World! ");
+System.out.print("This will also print on the same line");
+`
+
+- note that we add an extra space after "Hello World! " in our example above for better readibility.
+
+
+## Output Numbers
+
+- you can also use the `println()` method to print numbers.
+- however, unlike texts, we dont put numbers inside double quotes:
+- example - 
+`
+System.out.println(3);
+System.out.println(335);
+System.out.println(300000);
+`
+
+- you can also perform mathematical calculations inside the `println()` method:
+- example - 
+`
+System.out.println(3 + 50);
+System.out.println(3 * 5);
+`
+
+
+## Comments
