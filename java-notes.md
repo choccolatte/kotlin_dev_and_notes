@@ -152,3 +152,39 @@ System.out.println(3 * 5);
 
 
 ## Comments
+
+- comments can be used to explain Java code, and to make it more readable. It can also be used to prevent execution when testing alternative code.
+
+### Single Line Comments
+
+- single line comments starts with two forward slashes (`//`)
+- any text between `//` and the end of the line is ignored by Java (will not be executed).
+- example -
+`
+// this is a comment
+System.out.println("Hello World!");
+`
+
+- this is also a correct single line comment example, but it uses it at the end of the code block -
+`
+// this is a comment
+System.out.println("Hello World!"); // this is also a comment
+`
+
+### Multi Line Comments
+
+- multi line comments starts with `/*` and ends with `*/`.
+- any text between `/*` and `*/` will be ignored by Java.
+- example - 
+`
+/* this is a multi line 
+comment */
+System.out.println("Hello World!");
+`
+
+- its up to you to decide which comment you want to use. Normally, we use single line comments (//) for short comments, and multi line comments (*/ /*) for longer comments.
+
+
+## Variables
+
+- 
