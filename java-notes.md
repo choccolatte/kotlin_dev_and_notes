@@ -187,4 +187,95 @@ System.out.println("Hello World!");
 
 ## Variables
 
-- 
+- variables are basically containers for storing data values. 
+- in Java, there are different types of variables - 
+	- `String` - stores text, such as "Hello". String values are surrounded by double quotes.
+	- `int` - stores integers (whole nmbers), without decimals, such as 123 or -123.
+	- `float` - stores floating point numbers, with decimals, such as 19.99 or -19.99.
+	- `char` - stores single characrters, such as 'a' or 'B'. Char values are surrounded by single quotes.
+	- `boolean` - stores values with two states - true or false.
+
+
+### Declaring (Creating) Variables
+
+- to create a variable in Java, you need to - 
+	- choose a type (like `int` or `string`)
+	- give the variable a name (like x, age, or name)
+	- optionally assign it a value using =
+
+- syntax -
+`
+type variableName = value
+`
+
+- for example, if you want to store some text, you can use a `String`:
+- example - create a variable called name of type `String` and assign it the value "John". Then, we use `println()` to print the name variable.
+`
+String name = "John";
+System.out.println(name);
+`
+
+- to create a variable that should store a number, you can use `int`:
+- example - create  a variable called myNum of type `int` and assign it the value 15 - 
+`
+int myNum = 15;
+System.out.println(myNum);
+`
+
+- you can also declare a variable without assigning the value, adn assign the value later:
+- example -
+`
+int myNum;
+myNum = 15;
+System.out.println(myNum);
+`
+
+- note that if you assign a nwe value to an existing variable, it will overwrite the previous value:
+- example - change the value of myNum from 15 to 25 -
+`
+int myNum = 15;
+myNum = 20; // myNum is now 20
+System.out.println(myNum);
+`
+
+### Final Variables
+
+- if you dont want others (or yourself) to overwrite existing values, use the `final` keyword (this will declare the variable as "final" or "constant", which means unchangable and read-only)-
+- example - 
+`
+final int myNum = 15;
+myNum = 20; // will generate an error: cannot assign a value to a final variable
+`
+
+### Other Types
+
+- a demonstration of how to declare variable of other types -
+- example - 
+`
+int myNum = 15;
+float myFloat = 5.95f;
+char myLetter = 'D';
+boolean myBool = true;
+String myText = "Hello";
+`
+
+
+## Print Variables
+
+- the `println()` method is often used to display variables.
+- to combine both texts and variable, use the `+` operator.
+- example - 
+`
+String name = "John";
+System.out.println("Hello " + name);
+`
+
+- you can also use the `+` character to add a variable to another variable.
+- example -
+`
+String fname = "John";
+String lname = "Smith";
+String fullName = fname + lname;
+System.out.println("Hello " + fullName);
+`
+
