@@ -383,4 +383,78 @@ int int = 290; // cant use reserved keywords
 
 ## Constants (final keyword)
 
+- when you do not want a variable's value to change, use the `final` keyword.
+- a variable declared with the `final` keyword becomes a constant, which means unchangable and read-only.
+
+- example - 
+`
+final int myNum = 50;
+myNum = 100; // error: cannot assign a value to final variable 'myNum'
+`
+
+### When to use final?
+
+- you should declare variables as `final` when their values should never change. For example, the number of minutes in an hour, or your birth year:
+- example - 
+`
+final int MINUTES_PER_HOUR = 60;
+final int BIRTHYEAR = 2000;
+`
+
+- Note:
+- by convention, final variables in Java are usually written in upper case (eg. BIRTHYEAR). It is not required, but useful for code readibility and common for many programmers.
+
+
+## Data Types
+
+- a variable in Java must be a specified data type:
+- example - 
+`
+int myNum = 5; // integer (whole numbers)
+float myFloat = 5.99f; // floating point numbers
+char myLetter = 'A'; // character
+boolean myBool = true; // true/false
+String myText = 'John'; // strings
+`
+
+- data type are divided into two groups - 
+	- Primitive data types - includes `byte, short, int, long, float, double, boolean, char.`
+	- Non-primitive data types - such as `String`, Arrays, Classes
+
+
+### Primitive data types
+
+- a Primitive data type specifies the type of a variable and the kind of values it can hold.
+- there are eight Primitive data types in Java - 
+
+Data Type | Description 
+`byte` | stores whole numbers from -128 to 127
+`short` | stores whole numbers from -32,768 to 32,767
+`int` | stores whole numbers from -2,147,483,648 to 2,147,483,647
+`long` | stores whole numbers from -9,223,372,036,854,775,808 to 9,223,372,036,854,775,807
+`float` | stores fractional number. Sufficient for storing 6 to 7 decimal digits.
+`double` | stores fractional numbers. Sufficient for storing 15 to 16 decimal digits.
+`boolean` | Stores true or false values
+char | Stores a single character/letter or ASCII values
+
+
+### You Cannot Change the Data Type
+
+- once a variable is declared with a type, it cannot change to another type later in the program:
+- example -
+`
+int myNum = 5; // myNum is an int
+// myNum = "Hello"; // Error: cannot assign a String to an int
+
+String myText = "Hi"; // myText is a String
+// myText = 123; // Error; cannot assign a number to a string
+`
+
+- Note:
+- this rule makes Java safer, because the compiler will stop you if you try to mix up types by mistake.
+- if you really need to change between the types, you must use type casting or conversion methods (for example, turning an `int` into a `double`).
+
+
+## Numbers
+
 - 
