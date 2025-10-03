@@ -279,3 +279,108 @@ String fullName = fname + lname;
 System.out.println("Hello " + fullName);
 `
 
+- in Java, the `+` symbol has two meanings - 
+	- for text (strings), it joins them together (called concatenation).
+	- for numbers, it adds values together.
+
+- for numeric values, the `+` character works as a mathematical operator (notice that we use `int` (integer) variables here):
+- example - 
+`
+int x = 5;
+int y = 6;
+System.out.println(x + y); // pPrint the value of x + y
+`
+
+- from the example above, here's what happens step by step - 
+	- x stores the value 5
+	- y stores the value 6
+	- println() displays the result of x + y, which is 11
+
+
+### Mixing Text and Numbers
+
+- be careful when combining the text and numbers in the same line of code. Without parantheses, Java will treat the numbers as text after the first string:
+- example - 
+`
+int x = 6;
+int x = 10;
+
+System.out.prinln("The sum is " + x + y); // prints: The sum is 610
+System.out.prinln("The sum is " + (x + y)); // prints: The sum is 16
+`
+
+- explanation - 
+- in the first line, Java combines "the Sum is " with `x`, creating the string "The sum is 6". Then, `y` is added to that string, so it becomes, "The sum is 610".
+- in the second line, the parantheses makes sure `x + y` is calculated first (resulting in 16), so the output is "The sum is 16".
+
+
+## Declare Multiple Variables
+
+- to declare more than one variable of the same type, you can use the comma-seperated list.
+- example - 
+- instead of writing:
+`
+int x = 10;
+int y = 100;
+int z = 1;
+System.out.println(x + y + z); // 111
+`
+- you can write this instead - 
+`
+int x = 10, y = 100, z = 1;
+System.out.println(x + y + z); // 111
+`
+
+- note that, declaring many variables in one line is shorter, but writing one variable per line can sometimes make the code easier to read.
+
+
+### One Value to Multiple Variables
+
+- you can also assign the same value to multiple variables in one line:
+- example - 
+`
+int x, y, z;
+x = y = z = 50;
+System.out.println(x+y+z) // 150
+`
+
+
+## Identifiers
+
+- all java variables must be identified with unique names.
+- these unique names are called identifiers.
+- identifiers can be short names (like x and y) or more descriptive names (age, sum, totalVolume).
+- Note: It is recommended to use descriptive names in roder to create understandable and maintainable code.
+- example - 
+`
+// Good
+int minutesPerHour = 100;
+
+// bad
+int m = 100;
+`
+
+- the general rules for naming variables are:
+	- names can contain letter, digits, underscores, and dollar signs.
+	- names must begin with a letter.
+	- names should start with a lowercase letter, and cannot contain whitespaces.
+	- names can also begin with $ and _
+	- names are case-sensitive ("MyVar" and "myvar" are different variabels)
+	- reserved words (like Java keywords, such as `int` and `boolean`) cannot be used as names
+
+
+### Invalid Identifiers
+
+- here are some examples of invalid identifiers that would cause errors:
+- example -
+`
+// invalid identifiers
+int 2ndNumber = 5; // cant start with a digit
+int my var = 10; // cant contain space in names
+int int = 290; // cant use reserved keywords
+`
+
+
+## Constants (final keyword)
+
+- 
