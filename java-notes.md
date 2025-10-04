@@ -457,4 +457,23 @@ String myText = "Hi"; // myText is a String
 
 ## Numbers
 
-- 
+- primitive number types are divided into two groups -
+	- Integer types - stores whole numbers, positive or negative (such as 123 or -456), without decimals. Valid types are `byte`, `short`, `int`, `long`. The type you use depends on the numeric value.
+	- Floating point types - represents the numbers with a fractional part, containing one or more decimals. There are two types - `float` and `double`.
+
+- even though there are many numeric types in Java, the most used for numbers are `int` (for whole numbers) adn `double`(for floating point numbers).
+
+
+### Integer Types
+#### Byte
+
+- the `byte` data type can store whole numbers from -128 to 127. This can be used instead of `int` or other integer types to sve memory where you are certain that the value will be within -128 to 127.
+- example -
+`
+byte myNum = 100;
+System.out.println(myNum);
+`
+
+#### Short
+#### Int
+#### Long
