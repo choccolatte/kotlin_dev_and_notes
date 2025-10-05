@@ -475,5 +475,62 @@ System.out.println(myNum);
 `
 
 #### Short
+
+- the `short` data type can store whole numbers from -32768 to 32767.
+- example -
+`
+short myNum = 10000;
+System.out.println(myNum);
+`
+
 #### Int
+
+- The `int` data type can store whole numbers from -214,748,3648 to 214,748,3647. In general, and here, the `int` data type is the preferred data type when we create variables with the numeric value.
+- example -
+`
+int myNum = 1000000;
+System.out.println(myNum);
+`
+
 #### Long
+
+- the `long` data type cna store whole numbers from -9223372036854775808 to 9223372036854775807. This is used when int is not large enough to store the values. Note that, you should also end the value with an "L".
+- example - 
+`
+long myNum = 9223372036854775L;
+System.out.println(myNum);
+`
+
+### Floating Point Types
+
+- you should use a floating point type whenever you ned a number with a decimal, such as 9.99 or 3.14.
+- the `float` and `double` data types can store fractional numbers. Note that, you should end the value with an "f" for floats and "d" for doubles.
+- float eg. -
+`
+float myNum = 5.55f;
+System.out.println(myNum);
+`
+- double eg. -
+`
+double myNum = 55.55d;
+System.out.println(myNum);
+`
+
+Note: Using `float` or `double`?
+- the precision of a floating point value indicates how many digits the value can have after the decimal point. The precision of a `float` is only 6-7 decimal digits, while `double` variables have a precision of about 16 digits.
+- therefore, it is safer to use `double` for most calculations.
+
+
+### Scientific Numbers
+
+- a floating point number can also be a scientific number with an 'e' to indicate the power of 10.
+- eg. -
+`
+float f1 = 35e3f;
+double d1 = 12e4d;
+System.out.println(f1);
+System.out.println(d1);
+`
+
+
+## Boolean Data Types
