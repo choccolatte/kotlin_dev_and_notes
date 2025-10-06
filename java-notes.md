@@ -534,3 +534,117 @@ System.out.println(d1);
 
 
 ## Boolean Data Types
+
+- very often in programming, you will need a data type that can only have one of two values, like - 
+	- Yes / No
+	- On / Off
+	- True / False
+- for this, we use `Boolean` data type, which can only take the values `true` or `false`:
+- eg. - 
+`
+boolean isJavaFun = true;
+boolean isKarelaTasty = false;
+System.out.println(isJavaFun); // prints true
+System.out.println(isKarelaTasty); // prints false
+`
+
+- boolean values are mostly used for conditional testing.
+
+
+## Characters
+
+- the `char` data type is used to store a single character. the character must be surrounded by single quotes like 'A', or 'c':
+- eg. -
+`
+char myChar = 'a';
+System.out.println(myChar);
+`
+
+- alternatively, if you are familiar with ASCII values, you can use those to display certain characters:
+- eg. -
+`
+char myVar1 = 65, myVar2 = 66, myVar3 = 36;
+`
+
+### Strings
+
+- the `String` data type is used to store a sequence of characters (text). String values must be surrouned by double quotes:
+- eg -
+`
+String myStr = "Hello";
+System.out.println(myStr);
+`
+
+- the String type is so much used and integrated in java, that it is often called 'the special ninth type.'
+- a string in Java is actually a non-primitive data type, because it refers to an object. The string object has methods that are used to perform certain operations on strings. Dont worry if you dont understand the term 'object' just yet, we will learn about it later.
+
+
+## Non-Primitive Data Type
+
+- Non-Primitive Data Types are called reference types because they refer to objects.
+- the main difference between primitive and non-primitive data types are -
+	- Primitive types in java are predefined and built into the language, while non-primitive types are created by the programmer (except for `String`).
+	- Non-primitive types can be used to call methods to perform certain operations, whereas primitive types cannot.
+	- Primitive types start with a lowercase letter (like `int`), while non-primitive types typically starts with an uppercase letter (like `String`).
+	- Primitive types always hold a value, whereas non-primitive types can be `null`.
+	- examples of non-primitive types are strings, arrays, classes. examples of primitive types are int, boolean, floats, etc.
+
+
+## Var
+
+- the `var` keyword was introduced in Java 10 (2018).
+- the `var` keyword lets the compiler automatically detect the type of a variable based on the value you assign to it.
+- this helps you write cleaner code and avoid repeating types, especially for long or complex types.
+- for example, instead of writing `int x = 5;` we can write - `
+var x = 5; // x is an int
+`
+
+- when using `var`, the compiler understands that `5` is an `int`.
+
+
+### Examples with Different Types
+
+- here are some examples showing how `var` can be used to create variables of different types, based on the values you assign:
+- eg. -
+`
+var myNum = 5; //int
+var myFloat = 5.55f; //float
+var myBool = true; //boolean
+var myChar = 'a'; //char
+var myStr = "Helllo"; //String
+`
+
+### Imp Notes for Var
+
+1. `var` only works when you assign a value at the same time (you cant declare `var x;` without assigning a value), it'll give an error.
+- eg. - 
+`
+var x; //error
+var x = 5; //correct
+`
+
+2. Once the type is chosen, it stays the same.
+- eg. -
+`
+var x = 15; // x is int
+x = 10; // OK - x is still int
+x = 9.99; // Error, the value here is float or double, and you cant assign to x.
+`
+
+### When to use Var
+
+- for simple variables, its usually clearer to write the type directly (`int`, `double`, `char`, etc)
+- but for more complex types, such as `ArrayList` or `HashMap`, `var` can make the code shorter and easier to read.
+- eg. -
+`
+// without var
+ArrayList<String> cars = new ArrayList<String>();
+
+// with var
+var cars = new ArrayList<String>();
+`
+
+
+## Type Casting
+
+- 
