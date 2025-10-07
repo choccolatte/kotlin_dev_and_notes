@@ -702,3 +702,398 @@ System.out.println("User's percentage is " + percentage)
 
 ## Operators
 
+- operators are used to perform operations on variables and values.
+- in the example below, we use the `+` operator to add together two values.
+- eg. - 
+`
+int x = 100 + 80;
+`
+
+- although the `+` operator is often used to add together two values, it can also be used to add together a variable and a value, or a variable adn another variable.
+- eg. -
+`
+int sum1 = 100 + 80; // 180 
+int sum2 = sum1 + 90; // 180 + 90 = 270
+int sum3 = sum1 + sum2; // 270 + 180 = 350
+`
+
+- java divides the operations into the following groups - 
+	- Arithmetic operators
+	- Assignment operators
+	- Comparison operators
+	- Logical operators
+	- Bitwise operators
+	
+### Arithmetic
+
+- arithmetic operators are used to perform common mathemaical operations.
+
+- Operator | Name | Description | Example 
+- + | Addition | Adds together two values | x + y
+- - | Subtraction | Subtracts one value from another | x - y
+- * | Multiplication | Multiplies two values | x * y
+- / | Division | Divides one value from another | x / y
+- % | Modulus | Returns the division remainder | x % y
+- ++ | Increment | Increases the value of a variable by 1 | ++x
+- -- | Decrement | Decreases the value of a variable by 1 | --x
+
+- example using different arithmetic operators -
+`
+int x = 10;
+int y = 5;
+
+System.out.println(x + y); // 15
+System.out.println(x - y); // 5
+System.out.println(x * y); // 50
+System.out.println(x / y); // 2
+System.out.println(x % y); // 0
+
+int z = 2;
+++z;
+System.out.println(z); // 3
+
+--z;
+System.out.println(z); // 2
+`
+
+- Note:
+- when dividing two integers in Java, the result will also be an integer. For example, 10 / 3 gives 3. If you want a decimal result, use `double` values, like 10.0 / 3.
+- eg. -
+`
+int a = 10;
+int b = 3;
+System.out.println(a/b); // Int division, will give 3
+
+double c = 10.0d;
+double d = 3.0d;
+System.out.println(c/d); // Decimal division, will give 3.333...
+`
+
+#### Incrementing and Decrementing
+
+- incrementing and decrementing are very common in programming, especially when working with counters, loops, and arrays.
+- the `++` operator increases a value by 1, while the `--` operator decreases the value by 1.
+- eg. -
+`
+int x = 5;
+++x; // increments x's value to 6
+
+--x; // decrements x's value back to 5
+`
+
+- examples in real life - counting people
+- imagine a program to count how many people enter and leave a room. you can use the `++` to increase the counter when someone enters, and `--` to decrease it when someone leaves:
+`
+int peopleCounter = 0;
+
+// 3 people enter
+peopleCounter++;
+peopleCounter++;
+peopleCounter++;
+
+System.out.println(peopleCounter); // 3
+
+// 1 person leaves
+peopleCounter--;
+
+System.out.println(peopleCounter); // 2
+`
+
+
+### Assignment
+
+- assignment operators are used to assign values to variables.
+- here, we are using the assignment operator (`=`) to assign the value 10 to a variable called x.
+- eg. -
+`
+int x = 10;
+`
+
+- the addition assignment operator (`+=`) adds a value to a variable.
+- eg. -
+`
+int x = 10;
+x += 20; // now, x is 30
+`
+
+- a list of all assignment operators - 
+- Operator | Example | Same as
+- = | x = 5 | x = 5
+- += | x += 5 | x = x + 5
+- -= | x -= 5 | x = x - 5
+- *= | x *= 5 | x = x * 5
+- /= | x /= 5 | x = x / 5
+- %= | x %= 5 | x = x % 5
+- &= | x &= 5 | x = x & 5
+- |= | x |= 5 | x = x | 5
+- ^= | x ^= 5 | x = x ^ 5
+- >>= | x >>= 5 | x = x >> 5
+- <<= | x <<= 5 | x = x << 5
+
+- note:
+- most assignment operators are just shorter ways of writing code. For example, `x += 5` is the same as x = x + 5, but shorter and often easier to read.
+
+
+- real life example - tracking savings
+- assignment operators cna also be used in real life scenarios. For example, you can use the `+=` operator to keep track of savings when you add money to an account.
+- eg. -
+`
+int savings = 1000;
+savings += 500; // add 500 more to savings
+System.out.println(savings); // savings is now 1500
+`
+
+
+### Comparison
+
+- comparison operators are used to compare two values (or variables). This is important in programming, because it helps us find answers and make decisions.
+- the return value of a comparison is either `true` or `false`. These values are known as Boolean values.
+- here, we are using the greater than operator (`>`) to find out if 5 is greater than 3.
+- eg. -
+`
+int x = 5;
+int y = 3;
+System.out.println(x > 3); // returns true, as 5 > 3
+`
+
+- a list of all comparison operators - 
+- Operator | Name | Example 
+- == | Equal to | x == y
+- != | Not Equal | x != y
+- > | Greater than  | x > y
+- < | Less than | x < y
+- >= | Greater than or Equal to | x >= y
+- <= | Less than or Equal to | x <= y
+
+- real life examples - 
+- comparison operators are often used in real world conditions, such as checking if a person is old enough to vote -
+`
+int age = 18; 
+
+System.out.println(age >= 18); // returns true, old enough to vote
+System.out.println(age < 18); // returns false, not old enough
+`
+
+- another example to check whether the password is long enough -
+`
+int passwordLength = 10;
+
+System.out.println(passwordLength < 10); // returns false, password too short
+System.out.println(passwordLength >= 10); // returns true, password long enough
+
+`
+
+
+### Logical
+
+- as with comparison operators, you can also test for `true` and `false` values with logical operators.
+- logical operators are used to determine the logic between variables and values, by combining multiple conditions.
+
+- list of logical operators -
+- Operator | Name | Description | Example
+- && | Logical AND | Returns true if both statements are true | x < 5 && x < 10
+- || | Logical OR | Returns true if one of the statements is true | x < 5 || x < 4
+- ! | Logical NOT | Reverses the result, returns false if the result is true | !(x < 5 && x < 10)
+
+- real life example - login check 
+- here, we are using logical operators in real situation, e.g., when checking login status and access rights:
+`
+boolean isLoggedIn = true;
+boolean isAdmin = false;
+
+System.out.println("Regular User: " + (isLoggedIn && isAdmin));
+System.out.println("Admin: " + (isLoggedIn || !isAdmin));
+System.out.println("Not logged in: " + (!isLoggedIn));
+`
+- result -
+Is regular user: true
+Is admin: true
+Not logged in: false
+
+
+### Operator Precedence
+
+- when a calculation contains more than one operator, Java follows order of operations rules to decide which part to calculate first.
+- example, multiplication comes before addition -
+- eg. -
+`
+int result1 = 2 + 3 * 4; // 2 + 12 = 14
+int result2 = (2 + 3) * 4; // 5 * 4 = 20 (bracket comes first)
+
+System.out.println(result1);
+System.out.println(result2);
+`
+
+#### Why does this happen?
+
+- in `2 + 3 * 4` calculation, the multiplication is done first, so the answer is 14.
+- however, if you want the addition part to happen first, you must use a parantheses - `(2 + 3) * 4`, which gives us 20.
+
+- Tip
+- always use parentheses () if you want to make sure the calculations are done in the order you expect. It also makes your code easier to read.
+
+#### Order or Operations
+
+- here are some common operators, from the highest to lowest priority -
+	- () - parantheses
+	- *, /, % - multiplication, division, modulus
+	- + , - - addition and subtraction
+	- >, <, >=, <= - comparison
+	- ==, != - equality
+	- && - logical AND
+	- || - logical OR
+	- = - assignment
+
+- eg. - 
+`
+int result1 = 10 - 2 + 5; // (10 - 2) + 3 = 13
+int result2 = 10 - (2 + 5); // 10 - 7 = 3
+
+System.out.println(result1);
+System.out.println(result2);
+`
+
+- remember, parantheses always comes first, use them to control the order of your calculations.
+
+
+## Strings
+
+- strings are used for storing text.
+- a `string` variable contains a collection of characters surrounded by double quotes.
+- eg. - create a variable of type `String` and assign it a value -
+`
+String myStr = "Hello World!";
+`
+
+### String Length
+
+- a string in Java is actually an object, which means it contains methods that can perform certain operations on strings.
+- for example, you can find the length of a string with the `length()` method.
+- eg. -
+`
+String txt = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+System.out.println(txt.length()); // running the length() method
+`
+
+### More String Methods
+
+- there are many string methods available in Java - 
+- for example -
+	- toUpperCase() - converts a string to upper case letters.
+	- toLowerCase() - converts a string to lower case letters.
+- eg. -
+`
+String txt = "Hello World!";
+System.out.println(txt.toUpperCase()); // outputs - HELLO WORLD!
+`
+
+### Finding a Character in a String
+
+- the `indexOf()` method returns the index (the position) of the first occurance of a specified text in a string (including whitespaces):
+- eg. -
+`
+String txt = "Hello World!";
+System.out.println(txt.indexOf("world")); // outputs - 6
+`
+
+- Java counts positions from zero 0.
+- 0 is the first position in a string, 1 is the second, 2 is the third....
+
+- you can use the `charAt()` method to access a character at a specific position in a string:
+- eg. -
+`
+String txt = "Hello World!";
+System.out.println(txt.charAt(7)); // outputs - o
+`
+
+### Comparins Strings
+
+- to compare two strings, we can use the `equals()` method,
+- eg. -
+`
+String txt1 = "Hello";
+String txt2 = "Hello";
+
+String txt3 = "World";
+String txt4 = "Greetings";
+
+System.out.println(txt1.equals(txt2)); // true
+System.out.println(txt3.equals(txt4)); // false
+`
+
+### Removing Whitespace
+
+- the `trim()` method removes the whitespace from the beginning and the end of a string.
+- eg. -
+`
+String txt = "    Hello World!    ";
+System.out.println(txt.trim()); // Hello World
+`
+
+### String Concatenation
+
+- the `+` operator can be used between strings to combine them. This is called concatenation.
+- eg. -
+`
+String fName = "John";
+String lName = "Doe";
+System.out.println(fName +" "+ lName); // John Doe
+`
+
+- note that, we have added an empty text (" ") to create a space between fName and lName on print.
+
+#### Concatenation in Sentences
+
+- you can use string concatenation to build sentences with both text and variables.
+- eg. -
+`
+String name = "John";
+int age = 25;
+System.out.println(name +" "+ "is " + age +" " + " years old."); // outputs - John is 25 years old.
+`
+
+
+#### The `concat()` method
+
+- we can also use the `concat()` method to concatenate things.
+- eg. -
+`
+String fName = "John";
+String lName = "Doe";
+System.out.println(fName.concat(lName)); // John Doe
+`
+
+- we can also join more than two strings by chaining `concat()` method calls.
+- eg. -
+`
+String txt1 = "Sky";
+String txt2 = "is";
+String txt3 = "blue";
+String result = txt1.concat(txt2).concat(txt3);
+System.out.println(result); // outputs - Sky is blue
+`
+
+- note:
+- while you can use the `concat()` method to join multiple strings, most developers prefer the `+` operator because its shorter and easier to read.
+
+### Numbers and Strings
+### Special Characters
+
+
+
+## Math
+
+
+## Booleans
+
+
+## If...Else
+
+
+## Switch
+## While Loop
+## For Loop
+## Break/Continue
+## Arrays
+## Methods
+
