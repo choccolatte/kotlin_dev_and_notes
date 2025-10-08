@@ -1156,12 +1156,171 @@ String txt = "This \\ is called a single backslash"; // correct
 
 ## Math
 
+- the math class has many methods that allow you to perform mathematical tasks on numbers.
+
+### Math.max(x,y)
+
+- the `Math.max(x,y)` method cna be used to find the highest value of x and y.
+- eg. -
+`
+Math.max(5, 10);
+`
+
+### Math.min(x,y)
+
+- the `Math.min(x,y)` method cna be used to find the lowest value of x and y.
+- eg. -
+`
+Math.min(5, 10);
+`
+
+### Math.sqrt(x)
+
+- the `Math.sqrt(x)` method returns the square root of x.
+- eg. -
+`
+Math.sqrt(500);
+`
+
+### Math.abs(x)
+
+- the `Math.abs(x)` method returns the absolute (positive) value of x.
+- eg. -
+`
+Math.abs(-9.10);
+`
+
+### Math.pow(x,y)
+
+- the `Math.pow(x,y)` method returns the value of x raised to the power of y.
+- eg. -
+`
+Math.pow(5, 2); // 25.0
+`
+
+- note:
+- Math.pow(5, 2) means 5 multiplied by itself 2 times.
+- 5 * 5 = 25
+
+- note:
+- the Math.pow() method always returns a `double`, even if the result is a whole number. For example, Math.pow(5, 2) returns 25.0 and not 25.
+
+
+### Rounding Methods
+
+- java has several methods for rounding numbers.
+	- Math.round(x) - rounds to be the nearest integer.
+	- Math.ceil(x) - rounds up (returns the smallest integer greater than or equal to x).
+	- Math.floor(x) - rounds down (returns the largest integer less than or equal to x).
+
+- eg. - 
+`
+Math.round(4.6); // 5
+Math.ceil(4.6); // 5.0
+Math.floor(4.6); // 4.0
+`
+
+
+### Random Numbers
+
+- `Math.random()` returns a random number between 0.0 (inclusive) and 1.0 (exclusive).
+- eg. -
+`
+Math.random();
+`
+
+- to get more control over the random numbers, for example, if you only want a random number between 0 and 100, you can use the following formula -
+- example -
+`
+int randomNum = (int)(Math.random() * 101); // 0 to 100 random numbers it will generate
+System.out.println(randomNum); // after each run, it will generate a random no. between 0 - 100
+`
+
+- note:
+- Math.random() returns a `double`. To get an integer value, you need to cast it with (int) - int randomNum = (int)(Math.random() * 101);.
+
 
 ## Booleans
+
+- very often in programming, you will need a data type that can only have one of two values, like - 
+	- Yes / No
+	- On / Off
+	- True / False
+
+- for this, java has a `boolean` data type, which can only store `true` or `false` values:
+
+
+### Boolean Values
+
+- a boolean value is declared with the `boolean` keyword and can only take the values `true` or `false`.
+- eg. - 
+`
+boolean isJavaFun = true;
+boolean isKarelaTasty = false;
+System.out.println(isJavaFun); // prints true
+System.out.println(isKarelaTasty); // prints false
+`
+
+- in practise, booleans are most often the result of expressions, and are used to test conditions in programs.
+
+
+### Boolean Expressions
+
+- a boolean expression returns a boolean value - `true` or `false`.
+- this is used to build logic and make decisions in programs.
+- for example, you can use a comparison operator, such as the greater than (>) operator, to find out if an expression (or a variable) is true or false.
+- eg. -
+`
+int x = 10;
+int y = 9;
+System.out.println(x > y); // returns true, since 10 is gerater than 9
+
+// we can also do this directly
+System.out.println(10 > 9); // returns true, since 10 is gerater than 9
+`
+
+- in the example below, we use the equal to (==) operator to evaluate an expression.
+- eg. -
+`
+int x = 10;
+System.out.println(x == 10); // returns true, since the value we declared earlier is x = 10.
+
+// or
+System.out.println(10 == 15); // returns false, since 10 is not equal to 15.
+`
+
+- booleans are the basis for all Java comparisons and conditions.
+
+
+### Real Life COnditions of Boolean Expressions
+
+- here, we want to find if a person is old enough to vote.
+- in our example below, we use the `>=` comparison operator to find outif the age (25) is greater than or equal to the voting age limit, which is set to 18.
+- eg. -
+`
+int myAge = 25;
+int votingAge = 18;
+System.out.println(myage >= votingAge); // returns true
+`
+
+- or even better aproach to this would be to wrap the code above in an `if...else` statement, so we cna perform different actions depending on the result.
+- eg. - 
+`
+int myAge = 25;
+int votingAge = 18;
+
+if (myAge >= votingAge)
+{
+	System.out.println("Old enough.");
+} else {
+	System.out.println("Not old enough.");
+}
+`
 
 
 ## If...Else
 
+- 
 
 ## Switch
 ## While Loop
