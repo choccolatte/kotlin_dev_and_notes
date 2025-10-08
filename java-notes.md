@@ -1076,8 +1076,81 @@ System.out.println(result); // outputs - Sky is blue
 - note:
 - while you can use the `concat()` method to join multiple strings, most developers prefer the `+` operator because its shorter and easier to read.
 
+
 ### Numbers and Strings
+
+- warning:
+- java uses teh `+` operator for both addition and concatenation.
+- numbers are added. Strings are concatenated.
+
+- if you add two numbers, the result will be a number.
+- eg. -
+`
+int x = 10;
+int y = 100;
+int z = x + y; // 10 + 100 = 110 (an int)
+`
+
+- if you add two strings however, the result will be a string concatenation.
+- eg. -
+`
+String x = "10";
+String y = "100";
+String z = x + y; // z will be 10100 (a string)
+`
+
+- if you add a number and then a string, the result will be a string concatenation.
+- eg. -
+`
+int x = 10;
+String y = "100";
+String z = x + y; // z will be 10100 (a string)
+`
+
+
 ### Special Characters
+
+- because strings must be written within quotes, Java will misunderstand a string put within this string, and generate an error:
+- eg. -
+`
+String txt = "Hello "new" World!"; // error
+`
+
+- the solution to avoid this problem, is to use the backslash escape character (`\`).
+- the backslash (`\`) escape character turns the special characters into string characters - 
+- Escape Character | Result | Description
+- \' | ' | Single quote
+- \" | " | Double quote
+- \\ | \ | Backslash
+
+- the sequence (`\"`) inserts a double quote in a string.
+- eg. -
+`
+String txt = "Hello \"new\" World!"; // correct
+`
+
+- the sequence (`\'`) inserts a single quote in a string.
+- eg. -
+`
+String txt = "Hello \'a\' new World!"; // correct 
+`
+
+- the sequence (`\\`) inserts a single backslash in a string.
+- eg. -
+`
+String txt = "This \\ is called a single backslash"; // correct
+`
+
+- other common escape character sequence that are valid in java are - 
+- Escape Character | Result | Description
+- \n | New Line | inserts a new line
+- \t | Tab | inserts a tab
+- \b | Backspace | inserts a backspace
+- \r | Carriage Return | inserts a carriage return
+- \f | Form Feed | inserts a form feed
+
+- note:
+-  most of these escape character codes are rarely used in modern programming. The most common ones are `\n` (new line), `\"` (double quotes), and `\\` (backslash).
 
 
 
