@@ -1320,7 +1320,20 @@ if (myAge >= votingAge)
 
 ## If...Else
 
-- 
+- conditions and if statements let you control the flow of your program - deciding which code runs, and which code is skipped.
+- think of it like real life - if it rains, take an umbrella, otherwise, do nothing.
+- every `if` statement needs a condition that results in `true` or `false`.
+- this means, `if` statements work hand in hand with boolean values.
+- eg. -
+`
+boolean isRaining = true;
+
+if (isRaining) {
+	System.out.println("Take an Umbrella.");
+}
+`
+
+
 
 ## Switch
 ## While Loop
