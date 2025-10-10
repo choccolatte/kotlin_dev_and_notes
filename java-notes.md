@@ -1333,6 +1333,154 @@ if (isRaining) {
 }
 `
 
+- most often, conditions are created using comparison operators, like the ones below.
+	- less than: `a < b`
+	- less than or equal to: `a <= b`
+	- greater than: `a > b`
+	- greater than or equal to: `a >= b`
+	- equal to: `a == b`
+	- not equal to: `a != b`
+
+- you can also use these conditions to perform different actions for different decisions.
+- Java has the following conditional statements - 
+	- use `if` to specify a block of code to be executed, if a specified condition is true.
+	- use `else` to specify a block of code to be executed, if the same condition is false.
+	- use `else if` to specify a new condition to test, if the first condition is false.
+	- use `switch` to specify many alternative blocks of code to be executed.
+
+
+### if Statement
+
+- the `if` statement specifies a block of code to be executed if a condition is `true`:
+- syntax -
+`
+if (condition){
+	// block of code to be executed if the condition is true
+}
+`
+
+- note:
+- the condition inside the `if` statement must result in a `boolean` value - it can be either a boolean expression (like `x > y`) or a boolean variable (like `isLightOn`).
+- also note that `if` is in lowercase. Uppercase letters (If or IF) will generate an error.
+
+- eg. -
+`
+if (20 > 18){
+	System.out.println("20 is greater than 18");
+}
+`
+
+- you can also compare variables -
+- eg. -
+`
+int x = 10;
+int y = 20;
+if (x > y){
+	System.out.println("x is not greater than y");
+}
+`
+
+- example explained -
+- in the example above, we use two variables, x and y, to test whether x is greater than y (uising the `>` operator). As x is 10 and y is 20, and we know that 20 is greater than 10, we print that x is not greater than y.
+
+- comparison is also often used to check if two values are equal, using the `==` operator.
+- eg. -
+`
+int x = 10;
+int y = 10;
+if (x == y){
+	System.out.println("x is equal to y");
+} 
+`
+
+- here, the condition `x == y` is true, because both x and y are 10, so the message x is equal to y is printed.
+
+
+### Using Boolean Variables
+
+- you can also test boolean variables directly in an `if` statement. 
+- eg. -
+`
+boolean isLightsOn = true;
+
+if (isLightsOn){
+	System.out.println("The light is on.");
+}
+`
+
+- note:
+- writing `if(isLightsOn)` is the same as writing `if (isLightsOn == true)`, but shorter and easier to read.
+- here, we are writing same example with the value `false` to see that the program continues even when the code block does not run-
+- eg. -
+`
+boolean isLightsOn = false;
+
+if (isLightsOn){
+	System.out.println("The light is on."); // will notprint
+}
+
+System.out.println("The light is off."); // will print, because its out of the if statement condition.
+
+`
+
+
+### If Without Braces
+
+- if an `if` statement has only one line of code, you can write it without curly braces `{}`.
+- eg. -
+`
+if (20 > 10)
+	System.out.println("true");
+`
+
+- Potential Problem:
+- without braces, only the first line after the `if` belongs to it. Any other lines will run no matter what, which can lead to unexpected results.
+- eg. -
+`
+int x = 20;
+int y = 10;
+
+if (x > y)
+	System.out.println("true"); // belongs to if condition
+	System.out.println("Hello World!"); // doesnt belong to if condition and it will print, because its out of the if statement condition.
+
+// output
+// true
+// Hello World!
+`
+
+- **the safe way**
+- to avoid mistakes, always use curly braces `{}`. THis makes it clear which lines belong to the `if` statement.
+- eg. -
+`
+int x = 20;
+int y = 10;
+
+if (x > y){
+	System.out.println("true"); // belongs to if condition
+	System.out.println("Hello World!"); // belongs to if
+}
+
+// code outside if condition
+System.out.println("Hello World from outside."); // doesnt belong to if condition and it will print, because its out of the if statement condition.
+`
+
+- tip -
+- always using curly braces `{}` makes your code clearer, easier to read and prevents subtle bugs.
+
+
+
+### else
+
+- 
+
+
+
+### else if
+### Short Hand if...else
+### Nested if
+### Logical Operators
+### Real Life Examples
 
 
 ## Switch
