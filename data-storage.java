@@ -37,3 +37,17 @@ String txt2 = "is";
 String txt3 = "blue";
 String result = txt1.concat(txt2).concat(txt3);
 System.out.println(result); // outputs - Sky is blue
+
+
+// nested if
+int x = 15;
+int x = 25;
+
+if (x > 10){
+	System.out.println("x is greater than 10");
+
+	// nested if
+	if (y > 20){
+		System.out.println("y is greater than 20");
+	}
+}

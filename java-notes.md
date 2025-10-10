@@ -1472,14 +1472,267 @@ System.out.println("Hello World from outside."); // doesnt belong to if conditio
 
 ### else
 
-- 
+- the `else` statement lets you run a block of code when the condition in the `if` statement is `false`.
+- syntax -
+`
+if (condition){
+	// block of code to be executed if the condition is true
+} else {
+	// block of code to be executed if the condition is false
+}
+`
 
+- real life example would be - if (if) it rains, bring an umbrella, Otherwise (else), go outside without one.
+- eg. -
+`
+boolean isRaining = false;
+
+if (isRaining){
+	System.out.println("Bring Umbrella");
+} else {
+	System.out.println("Don't Bring Umbrella");
+}
+`
+
+- here, since `isRaining` is false, the condition inside the `if` statement is not met. That means, the `if` block is skipped, and the `else` block runs instead, printing "DOnt bring umbrella".
+
+- another example - here, it says good day or good evening depending on the time.
+`
+int time = 20;
+
+if (time < 18){
+	System.out.println("Good day!");
+} else {
+	System.out.println("Good evening!!");
+}
+
+// outputs - Good evening!!
+`
+
+- examples explained -
+- in the example above, time (20) is greater than 18, so the condition is `false`. Becaus eof this, we move on to the `else` condition and print to the screen "Good evening"./ If the time was less than 18, the program would print "Good day!".
+
+
+- **notes:**
+- `else` does not have a condition - it runs when the `if` statement is `false`
+- do not put a semicolon right after the `if (condition)`. That would end the statement early and make `else` behave unexpectedly.
 
 
 ### else if
+
+- use the `else if` statement to specify a new condition if the first condition is false.
+- syntax -
+`
+if (condition 1) {
+	// block of code to be executed if condition 1 is true
+} else if ( condition 2) {
+	//  block of code to be executed if condition 2 is true and condition 1 is false - only then it'll move here
+} else {
+	// if both upper conditions are false
+}
+`
+
+- think of it like real life - `if` it rains, bring an umbrella, `else if` its sunny, wear sunglasss, `else` just go outside normally.
+
+- eg. -
+`
+int weather = 2; // weather 1 = raining, 2 - sunny, 3 = cloudy
+
+if (weather == 1){
+	System.out.println("Bring umbrella");
+} else if (weather == 2){
+	System.out.println("Bring sunglasses");
+} else {
+	System.out.println("Go outside normally!");
+}
+
+// output - bring sunglasses, since weather = 2
+`
+
+- since, the `weather` is `2`, the first condition (weather == 1) is not met, so the first `if` block is skipped. The program then checks if the `else if` condition (weather == 2) meets, which is `true` (it does match), so this condition will run. That means, the output is bring sunglasses.
+
+
+- another example - choose between three different messages depending on the time of the day.
+`
+int time = 22;
+
+if(time < 10){
+	System.out.println("Good morning!");
+} else if (time < 18){
+	System.out.println("Good Day!!");
+} else {
+	System.out.println("Good evening!!!");
+}
+
+// outputs - good evenign!!!
+`
+
+- explained -
+- here, time = 22, which is greater than 10, so the first condition is `false`. The next condition, in the `else if` statement is also `false`. So, we move on to the `else` conmdition, since condition1 and condition2 is both `false` - and print to the screen Good Evening!!!.
+
+- however, if the time was 14, our program would print - Good Day!!
+`
+int time = 14;
+
+if(time < 10){
+	System.out.println("Good morning!");
+} else if (time < 18){
+	System.out.println("Good Day!!");
+} else {
+	System.out.println("Good evening!!!");
+}
+
+// outputs - good evenign!!!
+`
+
+
 ### Short Hand if...else
+
+- there is also a short hand if-else, which is known as the ternary operator because it consists of three operands.
+- it cna be used to replace multiple lines of code with a single line, and is most often used to replace simple if else statements. -
+- syntax -
+`
+variable = (condition) ? expressionTrue : expressionFalse;
+`
+
+- instead of writing -
+- eg. -
+`
+int time = 20;
+if (time < 18){
+	System.out.println("Good day!!");
+} else {
+	System.out.println("Good evening!!!");
+}
+`
+
+- you can simply write -
+`
+int time = 20;
+String result  = (time < 18) ? "Good Day!!" : "Good Evening!!!"
+System.out.println(result);
+`
+
+
 ### Nested if
-### Logical Operators
+
+- you can also place an `if` statement inside another `if`. This is caleld a nested if statement.
+- a nested `if` lets you check for a condition only if another condition is already `true`.
+- syntax -
+`
+if (condition 1){
+	// code to run if condition 1 is true
+
+	if (condition 2){
+		// code to run if condition 1 and condition 2 are true
+	}
+}
+`
+
+- eg. - here, we first check if `x` is greater than 10. If it is, we check if `y` is greater than 20.
+`
+int x = 15;
+int x = 25;
+
+if (x > 10){
+	System.out.println("x is greater than 10");
+
+	// nested if
+	if (y > 20){
+		System.out.println("y is also greater than 20");
+	}
+}
+
+// outputs 
+x is greater than 10
+y is also greater than 20
+`
+
+- **real life example**
+- nested `if` statements are useful when you need to test multiple conditions that depend on each other. For example, checking if a person is old enough to vote, and if they are a citizen.
+`
+int age = 20;
+boolean isCitizen = true;
+
+if (age >= 18){
+	System.out.println("Old enough to vote.");
+
+	if (isCitizen){
+		System.out.println("And you are a citizen, so you can vote.");
+	} else {
+		System.out.println("But you must be a citizen to vote.");
+	} else {
+		System.out.println("Not Old enough to vote.");
+	}
+}
+
+// output -
+// old enough to vote
+// and you're a citizen, so you can vote!
+`
+
+- **notes:**
+- you can nest as many `if` statements as you want, but avoid making the code too deep - it can become hard to read.
+- nested `if` is often used together with `else` and `else if` for more complex decision making.
+
+
+### Logical Operators in COnditions
+
+- you can combine or reverse conditions using logical operators. these work together with `if`, `else` and `else if` to build more complex decisions.
+	- `&&` (AND) - and all conditions must be true
+	- `||` (OR) - at least one condition must be true
+	- `!` (NOT) - reverses a condition (true = false, false = true)
+
+
+#### AND (`&&`)
+
+- use AND (`&&`) when both conditions must be true.
+- eg. - test if a is greater than b, and if c is greater than a.
+`
+int a = 200;
+int b = 33;
+int c = 500;
+
+if (a > b && c > a){
+	System.out.println("Both conditions are true.");
+}
+`
+
+
+#### OR (`||`)
+
+- use OR (`||`) when at least one of the condition can be true.
+- eg. - test if a is greater than b, or if a is greater than c.
+`
+int a = 200;
+int b = 33;
+int c = 500;
+
+if (a > b || a > c){
+	System.out.println("At least one condition is true.");
+}
+`
+
+
+#### NOT (`!`)
+
+- use NOT (`!`) to reverse a condition.
+- eg. - test if a is not greater than b.
+`
+int a = 33;
+int b = 200;
+
+if (!(a > b)){
+	System.out.println("a is NOT greater than b.");
+}
+`
+
+
+#### Real life example
+
+- 
+
+
 ### Real Life Examples
 
 
@@ -1489,4 +1742,16 @@ System.out.println("Hello World from outside."); // doesnt belong to if conditio
 ## Break/Continue
 ## Arrays
 ## Methods
+
+## Classes
+
+## Errors
+
+## File Handling
+## I/O Streams
+## Data Structures
+## Advanced
+## Projects
+## How To's
+
 
