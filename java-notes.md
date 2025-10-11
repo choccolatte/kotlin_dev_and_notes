@@ -1730,15 +1730,322 @@ if (!(a > b)){
 
 #### Real life example
 
-- 
+- in real programs, logical operators are often used for access control. FOr example, to get access to a system, there are specific requirements.
+- you must be logged in, and then you either need to be an admin, or have a high security clearance (level 1 or 2) -
+`
+boolean isLoggedIn = true;
+boolean isAdmin = false;
+int securityLevel = 3; // 1 = highest
+
+if (isLoggedIn && (isAdmin || securityLevel <= 2)) {
+	System.out.println("Access granted.");
+} else {
+	System.out.println("Access denied.");
+}
+
+// Try changing securityLevel to test different outcomes:
+if (isLoggedIn && (!isAdmin || securityLevel <= 1)) {
+	System.out.println("Highest level Access granted.");
+} else {
+	System.out.println("Access denied.");
+}
+`
 
 
 ### Real Life Examples
 
+- here is an example where we show how you can use if...else to 'open a door' if the user enters the correct code:
+`
+int doorCode = 1337;
+
+if (doorCode == 1337){
+	System.out.println("Correct. Door is open.");
+} else {
+	System.out.println("Incorrect. Door is still closed.");
+}
+`
+
+- testing how to use if...else to find out if a number is positive or negative.
+`
+int myNum = 10; //positive or negative?
+
+if (myNum > 0) {
+	System.out.println("Positive number.");
+} else if (myNum < 0) {
+	System.out.println("Negative number.");
+} else {
+	System.out.println("Its 0.");
+}
+`
+
+- find out if a person is old enough to vote, and if they are also a citizen (using nested if statements).
+`
+int age = 20;
+boolean isCitizen = true;
+
+if (age >= 18){
+	System.out.println("Old enough to vote.");
+
+	if (isCitizen){
+		System.out.println("Is a citizen, can vote.");
+	} else {
+		System.out.println("Not a citizen. You must be a citizen to vote.");
+	}
+	else {
+		System.out.println("Not old enough to vote.");
+	}
+}
+`
+
+- find out if a number is even or odd.
+`
+int myNum = 19;
+
+if (myNum / 2 == 0){
+	System.out.println("Even number.");
+} else {
+	System.out.println("Odd number.");
+}
+`
+
+- check temp.
+`
+int temp = 30;
+
+if (temp < 0){
+	System.out.println("Its freezing outside.");
+} else if(temp < 20) {
+	System.out.println("Its pleasantly cool.");
+} else {
+	System.out.println("Its warm outside.");
+}
+`
+
 
 ## Switch
+
+- instead of writing many `if...else` statements, you can use the `switch` statement.
+- think of it like ordering food in a restaurant - if you choose number 1, you get Pizza, if you chooze 2, you get a burger, 3 - a pasta, otherwise, nothing.
+- the `swtich` statement selects one of many code blocks to be executed.
+- syntax -
+`
+switch (expression){
+	case x:
+		// code block
+		break;
+	case y:
+		// code block
+		break;
+	case z:
+		// code block
+		break;
+	default:
+		// code block
+}
+`
+
+- this is how it works -
+	 - the `switch` expression is evaluated once.
+	 - the result is compared with each `case` value.
+	 - if there is a match, the matching block of code runs.
+	 - the `break` statement stops the switch after the matching case has run.
+	 - the `default` statement runs if there is no match.
+
+- the example below uses the weekday number to calcualte the weekday name:
+`
+int day = 4;
+switch (day){
+	case 1:
+		System.out.println("Monday");
+		break;
+	case 2:
+		System.out.println("Tuesday");
+		break;
+	case 3:
+		System.out.println("Wednesday");
+		break;
+	case 4:
+		System.out.println("Thursday");
+		break;
+	case 5:
+		System.out.println("Friday");
+		break;
+	case 6:
+		System.out.println("Saturday");
+		break;
+	case 7:
+		System.out.println("Sunday");
+		break;
+}
+
+// outputs - Thursday (day 4)
+`
+
+#### the break keyword
+
+- when Java reaches a `break` keyword, it breaks out of the switch block.
+- this will stop the execution of more code and case testing inside the block.
+- when a match is found, and the job is done, its time for a break. There is no need for more testing.
+
+- a break can save a lot of execution time because it 'ignores' the execution of all the rest of the code in the switch block.
+
+
+#### the default keyword
+
+- the `default` keyword specifies some code to run if there is no case match (base case).
+- eg. -
+`
+int day = 4;
+switch (day){
+	case 6:
+		System.out.println("Saturday");
+		break;
+	case 7:
+		System.out.println("Sunday");
+		break;
+	default:
+		System.out.println("Some other day.");
+}
+
+// outputs - Some other day.
+`
+
+- note that, if the `default` statement is used as the last statement in a switch block, it does not need a break.
+
+
+
 ## While Loop
+
+- loops can execute a block of code as long as a specified condition is true.
+- loops are handy because they save time, reduce errors, and they make the code readable.
+
+- the `while` loop repeats a block of code as long as the specified condition is true.
+- syntax -
+`
+while (condition) {
+	// code block to be executed
+}
+`
+
+- eg. - here, the code in the loop will ru again and again, as long as a variable (`i`) is less than 5:
+`
+int i = 0;
+whiel (i < 5){
+	System.out.println(i);
+	i++;
+}
+`
+
+- note:
+- do not forget to increase the variable used in the condition (`i++`), otherwise, the loop will never end.
+
+
+### Countdown example 
+
+- you can also use a `while` loop to count down. This example here, counts from 5 to 1, and then prints "Happy New Year!!!" at the end.
+- eg. -
+`
+int countdown = 5;
+
+while (countdown > 0) {
+	System.out.println(countdown);
+	countdown++;
+}
+System.out.println("Happy New Year!!!");
+`
+
+### Countdown example 
+
+- in the above examples, the condition was true at the start, so the loop ran one or more times. But if the condition is false at the beginning, the code inside the loop will never run:
+- eg. -
+`
+int i = 10;
+
+while (i <5) {
+	System.out.println("this will not run/print");
+	i++;
+}
+`
+
+- note:
+- a `while` loop may never run if the condition is false from the start. For that, we use the `do while` loop, which always runs the code at least once before checking the condition.
+
+
+### Do/While Loop
+
+- the `do/while` loop is a variant of the `while` loop. This loop will execute the code block once, before checking if the condition is true. Then, it will repeat the loop as long as the condition is true.
+- syntax - 
+`
+do {
+	// code block to be executed
+}
+while (condition);
+`
+
+- note: the semicolon `;` after the `while` condition is required.
+
+
+#### Do/While Example 
+
+- the example below uses a do/while loop. The loop will always be executed at least once, even if the condition is false, because the code block is executed before the condition is tested:
+-eg. -
+`
+int i = 0;
+do {
+	System.out.println(i);
+	i++;
+}
+while (i < 5);
+`
+
+- do not forget to increase the variable used in the condition (`i++`), otherwise, the loop will never end!
+
+
+#### Condition is False from the Start
+
+- In the `while` loop chapter, we saw that if the condition is false at the beginning, the loop never runs at all.
+- the `do/while` loop is different: it will always run the code block at least once, even if the condition is false from the start.
+- here's an example, where the variable `i` starts at 10, so `i < 5` is false immediately. Still, the loop runs once before checking the condition.
+- eg. 
+`
+int i = 10;
+
+do {
+	System.out.println("i is " + i);
+	i++;
+} while (i < 5);
+`
+
+- **Summary:**
+- a `do/while` loop always runs at least once, even if the condition is false at the start. This is the key difference from a `while` loop, which would skip the code block completely in the same situation.
+- this behavior makes the `do/while` useful when you want something to happen at least once, such as showing a message or asking the user for input.
+
+
+### While loop examples
+
+- to demonstrate a practical example of the while loop combined with an if else statement, we've created a Yatzy game:
+- eg. - print "Yatzy" if the dice number is 6:
+`
+int dice = 1;
+
+while (dice <=6){
+	if (dice < 6){
+		System.out.println("No Yatzy");
+	} else {
+		System.out.println("Yatzy!!!");
+	}
+	dice++;
+}
+`
+
+- here, if the loop passes the values ranging from 1 to 5, it prints, "No Yatzy", however, if the loop meets 6, it prints - "Yatzy!!!".
+
+
+
 ## For Loop
+
+- 
+
 ## Break/Continue
 ## Arrays
 ## Methods
