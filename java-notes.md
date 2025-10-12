@@ -2044,7 +2044,87 @@ while (dice <=6){
 
 ## For Loop
 
+- when you know exactly how many times you want to loop through a block of code, use the `for` loop instead of a `while` loop.
+- syntax -
+`
+for (statement 1; statement 2; statement 3){
+	// code block to be executed
+}
+`
+
+- here, statement 1, is executed (one time) before the execution of the code block.
+- statement 2, defines the condition for executing the code block
+- Statement 3, is executed (every time) after the code block has been executed.
+
+
+### Print Numbers
+
+- here's an example that will print the numbers 0 - 4:
+- eg -
+`
+for (int i = 0; i < 5; i++){
+	System.out.println(i);
+}
+`
+
+- example explained -
+	- Statement 1 - sets a variable before the loop starts - `int i = 0`
+	- Statement 2 - defines the condition for the loop to run: `i < 5`. If the condition is true, the loop will run again; if its false, the loop ends.
+	- Statement 3 - increases a value each time the code block has run - `i++`.
+
+
+### Print Even Numbers
+
+- here's an example that prints even values between 0 and 100:
+- eg. -
+`
+for (int i = 0; i < 100; i = i + 2){
+	System.out.println(i);
+}
+`
+
+
+### Sum of Numbers
+
+- here's an example that calculates the sum of numbers from 1 to 5.
+- eg. -
+`
+int j;
+for (int i = 0; i < =5; i++){
+	j = i + j;
+	i++
+}
+System.out.println("Total sum is " + j);
+`
+
+### Countdown
+
+- here's an example that countdowns from 5 to 0.
+- eg. -
+`
+for (int i = 5; i >= 0; i--){
+	System.out.println(i);
+}
+`
+
+### For Loop with False Conditions
+
+- just like a `while` loop, a `for` loop may also never run. If the condition is `false` right from the start, the code inside the loop will be skipped entirely.
+- eg. -
+`
+for (int i = 10; i < 5; i++){
+	System.out.println("It will not print.");
+}
+`
+
+- in the example above, the loop starts with `i = 10`. The condition is `i < 5`, which is already false, so the loop body is skipped, and nothing is printed.
+
+
+### Nested Loops
+
 - 
+
+
 
 ## Break/Continue
 ## Arrays
