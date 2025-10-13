@@ -2122,12 +2122,233 @@ for (int i = 10; i < 5; i++){
 
 ### Nested Loops
 
-- 
+- it is also possible to place a loop inside another loop. This is called a nested loop.
+- the inner loop will be executed one time (completing its entire iteration once) for each iteration of the outer loop.
+
+- eg. -
+`
+// outer loop
+for (int i = 1; i <= 2; i++){
+	System.out.println("Outer: " + i); // executes 2 times
+
+	// inner loop
+	for (int j = 1; j <= 3; j++){
+		System.out.println("Inner: " + i); // executes 6 times (2 * 3)
+	}
+}
+`
+
+
+#### Multiplication Table Example
+
+- this example uses the nested loops to print a simple multiplication table - 1 to 3:
+`
+for (int i = 1; i <= 3; i++){
+	for (int j = 1; j < 3; j++){
+		System.out.print(i * j + " ");
+	}
+	System.out.println();
+}
+// outputs 
+1 2 3
+2 4 6
+3 6 9
+`
+
+- nested loops are useful when working with tables, matrices, or multi-dimensional data structures.
+
+
+### For Each Loop
+
+- there is also a for-each loop, which is used exclusively to loop through the elements in an array (or other data structrures):
+- syntax -
+`
+for (type variableName : arrayName){
+	// code block to be executed
+}
+`
+
+- the for-each loop is similar and more readable than a regular `for` loop, since you dont need a counter (like `i < array.length`).
+- the following example prints all elements in the cars array:
+- eg. -
+`
+String[] cars = {"Volvo", "BMW", "Ford", "Mazda"};
+
+for (String car : cars){
+	System.out.println(car);
+}
+`
+
+- here is a similar example with numbers. We create an array of integers and use a for-each loop to print each value -
+- eg. -
+`
+int[] numbers = {10, 20, 30, 40};
+
+for (int num : numbers){
+	System.out.println(num);
+}
+`
+
+
+### For Loop Examples
+
+- an example that counts to 100 by tens:
+`
+for (int i = 0; i <= 100; i+= 10){
+	System.out.println(i);
+}
+`
+
+- here, another example where we only print values between 0 and 10:
+`
+for (int i = 0; i <= 10; i += 2){
+	System.out.println(i);
+}
+`
+
+- a multiplication table:
+`
+int num = 20;
+
+for (int i = num; i <= 10; i++){
+	System.out.println(num + " x " + i + " = " (num * i));
+}
+`
+
+- using a loop to calculate a factorial of a number - 
+`
+int n = 5;
+int fact = 1;
+
+for (int i = 1; i <= n; i++){
+	fact *= i;
+}
+
+System.out.println("Factorial of " + n + " is " + fact);
+// outputs - Factorial of 5 is 120.
+`
+
+- here, factorial means multiplying a number by every number below it, down to 1. FOr example, the factorial of 5 is - 5 * 4 * 3 * 2 * 1 = 120.
 
 
 
 ## Break/Continue
+
+### Break
+
+- we have already seen the `break` statement used earlier where we used it to jump out of a `switch` statement.
+- the `break` statement can also be used to jump out of a loop.
+- eg. -
+`
+for (int i = 0 ; i < 10; i++){
+	if (i == 4){
+		break; // it will reach 4 and end the loop. It will print 4.
+	}
+	System.out.println(i);
+}
+`
+
+
+### Continue
+
+- the `continue` statement breaks one iteration (in the loop), if a specified condition occurs, and continues with the next iteration in the loop.
+- here's an example that skips over 4:
+- eg. -
+`
+for (int i = 0; i < 10; i++){
+	if (i == 4){ 
+		continue; // it will jump over 4. It won't print 4 but continue the loop till 10.
+	}
+	System.out.println(i);
+}
+`
+
+- note: things to remember -
+	- `break` = stop the loop immediately
+	- `continue` = skip this round, but keep looping
+
+### Combining Break and Continue
+
+- you can combine `break` and `continue`.
+- this example skips printing 2 and stops the loop at 4.
+- eg. -
+`
+for (int i = 0; i < 6; i++){
+	if (i == 2){
+		continue; // here, it will jump over 2. It won't print 2 but continue on with the loop.
+	}
+	if (i == 4){
+		break; // here, it will reach 4 and end the loop. It will print 4.
+	}
+	System.out.println(i);
+}
+`
+
+
+### Break and Continue in While Loop
+
+- you can also use `break` and `continue` in while loops.
+- `break` eg. -
+`
+int i = 0;
+while (i < 10){
+	System.out.println(i);
+	i++;
+	
+	if (i == 4){
+		break; // here, it will reach 4 and end the loop. It will print 4.
+	}
+}
+`
+
+- `continue` eg. -
+`
+int i = 0;
+while (i < 10){
+	if (i == 4){
+		i++;
+		continue;
+	}
+	System.out.println(i);
+	i++;
+for (int i = 0; i < 6; i++){
+	if (i == 2){
+		continue; // here, it will jump over 2. It won't print 2 but continue on with the loop.
+	}
+	if (i == 4){
+		break; // here, it will jump over 4 and end the loop. It won't print 4.
+	}
+	System.out.println(i);
+}
+`
+
+#### Real Life Example
+
+- imagine processing a list of numbers where you want to skip the negative values, but stop completely if you find a zero:
+- eg. -
+`
+int[] numbers = {3, -1, 7, 0, 9};
+
+for (int n : numbers){
+	if (n < 0){
+		continue; // skips only negative numbers
+	}
+	if (n == 0){
+		break; // program stops completely if there's 0
+	}
+	System.out.println(n);
+}
+`
+
+
 ## Arrays
+
+
+### Loop Through An Array
+### Real Life Array Examples
+### Multidimensional Arrays
+
+
 ## Methods
 
 ## Classes
