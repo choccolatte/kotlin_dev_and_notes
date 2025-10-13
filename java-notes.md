@@ -2343,6 +2343,103 @@ for (int n : numbers){
 
 ## Arrays
 
+- arrays are used to store multiple values in a single variable, instead of declaring seperate variables for each value.
+- to declare an array, define the variable type with square brackets `[]`:
+`
+String[] cars;
+`
+
+- we have now declared a variable that holds an array of strings. To insert values to it, you can place the values in a comma-seperated list, inside curly braces `{}`:
+`
+String[] cars = {"Volvo", "BMW", "Ford", "Mazda"};
+`
+
+- to create an array of integers, you could write:
+`
+int[] myNum = {1, 2, 3, 4, 5};
+`
+
+
+### Access the Elements of an Array
+
+- we can access an array's elements by referring to the index numbers.
+- this statement accesses the value of the first tlement in cars array:
+- eg. -
+`
+String[] cars = {"Volvo", "BMW", "Ford", "Mazda"};
+System.out.println(cars[0]);
+// outputs - Volvo
+`
+
+- note:
+	- array index starts with 0: [0] is the first element. [1] is the second element, etc.
+	- think of an array as numbered boxes, where each box stores an element.
+	- index | element
+	- 0 | Volvo
+	- 1 | BMW
+	- 2 | Ford
+	- 3 | Toyota
+
+
+### Change an Array Element
+
+- to change the value of a specific element, refer to the index number.
+`
+cars[0] = "Ferrari";
+`
+
+- eg. -
+`
+String[] cars = {"Volvo", "BMW", "Ford", "Mazda"};
+cars[0] = "Ferrari";
+System.out.println(cars[0]);
+// outputs - Ferrari
+`
+
+### Array Length
+
+- to find out how many elements an array has, use the `length` property.
+- eg -
+`
+String[] cars = {"Volvo", "BMW", "Ford", "Mazda"};
+System.out.println(cars.length);
+// outputs - 4
+`
+
+
+### The `new` keyword
+
+- you can also create a new array by specifying its size with `new`. THis makes an empty array with space for a fixed number of elements, which you can fill later:
+- eg. -
+`
+String[] cars = new String[4]; // size is 4
+cars[0] = "Ferrari";
+cars[1] = "Volvo";
+cars[2] = "BMW";
+cars[3] = "Toyota";
+System.out.println(cars[0]); // outputs - Ferrari
+`
+
+- however, if you already know the values, you dont need to write `new`. Both of these create the same array:
+- eg. -
+`
+// with new 
+String[] cars = new String[] {"Volvo", "BMW", "Ford", "Mazda"};
+
+// shortcut (most common)
+String[] cars = {"Volvo", "BMW", "Ford", "Mazda"};
+`
+
+- **note**:
+	- you cannot write `new String[4] {"Volvo", "BMW", "Ford", "Mazda"};`
+
+	- in java, when using `new` you either -
+		- use `new String[4]` to create an empty array with 4 slots, and then fill them later.
+		- or, use `new String[] {"Volvo", "BMW", "Ford", "Mazda"}` (without specifying the number of elements) to create the array and assign values at the same time.
+	
+- **Tip**:
+	- the shortcut syntax is the most often used when the values are known at the start. Use the `new` with a size when you want to create an empty array and fill it later.
+
 
 ### Loop Through An Array
 ### Real Life Array Examples
