@@ -2442,6 +2442,25 @@ String[] cars = {"Volvo", "BMW", "Ford", "Mazda"};
 
 
 ### Loop Through An Array
+
+- you can loop through the array elements with the `for` loop, and use the `length` property to specify how many times the loop should run.
+- this example creates an array of strings and then uses a `for` loop to print each element, one by one:
+- eg. -
+`
+String[] cars = {"Volvo", "BMW", "Ford", "Mazda"};
+
+for (int i = 0; i < cars.length; i++){
+	System.out.println(cars[i]);
+}
+`
+
+- here, 
+
+
+#### Calculate the Sum of Elements
+#### Loop Through an Array with For-Each
+
+
 ### Real Life Array Examples
 ### Multidimensional Arrays
 
