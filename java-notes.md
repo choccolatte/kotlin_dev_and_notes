@@ -2458,14 +2458,247 @@ for (int i = 0; i < cars.length; i++){
 
 
 #### Calculate the Sum of Elements
+
+- now that we know how to work with arrays and loops, lets use them together to calculate the sum of all elements in an array.
+- eg. -
+`
+int[] nums = {1, 5, 10, 25};
+int sum = 0;
+
+// loop through the array and add each element to sum
+for (int i = 0; i < nums.length; i++){
+	sum += nums[i];
+}
+System.out.println("Sum is: " + sum);
+`
+
+
 #### Loop Through an Array with For-Each
+
+- there is also a for-each loop, which is used exclusively to loop through elements in an array (or other data structures).
+- syntax -
+`
+for (type variable : arrayname){
+	// code block to be executed
+}
+`
+
+- the colon (`:`) is read as 'in'. So, you can read the loop as - for each variable in array.
+- here's an example that uses the for-each loop to print all elements in the cars array:
+- eg. -
+`
+String[] cars = {"Volvo", "BMW", "Ford", "Mazda"};
+
+for (String car : cars){
+	System.out.println(car);
+}
+`
+
+- here, this means - for each `String` in the `cars` array (here called `car`), print its value.
+- compared to a regular `for` loop, the for-each loop is easier to write and read because it does not need a counter (like `i < cars.length`). However, it only gives you the values, not their positions (indexes) in the array.
+- So, if you need both the position (index) of each element and its value, a regular `for` loop is the right choice. For example, when printing the sear numbers in a theater row, you need to show both the seat number (the index) and who is sitting there (the value).
+- eg. -
+`
+String[] seats = {"Jenny", "Liam", "Angie", "Bo"};
+
+for (int i = 0; i < seats.length; i++){
+	System.out.println("Seat number " + i + " is taken by " + seats[i]);
+}
+`
+
+- note:
+	- the for-each loop is great when you only need to read elements. if you want to change the elements later, or keep track of their index, use a regular `for` loop instad.
 
 
 ### Real Life Array Examples
+
+- here's an array example that calculates the average of different ages:
+- eg. -
+`
+// an array storing diff ages
+int[] ages = {20, 22, 18, 35, 48, 26, 87, 70};
+
+float avg, sum = 0;
+
+// get the length of the array
+int length = ages.length;
+
+// loop through the elements of the array
+for (int age : ages){
+	sum += age[i];
+}
+
+// calclate the average by dividing the sum with the total length
+avg = sum / length;
+
+// print the avg
+System.out.println("Averge age is: " + avg);
+`
+
+- here, we find the lowest age among different ages:
+`
+// an array storing diff ages
+int[] ages = {20, 22, 18, 35, 48, 26, 87, 70};
+
+// get the length of the array
+int length = ages.length;
+
+// create a 'lowest age' variable and assign the first array element of ages to it
+int lowestAge = ages[0];
+
+// loop through teh elements of the ages array to find the lowest age
+for (int age : ages){
+	// check if lowestage is high/low than current age
+	if (age[i] < lowestAge){
+		// if it is, replace current age with lowest age
+		lowestAge = age[i];
+	}
+}
+
+// output the lowest age
+System.out.println("Lowest age in the array is: " + lowestAge);
+`
+
+- here, we create a program with a list of numbers where you want to skip negative values, but stop completely if you find a zero.
+`
+int[] nums = {3, -1, 7, 0, 9};
+
+for (int num : nums){
+	if (num < 0){
+		continue; // skips negative nums
+	} 
+	if (num == 0){
+		break; // stops program if there's 0
+	}
+
+	System.out.println(num);
+}
+`
+
+- here, we create a program that keeps track of the highest and lowest values in an array:
+`
+int[] nums = {45, 12, 98, 33, 27};
+int max = nums[0];
+int min = nums[0];
+
+for (int num : nums){
+	if (num > max){
+		max = num; // replaces higher num with max
+	}
+	if (num < min){
+		min = num; // replaces lower num with min
+	}
+}
+
+System.out.println("Highest number is: " + max);
+System.out.println("Lowest number is: " + min);
+`
+
+
+
 ### Multidimensional Arrays
+
+- a Multidimensional Array is an array that contains other arrays.
+- you can use it to store data in a table with rows and columns.
+- to create a two-dimensional array, write each row inside its own curly braces.
+- eg. -
+`
+int[][] nums = { {1, 4, 2}, {3, 6, 8} };
+`
+
+- here, nums has two arrays (two rows of arrays) -
+	- First row - {1, 4, 2}
+	- Second row - {3, 6, 8}
+
+- think of it like this -
+	Column 0 | Column 1 | Column 2
+Row 0  1	| 	4		| 	2
+Row 1  3	|  	6		|	8
+
+
+#### Access Elements
+
+- to acess an element of a two-dimensional array, you need two indexes - the first for the row, and the second for the column.
+- remember: array indexes start at 0. That mean, row `0` is the first row, and column `0` is the first column. (So, row index 1 is the second row, and column index 2 is the third column).
+- this statement access the element in the second row (index `1`) adn third column (index `2`) of the nums array:
+- eg. -
+`
+int [][] nums = { {1, 4, 2}, {3, 6, 8} };
+System.out.println(nums[1][2]); // outputs 8
+`
+
+- this example prints the value at row `0` and column `1`:
+- eg. - 
+`
+int [][] nums = { {1, 4, 2}, {3, 6, 8} };
+System.out.println(nums[0][1]); // outputs 4
+`
+
+
+#### Change Element Values
+
+- you can overwrite an existing element using the same two-index notation (row, then column):
+- eg. -
+`
+int[][] nums = { {1, 4, 2}, {3, 6, 8} };
+nums[1][2] = 90;
+System.out.println(nums[1][2]); // outputs 90
+`
+
+
+#### Rows and Columns (Lengths)
+
+- you can also use the `length` to get the number of rows, and `nums[rowNumber].length` for the number of columns in a given row.
+- eg. -
+`
+int[][] nums = { {1, 4, 2}, {3, 6, 8, 5, 2} };
+
+System.out.println("Rows: " + nums.length); // outputs 2
+System.out.println("Cols in Row 0: " + nums[0].length); // outputs 3
+System.out.println("Cols in row 1: " + nums[1].length); // outputs 5
+`
+
+- note:
+	- notice how rows can have different lengths - in this example, the second row has more elements than the first one, and thats perfectly valid in Java.
+
+
+#### Loop Through a Multidimensional Array
+
+- use a `for` loop inside another `for` loop to visit each and eevry element (row by row):
+- eg. -
+`
+int[][] myNums = { {1, 4, 2}, {3, 6, 8, 5, 2} };
+
+for (int row = 0; row < myNums.length; row++){
+	for (int col = 0; col < myNums[row].length; col++){
+		System.out.println("myNums[" + row + "]"[" + col + "]" = " + myNums[row][col]);
+	}
+}
+`
+
+- or just use a for-each loop in both levels, which you may find it easier to read -
+- eg. -
+`
+int[][] myNums = { {1, 4, 2}, {3, 6, 8, 5, 2} };
+
+for (int[] row : myNums){
+	for (int num : row){
+		System.out.println(num);
+	}
+}
+`
+
 
 
 ## Methods
+
+- 
+
+### Method Parameters
+### Method Overloading
+### Scope
+### Recursion
+
 
 ## Classes
 
