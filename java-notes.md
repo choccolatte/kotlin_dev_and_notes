@@ -2792,7 +2792,7 @@ public class Main{
 - eg. -
 `
 public class Main{
-	static void myNewMethod(String[], int age){
+	static void myNewMethod(String fname, int age){
 		System.out.println(fname + " is " + age);
 	}
 
@@ -2814,8 +2814,102 @@ public class Main{
 
 ### A Method with if...else
 
-- 
+- it is common to use `if...else` statements inside methods.
+- eg. -
+`
+public class Main{
+	// create a checkAge() method with an integer variable called age
+	static void checkAge(int age){
+		// if age is less than 18, print 'access denied'
+		if (age < 18){
+			System.out.println("Access denied - you are not old enough!);
 
+			// if age is greater than, or equal to, 18, print 'access denied'
+		} else {
+			System.out.println("Access granted - you are old enough!);
+		}
+	}
+	}
+
+	public static void main(String[] args){
+		checkAge(20); // call the checkAge method and pass along an age of 20
+	}
+}
+
+// outputs - 'Access granted - you are old enough!'
+`
+
+
+### Return Values
+
+- earlier, we used `void` keyword in all examples (like `static void myMethod(int x)`), which indicates that the method should not return a value.
+- if you want the method to return a value, you can use a primitive data type 9such as `int`, `char`, etc.), instead of `void`, and use the `return` keyword inside the method.
+- eg. -
+`
+public class Main{
+	static int myMethod(int x){
+		return 5 + x;
+	}
+
+	public static void main(String[] args){
+		System.out.println(myMethod(5));
+	}
+}
+
+// outputs - 8(5 + 3)
+`
+
+- this example returns the sum of a method's two parameters.
+- eg. -
+`
+public class Main{
+	static int myMethod(int x, int y){
+		return x + y;
+	}
+
+	public static void main(String[] args){
+		System.out.println(myMethod(5 , 3));
+	}
+}
+
+// outputs - 8 (5 + 3)
+`
+
+- you can also store the result in a variable (recommended, as it is easier to read and maintain):
+- eg. -
+`
+public class Main{
+	static int myMethod(int x, int y){
+		return x + y;
+	}
+
+	public static void main(String[] args){
+		int z = myMethod(5, 3);
+		System.out.println(z);
+	}
+}
+
+// outputs - 8(5 + 3)
+`
+
+#### Practical Example
+
+- here is a simple and fun 'game example' using a method that returns a value, to show the double of the numbers 1 through 5 (using a `for` loop).
+- eg. -
+`
+public class Main{
+	// method that doubles the number
+	static int doubleGame(int x){
+		return x * 2;
+	}
+
+	public static void main(String[] args){
+		for (int i = 1; i <= 5; i++){
+			System.out.println("Double of " + i + " is " + doubleGame(i));
+		}
+	}
+}
+`
 
 ### Method Overloading
 ### Scope
