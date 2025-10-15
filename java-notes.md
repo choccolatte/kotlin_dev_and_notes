@@ -2692,9 +2692,131 @@ for (int[] row : myNums){
 
 ## Methods
 
+- a method is a block of code which only runs when its called.
+- you can pass data, known as parameters, into a method.
+- methods are used to perform certain actions, and they are aslo known as functions.
+- why use methods? To reuse code: define the code once, and use it many times.
+
+
+### Creating a Method
+
+- a method must be declared within a class. It is defined with the name of the method,followed by parantheses(). 
+- Java provides some pre-defined methods, such as `System.out.println()`, but you can also create your own methods to perform certain actions.
+- eg. - create a method inside main -
+`
+public class Main{
+	static void myMethod(){
+		// code to be executed
+	}
+}
+`
+
+- example explained:
+	- `myMethod()` - is the name of the method.
+	- `static` - means that the method belongs to the Main class and not an object of the Main class.
+	- `void` - means that this method does not have a return value.
+
+
+### Calling a Method
+
+- to call a method in Java, write the method's name followed by two parantheses () and a semicolon ;
+- in the following example, `myMethod()` is used to print a text (the action), when its called.
+- eg. - inside `main` call the `myMethod()` method -
+`
+public class Main(){
+	static void myMethod(){
+		System.out.println("This is method execuiton");
+	}
+
+	public static void main (String[] args){
+		myMethod();
+	}
+}
+
+// outputs - "This is method execuiton"
+`
+
+- a method can also be called multiple times -
+- eg. -
+`
+public class Main(){
+	static void myMethod(){
+		System.out.println("This is method execuiton");
+	}
+
+	public static void main (String[] args){
+		myMethod();
+		myMethod();
+		myMethod();
+	}
+}
+
+// outputs -
+// "This is method execuiton"
+// "This is method execuiton"
+// "This is method execuiton"
+`
+
+
+### Method Parameters and Arguments
+
+- information can be passed to methods as a parameter. Parameters act as variables inside the method.
+- parameters are specified after the method name, inside the parantheses. You can add as many parameters as you want, just seperate them with a comma.
+- the following example has a method that takes a `String` called fname as a parameter. When the method is called, we pass along a first name, which is used inside the method to print the full name.
+- eg. -
+`
+public class Main{
+	static void myMethod(String fname){
+		System.out.println(fname + "Smith");
+	}
+
+	public static void main(String[] args){
+		myMethod("Joe");
+		myMethod("John");
+		myMethod("Liam");
+	}
+}
+
+// outputs -
+// Joe Smith
+// John Smith
+// Liam Smith
+`
+
+- when a parameter is passed to the method, it is called an argument. So, from the example above - `fname` is a parameter, while `Liam`, `John` and `Joe` are arguments.
+
+
+### Multiple Parameters
+
+- you can have as many parameters inside a method.
+- eg. -
+`
+public class Main{
+	static void myNewMethod(String[], int age){
+		System.out.println(fname + " is " + age);
+	}
+
+	public static void main (String[] args){
+		myMethod("Joe", 18);
+		myMethod("John", 50);
+		myMethod("Liam", 22);
+	}
+}
+
+// outputs -
+// Joe is 18
+// John is 50
+// Liam is 22
+`
+
+- note that when you are working with multiple parameters, the method call must have the same number of arguments as there are parameters, and the arguments must be passed in the same order.
+
+
+### A Method with if...else
+
 - 
 
-### Method Parameters
+
 ### Method Overloading
 ### Scope
 ### Recursion
