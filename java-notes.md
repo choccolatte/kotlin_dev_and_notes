@@ -2911,9 +2911,175 @@ public class Main{
 }
 `
 
+
 ### Method Overloading
+
+- with method overloading, multiple methods can have the same name with different parameters.
+- eg. -
+`
+int myMethod(int x)
+float myMethod(float x)
+double myMethod(int x, float y)
+`
+
+- consider the following example, which has two methods that add numbers of diff types -
+- eg. -
+`
+static int plusMethodInt(int x, int y){
+	return x + y;
+}
+
+static double plusMethodDouble(double x, double y){
+	return x + y;
+}
+
+public static void main(String[] args){
+	int myNum1 = plusMethodInt(8, 5);
+	double myNum2 = plusMethodDouble(80.12, 50.5);
+
+	System.out.println("Int's value: " + myNum1);
+	System.out.println("Double's value: " + myNum2);
+}
+`
+
+- instead of defining two methods that should do the same thing, it is better to overload one - means use the same method name but with different value and return types.
+- in the example below, we overload the `plusMethod` method to work for both `int` and `double`:
+- eg. -
+`
+static int plusMethod(int x, int y){
+	return x + y;
+}
+
+static double plusMethod (double x, double y){
+	return x + y
+}
+
+public static void main(String[] args){
+	int myNum1 = plusMethodInt(8, 5);
+	double myNum2 = plusMethodDouble(80.12, 50.5);
+
+	System.out.println("Int's value: " + myNum1);
+	System.out.println("Double's value: " + myNum2);
+}
+`
+
+- note:
+	- multiple methods cna have the same name as long as the numbers and/or type of parameters are different.
+
+
+
 ### Scope
+
+- in java, variables are only accessible inside the region where they are created. This is called scope.
+
+
+#### Method Scope
+
+- variables declared directly inside a method are availeble anywhere in the method following(after) the line of code in which they were declared.
+- eg. -
+`
+public class Main{
+	public static void main(String[] args){
+		// code here CANNOT use x, as its not declared yet
+
+		int x = 100;
+
+		// code here CAN use x, as its declared now
+		System.out.println(x);
+	}
+}
+`
+
+
+#### Block Scope
+
+- a block of code refers to all of the code between curly braces`{}`.
+- variables declared inside a block of code are only accessible by the code between the curly braces, and only after the line in which the variable was declared.
+- eg. -
+`
+public class Main{
+	public static void main(String[] args){
+		// code here CANNOT use x, not defined yet
+
+		{
+			// This is a block
+
+			// code here CANNOT use x, not defined yet
+
+			int x = 500;
+
+			// code here CAN use x
+			System.out.println(x);
+		} // the block ends here, block ended
+
+		// Code here CANNOT use x, as the block has ended
+	}
+}
+`
+
+- a block of code can stand alone, or be part of an `if`, `while`, or `for` statement. In a `for` loop, the variable declared in the loop header (like `int i = 0`) only exists inside the loop.
+
+
+#### Loop Scope
+
+- variables declared inside a `for` loop only exist inside the loop.
+- eg. -
+`
+public class Main{
+	public static void main(String[] args){
+		for (int i = 0; i < 10; i++){
+			System.out.println(i); // i is accessible here
+		}
+
+		// i is NOT accessible here
+	}
+}
+`
+
+- here, 
+	- the `for` loop has its own block (`{...}`).
+	- the variable `i` declared in the loop header (`int i = 0`) is only accessible inside that loop block.
+	- once the loop ends, `i` is destroyed, so you can't use it outside.
+
+- **why this matters?**
+- loop variables are not available otuside the loop.
+- you cna safely reuse the same variable name (`i`, `j`, etc.) in different loops in the same method.
+- eg. -
+`
+public class Main{
+	public static void main (String[] args){
+		for (int = 0; i < 5; i++){
+			System.out.println("Loop 1: " + i);
+		}
+
+		for (int = 0; i < 4; i++){
+			System.out.println("Loop 2: " + i);
+		}
+	}
+}
+`
+
+
+#### Class Scope
+
+- variables declared inside a class but outside any method have class scope (also called fields). These variables can be accessed by all methods in the class.
+- eg. -
+`
+public class Main{
+	int x = 5; // class variable
+
+	public static void main(String[] args){
+		Main myObj = new Main();
+		System.out.println(myObj.x); // x is accessible here
+	}
+}
+`
+
+
+
 ### Recursion
+
+- 
 
 
 ## Classes
