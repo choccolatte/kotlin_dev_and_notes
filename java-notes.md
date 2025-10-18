@@ -3124,11 +3124,162 @@ public class Main{
 - just as loops can run into the problem of infinite looping, recursive methods can run into the problem of infinite recursion. Infinite recursion is when the method never stops calling itself.
 - Every recursive method should have a halting condition (base case), which is the condition where the method stops calling itself. In the previous example, the halting condition is when the parameter `k` becomes 0.
 - it is helpful to see a variety of different examples to better understand the concept. In this example, the method adds a range of numbers between a start and an end. The halting condition for this recursive method is when end is not greater than start.
+- eg. - here, we're using recursion to add all numbers from 5 to 10 (5+6+7+8+9+10.)
+`
+public class Recurs{
+	public static int sum(int start, int end){
+		if (end > start){
+			return end + sum(start, end - 1);
+		} else {
+			return end;
+		}
+	}
+
+	public static void main(String[] args){
+		int result = sum(5, 10);
+		System.out.println(result);
+	}
+}
+`
+
+- note:
+	- here, be careful with recursion. 
+	- Its easy to accidently write a method that never stops or uses too much memory. But when written correctly, recursion can be both efficient and elegant.
 
 
 #### Countdown with Recursion
+
+- this example demonstrates how to use recursion to create a countdown function -
+- eg. -
+`
+public class Countdown{
+	static void countdown(int n){
+		if (n > 0){
+			System.out.println(n + " ");
+			countdown(n - 1); // calling countdown again
+		}
+	}
+
+	public static void main(String[] args){
+		countdown(5);
+	}
+}
+`
+
+- here, this method calls itself `n - 1` until `n` becomes `0`.
+
+
 #### Calculate Factorial with Recursion
-## Classes
+
+- here, this example uses a recursive method to calculate the factorial of 5.
+- eg. -
+`
+public class Fact{
+	static int factorial(int n){
+		if (n > 1){
+			return n * factorial(n - 1);
+		} else {
+			return 1;
+		}
+	}
+
+	public static void main(String[] args){
+		System.out.println("Factorial of 5 is " + factorial(5));
+	}
+}
+`
+
+- note:
+	- factorial means multiplying a number by every number below it, down to 1.
+	- For example, the factorial of 5 is - 5 * 4 * 3 * 2 * 1 = 120.
+	- by definition, `0!` is also 1.
+
+
+
+## Classes - OOP
+
+- OOP stands for Object-Oriented Programming.
+- Procedural programming is about writing procedures or methods that perform operations on the data, while Object-Oriented Programming is about creating objects that contain both data and methods.
+- Object-Oriented Programming has several advantages over procedural programming -
+	- OOP is faster and easier toe xecute.
+	- OOP provides a clear structure for the programs.
+	- OOP helps to keep the java code DRY - Dont Repeat Yourself - and makes the code easier to maintain, modify or debug.
+	- OOP makes it possible to create full reusable applications with less code and shorter development time.
+
+- Tips: the DRY principle is about reducing the repetation of code. You should extract out the codes that are common for the application, and place them at a single place and reuse them instead of repeating it.
+
+
+### What are Classes and Objects?
+
+- classes and objects are two main aspects of the Object-Oriented Programming.
+- eg. -
+	- class - Fruit
+	- object - apple, banana, mango
+
+- eg.2. -	
+	- class - Car
+	- object - Volvo, Audi, Toyota
+
+- so, a class is a template for objects, and an object is an instance of a class.
+- when the individual objects are created, they inherit all the variables and methods from the class.
+
+
+
+## Classes/Objects
+
+- java is an Object-Oriented Programming language.
+- everything in java is associated with classes and objects, along with its attributes and methods. For example: in real lief, a car is an object. The car has attributes, such as weight and color, and methods, such as drive and brake.
+- a class is like an object constructor, or a 'blueprint' for creating objects.
+
+
+### Create a Class
+
+- to create a class, use the keyword `class`.
+- in this example, we create a class named `Main` with a variable `x`:
+- eg. -
+` in Main.java
+public class Main{
+	int x = 50;
+}
+`
+
+- remember from Java Syntax that, a class should always start with an uppercase first letter, and that the name of the Java file should match the class name.
+
+
+### Create an Object
+
+- in Java, object is created from a class. we have already created the class named `Main`, so now, we can use this to create objects.
+- to create an objectof `Main`, specify the class name, followed by the object name, and use the keyword `new`.
+- eg. - create an object `myObj` and print the value of x.
+`
+public class Main{
+	int x = 50;
+
+	public static void main(String[] args){
+		Main myObj = new Main();
+		System.out.println(myObj.x);
+	}
+}
+`
+
+
+### Class Attributes
+### Class Methods
+### Constructors
+### this Keyword
+### Modifiers
+### Encapsulation
+### Packages / API
+### Inheritence
+### Polymorphism
+### super Keyword
+### Inner Classes
+### Abstraction
+### Interface
+### Anonymous
+### Enum
+### User Input
+### Date
 
 ## Errors
 
