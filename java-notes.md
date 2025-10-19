@@ -3263,7 +3263,180 @@ public class Main{
 `
 
 
-### Class Attributes
+### Multiple Objects
+
+- you can create multiple objects of one clas.
+- eg. - here, we're creating two objects of Main:
+`
+public class Main{
+	int x = 50;
+
+	public static void main(String[] args){
+		Main myObj1 = new Main(); // obj 1
+		Main myObj2 = new Main(); // obj 2
+
+		System.out.println(myObj1.x);
+		System.out.println(myObj2.x);
+	}
+}
+`
+
+
+### Using Multiple Classes
+
+- you can also create an object of a class and access it in another class. This is often used for better organization of classes (one class has all the attributes and methods, while the other class holds the main() method (code to be executed)).
+- remember, that the name of the java file should match the class name. Here, we have created two files in the same directry/folder -
+	- FirstMain.java
+	- Second.java
+- in FirstMain.java
+`
+public class FirstMain{
+	int x = 50;
+}
+`
+
+- in Second.java
+`
+class Second{
+	public static void main(String[] args){
+		FirstMain myObj = new Main();
+		System.out.println(myObj.x);
+	}
+}
+`
+
+- when both files are compiled - 
+`C:\Users\Your Name>javac FirstMain.java
+C:\Users\Your Name>javac Second.java
+`
+
+- you can run the Second.java file -
+C:\Users\Your Name>java Second
+`
+
+- output -
+`
+50
+`
+
+
+
+## Class Attributes
+
+- earlier, we used the term 'variable' for `x`, it is actually an attribute of the class. Or you could say that class attributes are variables within a class.
+- eg. - here, we create a class called `Main` with two attributes - `x` and `y`.
+`
+public class Main{
+	int x = 50;
+	int y = 30;
+}
+`
+
+- another term for class attributes is fields.
+
+
+### Accessing Attributes
+
+- you can access attributes by creating an object of the class, and by using the dot syntax(`.`).
+- the following example will create an object of the `Main` class, with the name `myObj`. We use the `x` attribute on the object to print its value.
+- eg. - create an object called `myObj` and print the value of `x`.
+`
+public class Main{
+	int x = 50;
+
+	public static void main(String[] args){
+		Main myObj = new Main();
+		System.out.println(myObj.x);
+	}
+}
+`
+
+
+### Modify Attributes
+
+- you can also modify attribute values.
+- eg. - here, we set the value of `x` to 40.
+`
+public class Main{
+	int x; // here, its not set at first
+
+	public static void main(String[] args){
+		Main myObj = new Main();
+		myObj.x = 500;
+		System.out.println(myObj.x);
+	}
+}
+`
+
+- or, we can override existing values -
+- eg. - here, we change the value of `x` to 25.
+`
+public class Main{
+	int x = 100;
+
+	public static void main(String[] args){
+		Main myObj = new Main();
+		myObj.x = 50; // x is now 50
+		System.out.println(myObj.x);
+	}
+}
+`
+
+- if you dont want the ability to override existing values, declare the attribute as `final`.
+- eg. - 
+`
+public class Main{
+	final int x = 50;
+
+	public static void main(String[] args){
+		Main myObj = new Main();
+		myObj.x = 25; // it will generate an error, coz we used the final keyword.
+		System.out.println(myObj.x);
+	}
+}
+`
+
+- the `final` keyword is useful when you want a variable to always store the same value like PI(3.14..).
+- the `final` keyword is called a 'modifier'.
+
+
+### Multiple Objects
+
+- if you create multiple objects of one class, you can change the attribute values in one object, without affecting the attribute values in the other.
+- eg. - change the value of `x` to 50 in `myObj2` and leave `x` in `myObj1` unchanged.
+`
+public class Main{
+	int x = 5;
+
+	public static void main(String[] args){
+		Main myObj1 = new Main(); // obj 1
+		Main myObj2 = new Main(); // obj 2
+		myObj2.x = 50;
+		System.out.println(myObj2.x); // 50
+		System.out.println(myObj1.x); // 5
+	}
+}
+`
+
+
+### Multiple Attributes
+
+- you can also specify as many attributes as you want.
+- eg. -
+`
+public class Main{
+	String fname = "John";
+	String lname = "Doe";
+	int age = 50;
+
+	public static void main(String[] args){
+		Main myObj = new Main();
+		System.out.println("Name: " + myObj.fname + myObj.fname + " Age: " + myObj.age);
+	}
+}
+`
+
+
 ### Class Methods
 ### Constructors
 ### this Keyword
