@@ -3437,7 +3437,16 @@ public class Main{
 `
 
 
-### Class Methods
+
+## Class Methods
+
+- Methods are declared within a class, and they are used to perform certain actions.
+- eg. - create a method named `myMethod()` in Main -
+`
+
+`
+
+
 ### Constructors
 ### this Keyword
 ### Modifiers
