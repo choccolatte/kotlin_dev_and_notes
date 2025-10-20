@@ -3443,11 +3443,151 @@ public class Main{
 - Methods are declared within a class, and they are used to perform certain actions.
 - eg. - create a method named `myMethod()` in Main -
 `
+public class Main{
+	static void myMethod(){
+		System.out.println("Hello World!")
+	}
+}
+`
 
+- here, `myMethod()` prints a text (the action), when it is called. To call a method, write the method's name followed by two parantheses () and a semicolon;.
+- eg. - inside the `main`, call `myMethod()` -
+`
+public class Main{
+	static void myMethod(){
+		System.out.println("Hello World!");
+	}
+
+	// calling the method
+	public static void main(String[] args){
+		myMethod();
+	}
+}
+
+// outputs - Hello World!
 `
 
 
-### Constructors
+### Static vs Public
+
+- you will often see Java programs that have either `static` or `public`  attributes and methods.
+- in the exmaple above, we created a `static` method, which means that it can be accessed without creating an object of the class, unlike `public`,which can only be accessed by objects.
+- eg. - an example to demonstrate the difference between `static` and `public` methods -
+`
+public class Main{
+	// static method
+	static void myStaticMet(){
+		System.out.println("Static methods can be called without creating an object.");
+	}
+
+	// public method
+	public void myPublicMet(){
+		System.out.println("Public methods must be called by creating objects.");
+	}
+
+	// main method
+	public static void main(String[] args){
+		myStaticMet(); // call the static method
+		// myPublicMet(); - this will give an error
+
+		Main myObj = new Main(); // create an object of main
+		myObj.myPublicMet(); // call the public method on the object
+	}
+}
+`
+
+
+### Access Methods with an Object
+
+- eg. - create a Car object named `myCar`. call the `fullThrottle()` and `speed()` methods on the `myCar` object, and run the program.
+`
+// creating a main class
+public class Main{
+	// creating a fullThrottle method
+	public void fullThrottle(){
+		System.out.println("Car is going fast as f*ck!!!")
+	}
+
+	// creating a speed() method and adding a parameter
+	public void speed(int maxSpeed){
+		System.out.println("Max speed: " + maxSpeed);
+	}
+
+	// inside main, call the methods on the myCar object
+	public static void main(String[] args){
+		Main myCar = new Main(); // creating a myCar object
+		myCar.fullThrottle(); // calling the fullTHrottle method
+		myCar.speed(150); // calling the speed method
+	}
+}
+`
+
+- **example explained**
+	1. We created a custom `Main` classs with the `class` keyword.
+	2. We created the `fullThrottle()` and `speed()` methods in the `Main()` class.
+	3. the `fullThrottle()` method and the `speed()` method will print out some text, when they are called.
+	4. The `speed()` method accepts an `int` parameter called `maxSpeed` - we will use this in 8.
+	5. in order to use the `Main` class and its methods, we need to create an object of the `Main` class.
+	6. then, go to the `main()` method, which you know by now is a built-in java method that runs your program (any code inside the main is executed.)
+	7. by using the `new` keyword, we created an object with the name `myCar`.
+	8. then, we call the `fullThrottle()` and `speed()` methods on the `myCar` object, and run the program using the name of the object (`myCar`), followed by a dot(`.`), followed by the name of the method (`fullThrottle();` and speed(`150`)). Notice, that we add an `int` parameter of `150` inside the `speed();` method.
+
+- **remember that:**
+	- the dot(.) is used to access the object's attributes and methods.
+	- to call a method in java, write the method name followed by a set of parantheses(), followed by a semicolon(;).
+	- a class must have a matching filename (`Main`(class) and Main.java(filename)).
+
+
+### Using Multiple Classes
+
+- it is a good practise to create an object of a class and access it in another class.
+- remember that the name of the java file should match with the class name. Here, we have created two files in the same directory -
+- in Main.java
+`
+public class Main{
+	public void fullThrottle{
+		System.out.println("Car going fast af!");
+	}
+
+	public void speed(int maxSpeed){
+		System.out.println("Max Speed: " + maxSpeed)
+	}
+}
+`
+- in Second.java
+`
+class Second{
+	public static void main(String[] args){
+		Main myCar = new Main();
+		myCar.fullThrottle();
+		myCar.maxSpeed(200);
+	}
+}
+`
+
+- when both the files have been compiled -
+`
+C:\Users\Your Name>javac Main.java
+C:\Users\Your Name>javac Second.java
+`
+
+- run the Second.java file -
+`
+C:\Users\Your Name>java Second
+`
+
+- and the output will be -
+`
+Car going fast af!
+Max Speed: 200
+`
+
+
+
+## Constructors
+
+
+
 ### this Keyword
 ### Modifiers
 ### Encapsulation
