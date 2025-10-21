@@ -3586,9 +3586,88 @@ Max Speed: 200
 
 ## Constructors
 
+- a constructor in Java is a special method that is used to initialize objects.
+- the constructor is called when an object of a class is created.
+- it can be used to set initial values for object attributes.
+- eg. - creating a constructor.
+`
+// create a Main class
+public class Main{
+	int x; // create a class attribute
+
+	// create a class constructor for the Main class
+	public Main(){
+		x = 50; // set the initial value for the class attribute x
+	}
+
+	public static void main(String[] args){
+		Main myObj = new Main(); // create an object of class Main(this will call the constructor)
+		System.out.println(myObj.x); // print the value of x
+	}
+}
+
+// outputs - 5
+`
+
+- note that, the constructor name must match the class name, and it cannot have a return type (like `void`).
+- also, note that, the constructor is called when the object is created.
+- all classes have constructors by default. If yo do not create a class constructor yourself, Java creates one for you. However, you are not able to set initial values for object attributes.
 
 
-### this Keyword
+### Constructor Parameters
+
+- constructors can also take parameters, which is used to initialize attributes.
+- the following example adds an `int y` parameter to the constructor. Inside the constructor, we set x to y (x = y). When we call the constructor, we pass a parameter to the constructor (5), which will set the value ofo x to 5.
+- eg. -
+`
+public class Main{
+	int x;
+
+	public Main(int y){
+		x = y;
+	}
+
+	public static void main(String[] args){
+		Main myObj = new Main(5);
+		System.out.println(myObj.x);
+	}
+}
+
+//outputs - 5
+`
+
+- you can have as many parameters as you want -
+`
+public class Main{
+	int modelYear;
+	String modelName;
+
+	public Main(int year, String name){
+		modelYear = year;
+		modelName = name;
+	}
+
+	public static void main(String[] args){
+		Main myCar = new Main(2025, "Supra");
+		Main myCar = new Main(myCar.modelName + " : " + myCar.modelYear);
+	}
+}
+
+- outputs - 2025 Mustang
+`
+
+
+
+## this Keyword
+
+- the `this` keyword in Java refers to the current object in a method or constructor.
+- the `this` keyword is often used to avoid confusion when class attributes have the same name as method or constructor parameters.
+
+
+### Accessing Class Attributes
+
+- 
+
 ### Modifiers
 ### Encapsulation
 ### Packages / API
