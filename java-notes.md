@@ -3666,6 +3666,33 @@ public class Main{
 
 ### Accessing Class Attributes
 
+- sometimes, a constructor or method has a parameter with the same name as a class variable. When this happens, the parameter temporarily hides the class variable inside that method or constructor.
+- to refer to the class variable and not the parameter, you can use the `this` keyword.
+- eg. -
+`
+public class Main{
+	int x; // class variable x
+
+	// constructor with one parameter x
+	public Main(int x){
+		this.x = x; // refers to the class variable x - so, in a way, its - Main.x = x - the Main() class's x accessed here = x from the constructor parameter
+	}
+
+	public static void main(String[] args){
+		// create an object of Main and pass the value 5 to the constructor
+		Main myObj = new Main(50);
+		System.out.println(myObj.x); // outputs - 50
+	}
+}
+`
+
+- **tip:**
+	- think of `this.x = x;` as: `this.x`(the class variable) gets the value of `x` the parameter.
+	- without `this`, the code above will look like - `x = x;`, which would set the parameter `x` equal to itself, and the class variable would stay uninitialized (`0`).
+
+
+### Calling a Constructor from Another Constructor
+
 - 
 
 ### Modifiers
