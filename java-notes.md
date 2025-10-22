@@ -3693,9 +3693,121 @@ public class Main{
 
 ### Calling a Constructor from Another Constructor
 
+- you can also use `this()` to call another constructor in the same class.
+- this is useful when you want to provide default values or reuse initialization code instead of repeating it.
+- eg. -
+`
+public class Main{
+	int modelYear;
+	String modelName;
+
+	// constructor with one parameter
+	public Main(String modelName){
+		// call the two-parameter constructor to reuse code and set a default year
+		this(2020, modelName)
+	}
+
+	// constructor with two parameters
+	public Main(int modelYear, String modelName){
+		// use 'this' to assign values to the class variable
+		this.modelYear = modelYear;
+		this.modelName = modelName;
+	}
+
+	// method to print the car info
+	public void printInfo(){
+		System.out.println(modelYear + " " + modelName);
+	}
+
+	public static void main(String[] args){
+		// create a car with only model name (uses default year)
+		Main car1 = new Main("Corvette");
+
+		// now, create a car with both mmodel year and name\
+		Main car2 = new Main(2025, "Mustang GTD");
+
+		car1.printInfo();
+		car2.printInfo();
+	}
+}
+
+// outputs -
+2020 Corvette
+2025 Mustang GTD
+`
+
+
+- **note:**
+	- the call to `this()` must be the first statement inside the constructor.
+
+
+### When to use this?
+
+- when the constructor or method has a parameter with the same name as a class variable, use `this` to update the class variable correctly.
+- to call another constructor in the same class and reuse code.
+
+
+
+## Modifiers
+
+- by now, you are quite familiar with the `public` keyword that appears in almost all of our examples.
+	- `public class Main`
+- the `public` keyword is an access modifier, meaning that it is used to set the access level for classes, attributes, methods and constructors.
+- we divide modifiers into two groups -
+	- access modifiers - controls the access level
+	- non-access modifiers - do not control access level, but provides other functionality
+
+
+### Access Modifiers
+
+- for classes, you can use either `public` or default.
+- Modifier | Description
+------------------------
+- `public` | the class is accessible by any other class.
+- default | the class is accessible by classes in the same package. This is used when you don't specify a modifier.
+
+
+- for attributes, methods and constructors, you can use one of the following -
+
+- Modifier | Description
+------------------------
+- `public` | the code is accessible for all classes.
+- `private` | the code is  only accessible within the declared class.
+- default | The code is only accessible in the same package. This is used when you don't specify a modifier.
+- `protected` | the code is accessible in the same package and subclasses.
+
+
+### Public vs Private Example
+
+- in the example below, the class has one `public` attribute and one `private` attribute.
+- think of it like real life -
+	- `public` - a publc park, everyone can enter
+	- `private` - your house key, only you can use it.
+
+- eg. -
+`
+class Person{
+	public String name = "John"; // public - accessible everywhere
+	private int age = 25; // private- only accessible inside this class
+}
+
+public class Main{
+	public static void main(String[] args){
+		Person p = new Person();
+		System.out.println(p.name); // works fine
+		System.out.println(p.age); // error: age has a private access in Person
+	}
+}
+`
+
+- example explained -
+- here, `name` is declared as `public`, so it can be accessed from outside the `Person` class. But `age` is declared as `private`, so it can only be used inside the `Person` class.
+
+
+### Non-Access Modifiers
+
 - 
 
-### Modifiers
 ### Encapsulation
 ### Packages / API
 ### Inheritence
