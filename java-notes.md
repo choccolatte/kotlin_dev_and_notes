@@ -3806,7 +3806,91 @@ public class Main{
 
 ### Non-Access Modifiers
 
-- 
+- Non-Access Modifiers do not control visibility (like `public` or `private`), but instead, add other features to classes, methods and attributes.
+- the most commonly used Non-Access Modifiers are `final`, `static` and `abstract`.
+
+
+#### Final
+
+- if you dont want the ability to override existing attribute values, declare attributes as `final`.
+- eg. -
+`
+public class Main{
+	final int x = 100;
+	final double PI = 3.14;
+
+	public static void main(String[] args){
+		Main myObj = new Main();
+		myObj.x = 50; // will give error as we used final earlier
+		myObj.PI = 5.12; // will give error as we used final earlier
+		System.out.println(myObj.x);
+	}
+}
+`
+
+
+#### Static
+
+- a `static` method belongs to the class, not to any specific object. This means you can call it without creating an object of the class.
+- eg. - a simple exaple showing how to call a `static` method directly -
+`
+public class Main{
+	// static method 
+	static void myStatMet(){
+		System.out.println("Static methods can be called without creating objects")
+	}
+
+	// main method
+	public static void main(String[] args){
+		myStatMet(); // will call the static method
+		Main.myStatMet(); // we can also call it using the class name
+	}
+}
+`
+
+- **note:**
+- a `static` method belongs to the class itself. You can call it without creating an object, but it cannot use variables or methods that belong to an object.
+
+
+#### Abstract
+
+- an `abstract` method belongs to an `abstract` class, and it does not have a body. The body is provided by the subclass.
+- eg. - in Main.java
+`
+// abstract class
+abstract class Main{
+	public String fname = "John";
+	public int age = 25;
+	public abstract void study(); // abstract method
+}
+
+// subclass (inherit from Main)
+class Student extends Main{
+	public int gradYear = 2020;
+	public void study() { // the body of the abstract method is provided here
+	System.out.println("Studying all day long")
+	}
+}
+`
+
+- in Second.java
+`
+// code from filename: Second.java
+class Second{
+	public static void main(String[] args){
+		// create an object of the student class (which inherits attributes and methodsfrom Main)
+		Student myObj = new Student();
+
+		System.out.println("Name: " + myObj.fname);
+		System.out.println("Age: " + myObj.age);
+		System.out.println("Grad Year: " + myObj.gradYear);
+		myObj.study(); // call abstract method
+	}
+}
+`
+
+
+#### Non-Access Modifiers List
 
 ### Encapsulation
 ### Packages / API
