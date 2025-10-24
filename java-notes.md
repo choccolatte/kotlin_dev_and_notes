@@ -3892,7 +3892,59 @@ class Second{
 
 #### Non-Access Modifiers List
 
-### Encapsulation
+- for classes, you can use either `final` or `abstract` -
+- modifier | description
+-------------------------
+- `final` | the class cannot be inherited by other classes.
+- `abstract` | the class cannot be used to create objects. (to access an abstract class, it must be inherited from another class.)
+
+- for attributes and methods, you can use one of the following -
+- modifier | description
+-------------------------
+- `final` | attributes adn methods cannot be overridden/modified.
+- `static` | attributes and methods belong to the class, not to objeccts. This means all objects share the same `static` attribute, and `static` methods can be called without creating objects. 
+- `abstract` | can only be used in an abstract class, and can only be used on methods. The method does not have a body, for example `abstract void run();`. The body is provided by the subclass (inherited from). 
+- `transient` | attributes and methods are skipped when serializing the object containing them.
+- `synchronized` | methods can only be accesssed by one thread at a time.
+- `volatile` | the value of an attribute is not cached thread-locally, and is always read from the 'main memory'.
+
+
+
+## Encapsulation
+
+- the meaning of Encapsulation is, to make sure that 'sensitive' data is hidden from users. To achieve this, you must -
+	- declare class variables/attributes as `private`.
+	- provide public get and set methods to access and update the value of a `private` variable.
+
+
+### Get and Set
+
+- earlier, we saw that `private` variables can only be accessed within the same class (an outside class has no access to it). However, it is also possible to access them if we provide public get and set methods.
+- the `get` method returns the variable value, and the `set` method sets the value.
+- syntax for both is that they start with either `get` and `set`, followed by the name of the variable, with the first letter in upper case.
+- eg.-
+`
+public class Person{
+	private String name; // private = restricted access
+
+	// getter
+	public String getName(){
+		return name;
+	}
+
+	// setter
+	public void setName (String newName):
+	this.name = newName;
+}
+`
+
+- **example explained:**
+	- 
+
+### Why Encapsulation?
+
+
+
 ### Packages / API
 ### Inheritence
 ### Polymorphism
