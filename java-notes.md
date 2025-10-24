@@ -3939,13 +3939,52 @@ public class Person{
 `
 
 - **example explained:**
-	- 
+	- the `get` method returns the value of the variable `name`.
+	- the `set` method takes a parameter (`newName`) and assigns it to the `name` variable. The `title` keyword is used to refer to the current object.
+	- however, as the `name` variable is declared as `private`, we cannot access it from outside this calss.
+
+- eg. -
+`
+public class Main{
+	public static void main(String[] args){
+		Person myObj = new Person();
+		myObj.name = "John"; // error
+		System.out.println(myObj.name); // error
+	}
+}
+`
+
+- if the variable was declared as `public`, we would expect the following output -
+- Output - John
+
+- however, as we try to access a `private` variable, we get an error.
+- instead, we use the `getName()` and `setName()` methods to access and update the variable.
+- eg. -
+`
+public class Main{
+	pubic static void main(String[] args){
+		Person myObj = new Person();
+		myObj.setName("John"); // set the myObj.name's variable to John
+		System.out.println(myObj.getName()); // prints - John
+	}
+}
+`
+
 
 ### Why Encapsulation?
 
+- better control of class attributes and methods.
+- class attributes can be made read-only (if you only use the `get` method), or write-only (if you only use the `set` method.)
+- flexible - the programmer can change one part of the code without affecting other parts.
+- increased security of data.
 
 
-### Packages / API
+
+## Packages / API
+
+- 
+
+
 ### Inheritence
 ### Polymorphism
 ### super Keyword
