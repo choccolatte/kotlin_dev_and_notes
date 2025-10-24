@@ -3982,7 +3982,35 @@ public class Main{
 
 ## Packages / API
 
+- a package in java is used to group related classes. Think of it as a folder in a file directory. We use packages to avoid name conflicts, and to write a better maintainable code. Packages are divided into two categories -
+	- Built-in packages (packages from the Java API)
+	- User-defined packages (create your own packages)
+
+
+### Built-In Packages
+
+- the java API is a library of prewritten classes, that are free to use, included in the Java development environment.
+- the library contains components for managing input, database programming, and much more. It can be found at - Oracles website: https://docs.oracle.com/javase/8/docs/api/.
+- the library id divided into packages and classes, meaning, you can either import a single class (along with its methods and attributes), or a whole package that contain all the classes that belong to the specified package.
+- to use a class or a package from the library, you need to use the `import` keyword -
+- syntax -
+`
+import package.name.class; // import a single class
+import package.name.*; // import the whole package
+`
+
+
+### Import a Class
+
+- if you find a class you want to use, for example, the `Scanner` class, which is used to get the user input, write the following code -
+- eg. -
+`
+import java.util.Scanner;
+`
+
 - 
+### Import a Package
+### User-defined Packages
 
 
 ### Inheritence
