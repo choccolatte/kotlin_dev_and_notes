@@ -4211,7 +4211,116 @@ class Main{
 
 
 ## super Keyword
-### Inner Classes
+
+- in java, the `super` keyword is used to refer to the parent class of a subclass.
+- the most common use for the `super` keyword is to eliminate the confusion between superclasses and subclasses that have methods with the same name.
+- it can be used in two main ways -
+	- to access attributes and methods from the parent class
+	- to call the parent class constructor
+
+
+### Access Parent Methods
+
+- if a subclass has a method with the same name as one in its parent class, you can use `super` to call the parent version:
+- eg. -
+`
+class Animal{
+	public void animalSound(){
+		System.out.println("The animal makes a sound!");
+	}
+}
+
+class Cat extends Animal{
+	public void animalSound(){
+		super.animalSound(); // calls the parent method of same name
+		System.out.println("Mraaawww!!");
+	}
+}
+
+public class Main{
+	public static void main(String[] args){
+		Cat myCat = new Cat();
+		myCat.animalSound();
+	}
+}
+
+- outputs -
+the animal makes a sound!
+Mraaawww!!
+`
+
+- **note:**
+	- use `super` when you want to call a method from the parent class that has been overridden in the child class - basically meaning methods of the same name but diff functionality.
+
+
+### Access Parent Attributes
+
+- you can also use `super` to access an attriute from the parent class if they have an attribute with the same name.
+- eg. -
+`
+class Animal{
+	String type = Animal;
+}
+
+class Cat extends Animal{
+	String type = "Cat";
+
+	public void printType(){
+		System.out.println(super.type); // access parent's attributes here coz we used super
+	}
+}
+
+public class Main{
+	public static void main(String[] args){
+		Cat myCat = new Cat();
+		myCat.printType();
+	}
+}
+
+- outputs -
+Animal
+`
+
+
+### Call Parent Constructor
+
+- use `super()` to call the constructor of the parent calss.  This is especially useful for reusing initialization code.
+- eg. -
+`
+class Animal{
+	Animal(){
+		System.out.println("Animal is created!");
+	}
+}
+
+class Cat extends Animal{
+	Cat(){
+		super(); // calll parent constructor. Also, first call to super()
+		System.out.println("Cat is created!");
+	}
+}
+
+public class Main{
+	public static void main(String[] args){
+		Cat myCat = new Cat();
+	}
+}
+
+- outputs -
+Animal is created!
+Cat is created!
+`
+
+- **note:**
+	- the call to `super()` must be the first statement in the subclass constructor.
+
+
+
+
+## Inner Classes
+
+- 
+
 ### Abstraction
 ### Interface
 ### Anonymous
