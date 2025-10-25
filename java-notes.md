@@ -4075,8 +4075,78 @@ This is my package!
 
 
 
-## Inheritence
-### Polymorphism
+## Inheritence (subclass and superclass)
+
+- in java, it is possible to inherit the attributes adn methdos from one class to another. We group the 'inheritence concept' into two categories - 
+	- subclass(child) - the class that inherits from another class
+	- superclass(parent) - the class being inherited from
+
+- to inherit from a class, use the `extends` keyword.
+- in our example below, the `Car` class(subclass) inherits the attributes and methods from the `Vehicle` class (superclass).
+- eg. -
+`
+class Vehicle{
+	protected String brand = "Ford"; // vehicle attribute
+	public void honk(){ // vehicle method
+		System.out.println("toot, toot!");
+	}
+}
+
+class Car extends Vehicle{
+	private String modelName = "Mustang GTD";  // car attribute
+	public static void main(String[] args){
+		// create a myCar object
+
+		Car myCar = new Car();
+
+		// call the honk() method (from the vehicle class) on myCar object
+		myCar.honk();
+
+		// display the value of the brand attribute (from the vehicle class) and the value of the modelName from the Car class
+		System.out.println(myCar.brand + " " + myCar.modelName);
+	}
+}
+`
+
+- **note:**
+	- did you notice the `protected` modifier in Vehicle?
+	- we set the brand attribute in Vehicle to a `protected` access modifier. If it was set to `private`, the Car class would not be able to access it.
+	
+	- Why and when to use "Inheritence"?
+	- it is useful for code reusability: reuse attributes and methods of an existing class when you create a new class.
+	
+	- **tip:**
+	- also, take a look at Polymorphism, which uses inherited methods to perform different tasks.
+
+
+### the final keyword
+
+- if you dont want other classes to inherit from a class, use the `final` keyword.
+- if you try to access a `final` class, Java will generate an error:
+`
+final class Vehicle{
+	...
+}
+
+class Car extends Vehicle{
+	...
+}
+`
+
+- the output of the above example will be something like this -
+`
+Main.java:9: error: cannot inherit from final Vehicle
+class Main extends Vehicle {
+                  ^
+1 error)
+
+`
+
+
+
+## Polymorphism
+
+- 
 ### super Keyword
 ### Inner Classes
 ### Abstraction
