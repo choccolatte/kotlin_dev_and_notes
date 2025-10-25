@@ -4008,12 +4008,74 @@ import package.name.*; // import the whole package
 import java.util.Scanner;
 `
 
-- 
+- in the example above, `java.util` is a package, while `Scanner` is a class of the `java.util` package.
+- to use the `Scanner` class, create an object of the class and use any of the available methods found in the `Scanner` class documentation. In our exmaple, we will use the `nextLine()` method, which is used to read a complete line.
+- eg. - using the `Scanner` class to get user input -
+`
+import java.util.Scanner;
+
+class Main{
+	public static void main(String[] args){
+		Scanner myObj = new Scanner(System.in);
+		System.out.println("Enter username: ");
+
+		String userName = myObj.nextLine();
+		System.out.println("Username is: " + userName)
+	}
+}
+`
+
+
 ### Import a Package
+
+- there are many packages to choose from. In previous example, we used the `Scanner` class from the `java.util` package. This package also contains date and time facilities, random-number generator and other utility classes.
+- to import a whole package, end the sentence with an asterisk sign(*). The following example will import ALL classes in the `java.util` package.
+- eg. -
+`
+import java.util.*;
+`
+
+
 ### User-defined Packages
 
+- to create your own package, you need to understand that java uses a file system directory to store them. Just like folders on your PC.
+- eg. -
+`
+root
+	- mypack
+		- MyPackageClass.java
+`
+- to create a package, use the `package` keyword.
+- in MyPackageClass.java
+`
+package myPack;
+class MyPackageClass{
+	public static void main(String[] args){
+		System.out.println("This is a package");
+	}
+}
+`
 
-### Inheritence
+- then, save the file as MyPPAckageClass.java, and compile it.
+
+- **note:**
+	- this forces the compiler to create the 'mypack' package.
+	- the `-d` keyword specifies the destination for where to save the class file. You can use any directory name, like c:/user(windows), or, if you want to keep the package within the same directory, you can use the dor notation '.', like in the example above.
+	- note - the package name should be written in lower case to avoid conflict with the class names.
+
+- when we compiled the package in the example above, a new folder was created called 'mypack'.
+- to run the MyPackageClass.java file, write the following in cmd -
+`
+java mypack.MyPackageClass
+`
+- the output will be -
+`
+This is my package!
+`
+
+
+
+## Inheritence
 ### Polymorphism
 ### super Keyword
 ### Inner Classes
