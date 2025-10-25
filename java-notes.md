@@ -4146,8 +4146,71 @@ class Main extends Vehicle {
 
 ## Polymorphism
 
-- 
-### super Keyword
+- Polymorphism means 'many forms', and it occurs when we have many classes that are related to each other by inheritence.
+- like we specified earlier, inheritence lets us inherit attributes and methodss from another class. Polymorphism uses those methods to perform different tasks. This allows us to perform a single action in different ways.
+- for example, think of a superclass called `Animal` that has a method called `animalSound()`. Subclasses of Animals could be Pigs, Cats, Dogs - adn they also have their own implementation of an animal sound - the pig oinks, cat meows, dog barks, etc.
+- eg. -
+`
+class Animal{
+	public void animalSound(){
+		System.out.println("The animal makes a sound.");
+	}
+}
+
+class Pig extends Animal{
+	public void animalSound(){
+		System.out.println("Oink Oink mf!!!");
+	}
+}
+
+class Cat extends Animal{
+	public void animalSound(){
+		System.out.println("Mraaawww!!");
+	}
+}
+`
+
+- here, we are using the `extends` keyword to inherit from a parent class.
+
+- now, we can create `Pig` and `Cat` objects and call the `animalSound()` method on both of them:
+`
+class Animal{
+	public void animalSound(){
+		System.out.println("The animal makes a sound.");
+	}
+}
+
+class Pig extends Animal{
+	public void animalSound(){
+		System.out.println("Oink Oink mf!!!");
+	}
+}
+
+class Cat extends Animal{
+	public void animalSound(){
+		System.out.println("Mraaawww!!");
+	}
+}
+
+class Main{
+	public static void main(String[] args){
+		Animal myAnimal = new Animal(); // create a new animal object
+		Animal myPig = new Pig(); // create a pig class
+		Animal myCat = new Cat(); // create a cat class
+
+		myAnimal.animalSound();
+		myPig.animalSound();
+		myCat.animalSound();
+	}
+}
+`
+
+- why and when to use "Inheritence" and "Polymorphism"?
+- it is useful for code reusability: reuse attributes and methods of an existing class when you create a new class.
+
+
+
+## super Keyword
 ### Inner Classes
 ### Abstraction
 ### Interface
