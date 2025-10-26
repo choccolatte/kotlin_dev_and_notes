@@ -4428,10 +4428,75 @@ public class Main{
 
 
 ## Abstraction
+## Abstract Classes and Methods
+
+- data abstraction is the process of hiding certain details and showing only essential information to the user. Abstraction can be achieved with either abstract classes or interfaces.
+- the `abstract` keyword is a non-access modifier, used for classes and methods:
+	- **Abstract Class**: is a restricted class that cannot be used to create objects (to access it,  it must be inherited from another class).
+ 	- Abstract Method: can only be used in an abstract class, and it does not have a body. The body is provided by the subclass(inherited from).
+
+- an abstract class can have both abstract and regular methods:
+- eg. -
+`
+abstract class Animal{
+	public abstract void animalSound();
+	public void sleep(){
+		System.out.println("zzz");
+	}
+}
+`
+
+- from the example above,it is not possible to create an object of the Animal class:
+`
+Animal myObj = new Animal(); // will generate an error
+`
+
+- to access the abstract class, it must be inherited from another class.  Lets convert the Animal class we used in Polymorphism to abstract class.
+- remember that, we use the `extends` keyword to inherit from a class.
+- eg. -
+`
+// abstract class
+abstract class Animal{
+	// abstract method (does not have a body)
+	public abstract void animalSound();
+
+	// regular method
+	public void sleep(){
+		System.out.println("zzz");
+	} 
+}
+
+// sub class (inherits from Animal)
+class Cat extends Animal{
+	public void animalSound(){
+		// the body of animalSound() is provided here
+		System.out.println("Merrrrrrooww");
+	}
+}
+
+class Main{
+	public static void main(String[] args){
+		Cat myCat = new Cat(); // create a Cat object
+		myCat.animalSound();
+		myCat.sleep();
+	}
+}
+`
+
+- **note:** Why and when to use Abstract Classes and Methods?
+	- to achieve security - hide certain details and only show the important details of an object.
+	- note that, abstraction can also be achieved with interfaces.
+
+
+
+## Interface
 
 - 
 
-### Interface
+### Multiple Interfaces
+
+- 
+
 ### Anonymous
 ### Enum
 ### User Input
