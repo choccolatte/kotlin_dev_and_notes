@@ -4489,9 +4489,54 @@ class Main{
 
 
 
-## Interface
+## Interfaces
 
-- 
+- another way to achieve abstraction in Java, is with interfaces.
+- an `interface` is a completely 'abstract class' that is used to group related methods with empty bodies.
+- eg. -
+`
+// interface
+interface Animal{
+	public void animalSound(); // interface method (does not have a body)
+	public void run(); // interface method (does not have a body)
+}
+`
+
+- to access the interface methods, the interface must be 'implemented' (kinda like inherited) by another class with the `implements` keyword (instead of `extends`). The body of the interface method is provided by the 'implement' class.
+
+- eg. -
+`
+// interface
+interface Animal{
+	public void animalSound(); // interface method (does not have a body)
+	public void sleep(); // interface method (does not have a body) 
+}
+
+// Cat 'implements' the Animal interface
+class Cat implements Animal{
+	public void animalSound(){
+		// the body animalSound() is provided here
+		System.out.println("Mrraaawwww!");
+	}
+
+	public void sleep(){
+		// body of sleep() is provided here
+		System.out.println("Zzzzz");
+	}
+}
+
+class Main{
+	public static void main(String[] args){
+		Cat myCat = new Cat(); // create a new cat object
+		myCat.animalSound();
+		myCat.sleep();
+	}
+}
+`
+
+- notes on interfaces:
+	- like 'abstract classes', interfacs cannot
+
 
 ### Multiple Interfaces
 
