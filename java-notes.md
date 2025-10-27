@@ -4542,16 +4542,49 @@ class Main{
 	- interface attributes are by default `public`, `static`, and `final`.
 	- an interface cannot contain a constructor (as it cannot be used to create objects).
 
-	- Why and When to Use Interfaces?
+	- **Why and When to Use Interfaces?**
 	1. To achieve secutiry - hide certain details and only show the important details of an object (interface).
 	2. java does not support 'multiple inheritence' (a class can only inherit from one superclass). However, it can be achieved with interfaces, because the class can implement multiple interface. Note: To implement multiple interfaces, seperate them with a comma (see example below).
 
 
 ### Multiple Interfaces
 
+- to implement multiple interfaces, seperate them with a comma.
+- eg. - 
+`
+interface FirstInterface{
+	public void myMethod(); // interface method
+}
+
+interface SecondInterface{
+	public void myOtherMethod(); // interface method
+}
+
+class DemoClass implements FirstInterface, SecondInterface{
+	public void myMethod(){
+		System.out.println("Some text...");
+	}
+
+	public void myOtherMethod(){
+		System.out.println("Other Method's text..");
+	}
+}
+
+class Main{
+	public static void main(String[] args){
+		DemoClass myObj = new DemoClass();
+		myObj.myMethod();
+		myObj.myOtherMethod();
+	}
+}
+`
+
+
+
+## Anonymous
+
 - 
 
-### Anonymous
 ### Enum
 ### User Input
 ### Date
