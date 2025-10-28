@@ -4646,12 +4646,174 @@ public class Main{
 
 
 
-## Enum
+## Enums
 
-- 
+- an `enum` is a special 'class' that represents a group of constants (unchangable variables, like `final` variables).
+- to create an `enum`, use the `enum` keyword (instead of class or interface), and seperate the constants with a comma. Note that they should be in uppercase letters:
+- eg. -
+`
+enum Level{
+	LOW,
+	MEDIUM,
+	HIGH
+}
+`
 
-### User Input
-### Date
+- you can access `enum` constants with the dot syntax -
+`
+Level myVar = Level.MEDIUM;
+`
+
+- enum is short for 'enumerations', which means 'specifically listed.'
+
+
+### Enum inside a Class
+
+- you can also have an `enum` inside a class.
+- eg. -
+`
+public class Main{
+	enum Level {
+		LOW,
+		MEDIUM,
+		HIGH
+	}
+
+	public static void main(String[] args){
+		Level myVar = Level.MEDIUM;
+		System.out.println(myVar);
+	}
+}
+
+// outputs - MEDIUM
+`
+
+
+### Enum in a Switch Statement
+
+- enums are often used in `switch` statements to check for corresponding values:
+- eg. -
+`
+enum Level {
+	LOW,
+	MEDIUM,
+	HIGH
+}
+
+public class Main{
+	public static void main(String[] args){
+		Level myVar = Level.MEDIUM;
+
+		switch (myVar){
+			case LOW:
+				System.out.println("Low Level");
+				break;
+			case MEDIUM:
+				System.out.println("Medium Level");
+				break;
+			case HIGH:
+				System.out.println("High Level");
+				break;
+		}
+	}
+}
+
+// output - Medium LEvel
+`
+
+
+### Loop Through an Enum
+
+- the enum type has a `values()` method, which returns an array of all enum constants. This method is useful when you want to loop through the constants of an enum:
+- eg. -
+`
+for (Level myVar : Level.values()){
+	System.out.println(myVar);
+}
+
+// output -
+LOW
+MEDIUM
+HIGH
+`
+
+
+### Difference between Enums and Classes
+
+- an `enum` can, just like a `class`, have attributes and methods. The only difference is that enum constants are `public`, `static` and `final` (unchangable - cannot be overridden).
+- an `enum` cannot be used to create objects, and it cannot extend other classes (but it can implement interfaces).
+
+- why and when to use enums?
+- use enums when you have values that you know arent going to change, like month days, days, colors, deck of cards, etc.
+
+
+### Enum Constructor
+
+- an `enum` can also have a constructor just like a class.
+- the constructor is called automatically when the constants are created. You cannot call it yourself.
+- here, each constant in the enum has a value (a string) that is set through the constructor:
+- eg. -
+`
+enum Level{
+	// enum constants (each has its own description)
+	LOW("Low Level"),
+	MEDIUM("Mid Level"),
+	HIGH("Hi Level");
+
+	// field (variable) to store the description text
+	private String description;
+
+	// constructor (runs once for each constant above)
+	private Level(String description){
+		this.description = description;
+	}
+
+	// Getter method to read the description
+  	public String getDescription() {
+    	return description;
+  }
+}
+
+public class Main{
+	public static void main(String[] args){
+		Level myVar = Level.MEDIUM; // pick one enum constant
+		System.out.println(myVar.getDescription()); // prints "Mid Level"
+	}
+}
+`
+
+- **note:**
+	- the constructor for an enum must be private. If you dont write `private`, Java adds it automatically.
+
+
+#### Loop Through Enum with Constructor
+
+- you can also loop through the constants and print their values using the values() method.
+- eg. -
+`
+for (Level myVar : Level.values()){
+	System.out.println(myVar + " : " + myVar.getDescription());
+}
+
+// output -
+LOW : Low level
+MEDIUM : Mid level
+HIGH : Hi level
+`
+
+
+
+## User Input(Scanner)
+### Input Types
+
+
+
+
+## Date
+### Display Current Date
+### Display Current Time
+### Display Current Date and Time
+### Formatting Date and Time
 
 ## Errors
 
