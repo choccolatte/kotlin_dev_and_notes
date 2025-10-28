@@ -4583,9 +4583,73 @@ class Main{
 
 ## Anonymous
 
+- an anonymous class is a class without a name. It is created and used at the same time.
+- you often use anonymous classes to override methods of an existing class or interface, without a seperate class file.
+- here, we create an anonymous class that extends another class and overrides its method.
+- eg. - 
+`
+// normal class
+class Animal{
+	public void makeSound(){
+		System.out.println("Animal sound");
+	}
+}
+
+public class Main{
+	public static void main(String[] args){
+		// anonymous class that overrides animalSound() method
+		Animal myAnimal = new Animal(){
+			public void makeSound(){
+				System.out.println("Mraaaw!");
+			}
+		}; // semicolon is required to end the line of code that creates the object
+
+		myAnimal.makeSound();
+	}
+}
+
+// output - Mraaaaw!
+`
+
+
+### Anonymous Class from an Interface
+
+- you can also use an anonymous class to implement an interface on the fly.
+- eg. -
+`
+// interface
+interface Greeting(){
+	void sayHello();
+}
+
+public class Main{
+	public static void main(String[] args){
+		// anonymous class that implements Greeting
+		Greeting myGreet = new Greeting(){
+			public void sayHello(){
+				System.out.println("Hello world!");
+			}
+		};
+
+		myGreet.sayHello();
+	}
+}
+
+// outputs - Hello world!
+`
+
+- **when to use anonymous classes?**
+- use anonymous classes when you need to create a short class for one-time use. For example -
+	- overriding a method without creating a new subclass.
+	- implementing an interface quickly.
+	- passing small pieces of behavior as objects.
+
+
+
+## Enum
+
 - 
 
-### Enum
 ### User Input
 ### Date
 
