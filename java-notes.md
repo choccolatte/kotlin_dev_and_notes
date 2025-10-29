@@ -4804,8 +4804,67 @@ HIGH : Hi level
 
 
 ## User Input(Scanner)
+
+- the `Scanner` class is used to get user input, and it is found in the `java.util` package.
+- to use the `Scanner` class, create an object of the class and use any of the available methods found in the `Scanner` class documentation. Here, we are using `nextLine()` method, which is used to read Strings.
+- eg. -
+`
+import java.util.Scanner; // import Scanner class
+
+class Main{
+	public static void main(String[] args){
+		Scanner myObj = new Scanner(System.in); // create a Scanner object
+		System.out.println("Enter username: ");
+
+		String uName = myObj.nextLine(); // read user input
+		System.out.println("Username is: " + uName); // output the user name
+	}
+}
+`
+
+
 ### Input Types
 
+- in our example above, we used the `nextLine()` method, which is used to read Strings. To read other types, look at the table below:
+- Method | Description
+----------------------
+- nextBoolean() | Reads a `boolean` value from the user
+- nextByte() | Reads a `byte` value from the user
+- nextDouble() | Reads a `double` value from the user
+- nextFloat() | Reads a `float` value from the user
+- nextInt() | Reads a `int` value from the user
+- nextLine() | Reads a `String` value from the user
+- nextLong() | Reads a `long` value from the user
+- nextShort() | Reads a `short` value from the user
+
+- here, we use different methods to read data of various types -
+- eg. -
+`
+import java.util.Scanner;
+
+class Main{
+	public static void main(String[] args){
+		Scanner myObj = new Scanner(System.in);
+
+		System.out.println("Enter name, age, salary: ");
+
+		// string input
+		String name = myObj.nextLine();
+
+		// numerical input
+		int age = myObj.nextInt();
+		double salary = myObj.nextDouble();
+
+		// output input by the user
+		System.out.println("Name: " + name);
+		System.out.println("Age: " + age);
+		System.out.println("Salary: " + salary);
+	}
+}
+`
+
+- **note:**
+	- if you enter wrong input (e.g. text in a numerical input), you will get an exception/error message (like "inputMismatchException").
 
 
 
