@@ -6,3 +6,4 @@ public class CurrDate {
 		System.out.println(myDate);
 	}
 }
+

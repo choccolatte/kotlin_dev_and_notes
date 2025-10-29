@@ -4869,10 +4869,105 @@ class Main{
 
 
 ## Date
+
+- java does not have a built-in Date class, but we can import the `java.time` package to work with the date and time API. the package includes many date and time classes. For example -
+- Class | Description
+---------------------
+- `LocalDate` | Represents a date (year, month, day (yyyy-MM-dd))
+- `LocalTime` | Represents a time (hour, minute, second and nanoseconds (HH-mm-ss-ns))
+- `LocalDateTime` | Represents both a date and a time (yyyy-MM-dd-HH-mm-ss-ns)
+- `DateTimeFormatter` | Formatter for displaying and parsing date-time objects
+
+
 ### Display Current Date
+
+- to display the current date, import the `java.time.LocalDate` class, adn use its `now()` method.
+- eg. -
+`
+import java.time.LocalDate; // import localdate class
+
+public class Main{
+	public static void main(String[] args){
+		LocalDate myObj = LocalDate.now(); // create a date object
+		System.out.println(myObj); // display current date
+	}
+}
+
+// outputs - 2025-10-30
+`
+
+
 ### Display Current Time
+
+- to display the current time (hour, minute, second, and nanoseconds), import the `java.time.LocalTime` and use its now() method.
+- eg. -
+`
+import java.time.LocalTime; // import localtime class
+
+public class Main{
+	public static void main(String[] args){
+		LocalTime myObj = LocalTime.now(); // create a date object
+		System.out.println(myObj); // display current date
+	}
+}
+
+// outputs - 21:26:32.625157
+`
+
+
 ### Display Current Date and Time
+
+- to display the current date and time, import the `java.time.LocalDateTime` class, and use its now() method.
+- eg. -
+`
+import java.time.LocalDateTime; // import localdatetime class
+
+public class Main{
+	public static void main(String[] args){
+		LocalDateTime myObj = LocalDateTime.now(); // create a date time object
+		System.out.println(myObj); // display current date
+	}
+}
+
+// outputs - 2025-10-29T21:26:32.626221
+`
+
+
 ### Formatting Date and Time
+
+- the "T" in the example above is used to seperate the date from the time. 
+- You can use the `DateTimeFormatter` class with the `ofPattern()` method in the same package to format or parse date-time objects. The following example will remove both the "T" and nanoseconds from date-time:
+- eg. -
+`
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+
+public class Main{
+	public static void main(String[] args){
+		LocalDateTime myTime = LocalDateTime.now();
+		System.out.println("Before formattring: " + myTime);
+
+		DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("dd-mm-yyyy HH:mm:ss");
+
+		String formattedDate = myTime.format(myFormatObj);
+		System.out.println("After formattring: " + formattedDate)
+	}
+}
+
+// outputs -
+Before Formatting: 2025-10-29T21:26:32.626096
+After Formatting: 29-10-2025 21:26:32
+`
+
+- the `ofPattern()` method accepts all sorts of values, if you want to display the date and time in a different format. Like example -
+- Value | Example 
+-----------------
+- yyyy-MM-dd | 2020-10-09
+- dd/MM/yyyy | 09/10/2020
+- dd-MMM-yyyy | 09-Sep-2020
+- E, MMM dd yyyy | Fri, Oct 10 2020
+
+
 
 ## Errors
 
