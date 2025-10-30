@@ -5157,10 +5157,70 @@ if (age >= 18){
 
 ### Exceptions
 
-- 
+- Different types of errors can occur while running a program - such as coding mistakes, invalid inputs, or unexpected situations.
+- when an error occurs, Java will normally stop and generate an error message. The technical term for this is - Java will throw an exception (throw an error).
+
 
 #### Exception Handling (try and catch)
+
+- exception handling lets you catch and handle errors during runtime - so your program doesnt crash.
+- it uses different keywords -
+	- `try` - the try statement allows you to define a block of code to be tested for errors while it is being executed.
+	- `catch` - the catch statement allows you to define a block of code to be executed, if an error occurs in the try block.
+
+- the try and catch keywords come in pairs -
+- syntax -
+`
+try{
+	// block of code to try
+} 
+catch(Exception e){
+	// block of code to handle errors
+}
+`
+
+- consider the following example -
+- this will generate an error, because myNumbers[10] does not exist.
+`
+public class Main{
+	public static void main(String[] args){
+		int[] myNumbers = {1, 2, 3, 4, 5};
+		System.out.println(myNumbers[10]); // error
+	}
+}
+`
+
+- the output will be something like this -
+`
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 10
+        at Main.main(Main.java:4)
+`
+
+- **note:**
+	- `ArrayIndexOutOfBoundsException` occurs when you try to access an index number that does not exist.
+
+- if an error occurs, we use `try...catch` to catch the error and execute some code to handle it.
+- eg. -
+`
+public class Main{
+	public static void main(String[] args){
+		try{
+			int[] myNumbers = {1, 2, 3};
+			System.out.println(myNumbers[10]);
+		} catch (Exception e){
+			System.out.println("Something went wrong.")
+		}
+	}
+}
+
+// output - Something went wrong.
+`	
+
+
 #### Finally
+
+- 
+
 #### The throw keyword
 #### Errors and Exception Types
 
