@@ -5075,8 +5075,96 @@ System.out.println("x + y = " + sum);
 
 ### Debugging
 
-- 
+- after learning about common errors, the next step in understanding how to debug your Java code - that is, how to find and fix those erros effectively.
+- here, we use simple debugging techniques that are useful for beginners and helpful even for experienced developers.
+
+
+#### What is Debugging?
+
+- debugging is the procecss of identifying and fixing errors and bugs in your code.
+- it often involves -
+	- reading error messages
+	- tracing varible values step by step
+	- testing small pieces of code independently.
+
+- **tip:**
+	- debugging is a skill that improves with practise. The more you debug, the better you get at spotting problems quickly.
+
+
+#### Print Statements for Debugging
+
+- the most basic (and often most effective) way to debug Java code is to use `System.out.println()` to print values and check the flow of the program.
+- in our example here, the first line "Before division" will print, but the second line is never reached because the program crashes due to division by zero:
+- eg. -
+`
+int x = 10;
+int y = 0;
+
+System.out.println("Before division"); // debug output
+
+int result = x / y; // crashes
+
+System.out.println("Result: " + result); // never runs
+`
+
+- result -
+Before division
+Exception in thread "main" java.lang.ArithmeticException: / by zero
+
+- **tip:**
+	- add print statements before and after key lines of code to find out where things go wrong.
+
+
+#### Check Variable Values
+
+- if something unexpected happens, print out the values of variables.
+- eg. -
+`
+int age = 17;
+System.out.println("Age: " + age);
+
+if (age >= 18){
+	System.out.println("Access Granted");
+} else {
+	System.out.println("Age denied!");
+}
+`
+
+- **tip:**
+	- this is a good way to test whether a condition is working correctly - try changing `age` to 18 or 19 and observe the output.
+
+ 
+#### Debugging with IDEs
+
+- modern IDEs like IntelliJ IDEA, Eclipse, and NetBeans come with built-in debugging tools.
+	- set breakpoints to pause the program at specific lines
+	- step through code line by line
+	- inspect variable values in real time
+
+- **tip:**
+	- use your IDEs debugger to find errors faster - its more powerful than print statements alone!
+
+
+#### Debugging Checklist
+
+- read the full error messages, it often tells you exactly whats wrong
+- check if all variables are initialized before use
+- print variable values to trace the problem
+- watch for off-by-one errors in loops and arrays
+- comment out the sections of code to find bugs.
+
+
+
 ### Exceptions
+
+- 
+
+#### Exception Handling (try and catch)
+#### Finally
+#### The throw keyword
+#### Errors and Exception Types
+
+
 ### Multiple Exceptions
 ### Multiple Exceptions
 
