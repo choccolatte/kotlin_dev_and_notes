@@ -5274,10 +5274,89 @@ checkAge(20);
 // output - Access Granted. You can vote.
 `
 
+
 #### Errors and Exception Types
+
+- here's a table that shows some of the most common errors and  exceptions in java, with a short descriptiomn of each -
+- Error/Exception | Description
+--------------------------------
+- ArithmeticError | Occurs when a numeric calculation goes wrong.
+- ArrayIndexOutOfBoundsException | Occurs when trying to access an index number that does not exist in an array.
+- ClassNotFoundException | Occurs when trying to access a class that does not exist.
+- FileNotFoundException | Occurs when a file cannot be accessed.
+- InputMismatchException | Occurs when entering wrong input (e.g. text in a numerical input).
+- IOException | Occurs when an input or output operation fails.
+- NullPointerException | Occurs when trying to access an object reference that is `null`.
+- NumberFormatException | Occurs when it is not possible to convert a specified string to a numeric type.
+- StringIndexOutOfBoundsException | Occurs when trying to access a character in a String that does not exist.
+
 
 
 ### Multiple Exceptions
+
+- sometimes, different errors (exceptions) can happen in the same `try` block. You cna handle them all with multiple catch blocks.
+
+
+#### One try, Many Catch
+
+- you can add more than one `catch` block, and Java will run the first one that matches the thrown exception type:
+- eg. -
+`
+public class Main{
+	public static void main(String[] args){
+		try{
+			int[] numbers = {1, 2, 3, 4, 5};
+			System.out.println(numbers[10]); // ArrayIndexOutOfBoundsException
+			int result = 10 / 0; // ArithmeticException
+		} catch (ArrayIndexOutOfBoundsException e){
+			System.out.println("Array index does not index"):
+		} catch(ArithmeticException e){
+			System.out.println("Cannot divide by zero.");
+		} catch(Exception e){
+			System.out.println("Something else went wrong. Try again later.");
+		}
+	}
+}
+
+// result - Array index does not exist.
+`
+
+- explanation - Only the first exception (`ArrayIndexOutOfBoundsException `) is thrown, so only the first matching `catch` runs.
+
+
+#### Order Matters
+
+- you should always put more specific exceptions first, and general ones later. Otherwise, the general catch will grab the error and the specific ones will never run.
+- eg. (bad order)-
+`
+try{
+	int result = 10 / 0;
+} catch(Exception e){
+	System.out.println("General Error");
+} catch(ArithmeticExcecption e){
+	// this will never be reached in case of error
+	System.out.println("Divide by zero");
+}
+`
+- **tip:** 
+	- always put `Exception` (the general one) at the end.
+
+
+#### Multi-Catch
+
+- since java 7, you can catch multiple exceptions in one catch block using the `|` symbol. This is useful when different exceptions should be handled in the same way, so you dont have to repeat code:
+- eg. -
+`
+try{
+	int result = 10 / 0;
+	int[] numbers = {1, 2, 3, 4, 5};
+	System.out.println(numbers[10]);
+} catch(ArithmeticException | ArrayIndexOutOfBoundsException e) {
+	System.out.println("Math error or array errr occured.")
+}
+`
+
+
 ### Multiple Exceptions
 
 ## File Handling
