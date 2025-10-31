@@ -5418,8 +5418,91 @@ public class Main{
 
 
 
-## Files
+## Java Files
+
+- file handling is an important part of any application.
+- java has several methods for creating, reading, updating, and deleting files.
+
+
 ### File Handling
+
+- the `File` class from the `java.io` package allows us to work with files.
+- to use the `File` class, create an object of the class, and specify the filename or directory name.
+- eg. -
+`
+import java.io.File; // importing File class
+
+File myObj = new File("filename.txt"); // specifying the filename
+`
+
+- the `File` class has many useful methods for creating and getting the information about files. For eg. -
+- Method | Type | Description
+------------------------------
+- `canRead()` | Boolean | tests whether the file is readable or not.
+- `canWrite()` | Boolean | tests whether the file is writable or not.
+- `createNewFile()` | Boolean | creates an empty file.
+- `delete()` | Boolean | deletes a file.
+- `exists()` | Boolean | tests whether the file exists.
+- `getName()` | String | returns the name of the file.
+- `getAbsolutePath()` | String | returns the absolute pathname of the file.
+- `length()` | Long | returns the size of the file in bytes. 
+- `list()` | String[] | returns an array of the files in the directory.
+- `mkdir()` | Boolean | creates a directory.
+
+
+### Create Files
+
+- in java, you can create a new file with the `createNewFile()` method from the `File` class.
+- this method returns -
+	- `true` - if the file was created successfully.
+	- `false` - if the file already exists.
+
+- note that, the method is enclosed in a `try...catch` block. This is necessary because it throws an `IOException` if an error occurs (if the file cannot be created for some reason).
+- eg. -
+`
+import java.io.File; // importing file class
+import java.io.IOException; // importing IOException class to handle errors
+
+public class CreateFile{
+	public static void main(String[] args){
+		try{
+			File myFil = new File("filename.txt"); // creating file object
+			if (myFil.createNewFile()){ // try to create the file
+				System.out.println("File created: " + myFil.getName());
+			} else {
+				System.out.println("File already exists.");
+			}
+		} catch(IOException e){
+			System.out.println("An error occured.");
+			e.printStackTrace(); // print error details
+		}
+	}
+}
+
+// output - file created: filename.txt
+`
+
+- **explanation:**
+- the program tries to create a file called `filename.txt`. If the file does not exist, it will be created and a success message is printed. If the file already exists, you will see the message "File already exists." instead.
+
+- **note:**
+- the `createNewFile()` method only creates an empty file. It does not add any content inside.
+
+
+#### Create a File in a Specific Folder
+
+- to create a file in a specific directory (requires permission), specify the path of the file and use double backslashes to escape the `\` character (for windows). On Mac and Linux, you cna just write the path like: /USers/name/filename.txt
+- eg. -
+`
+File myFil = new File("C:\\Users\\MyName\\filename.txt");
+`
+
+
+### Write Files
+### Read Files
+### Delete Files
+
+
 ## I/O Streams
 ## Data Structures
 ## Advanced
