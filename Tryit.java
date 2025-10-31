@@ -5,6 +5,8 @@ public class Tryit {
 			System.out.println(myNum[10]);
 		} catch(Exception e){
 			System.out.println("Something went wrong.!");
+		} finally{
+			System.out.println("Finally block runs now!");
 		}
 	}
 }

@@ -5219,9 +5219,61 @@ public class Main{
 
 #### Finally
 
-- 
+- the `finally` statement lets you execute code, after `try...catch`, regardless of the result.
+- eg. -
+`
+public class Main{
+	public static void main(String[] args){
+		try{
+			int[] myNum = {1, 2, 3, 4, 5};
+			System.out.println(myNum[10]);
+		} catch (Exception e){
+			System.out.println("Something went wrong!);
+		} finally {
+			System.out.println("The try..catch is finished!");
+		}
+	}
+}
+
+// output - something went wrong!
+the try...catch is finished.
+`
+
 
 #### The throw keyword
+
+- the `throw` statement allows you to create a custom error.
+- the `throw` statement is used together with an exception type. There are many exception types available in Java: `ArithmeticException`, `FileNotFoundException`, `ArrayIndexOutOfBoundsException`, `SecurityException`, etc.
+- eg. - throw an exception if the age is below 18 (print "Access Denied!"). "Access Granted" if the age is above 18.
+`
+public class Main{
+	public class main void(String[] args){
+		if (age < 18) {
+			throw new ArithmeticException ("Access Deined. You are not old enough");
+		} else {
+			System.out.println("Access Granted. You can vote.")
+		}
+	}
+
+	public static void main(String[] args){
+		checkAge(15); // its below 15, so it will go to throw keyword block
+	}
+}
+
+// output - Exception in thread "main" java.lang.ArithmeticException: Access denied - You must be at least 18 years old.
+        at Main.checkAge(Main.java:4)
+        at Main.main(Main.java:12)
+
+`
+
+- however, if  the age was 20, we would not get an exception.
+- eg. -
+`
+checkAge(20);
+
+// output - Access Granted. You can vote.
+`
+
 #### Errors and Exception Types
 
 
