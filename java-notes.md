@@ -5357,9 +5357,69 @@ try{
 `
 
 
-### Multiple Exceptions
+### Java try-with-resources
+#### Close Resources
 
-## File Handling
+- when working with files, streams, or other resources, it is important to close them after use. If you forget to close a resource, it may keep using memory or even prevent you from opening the file again until the program ends.
+- In older code, you had to close 'resources' manually by calling their `close()` methods.
+- eg. -
+`
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+public class Main{
+	public static void main(String[] args){
+		try{
+			FileOutputStream output = new FileOutputStream("filename.txt");
+			output.write("Hello world!."getBytes());
+			output.close(); // must close manually
+			System.out.println("Successfully wrote to the file.")
+		} catch(IOException e){
+			System.out.println("Error writing file.");
+		}
+	}
+}
+`
+
+
+#### try-with-resources
+
+- since java 7, you can use try-with-resources. It is a special form of `try` that works with resources (like files and streams). The resource is declared inside parantheses `try(...)`, and java will close it automatically when the block finishes - even if an error occurs.
+- eg. (try-with-resources) -
+`
+import java.io.FileOutputStream;
+import java.io.IOExecption;
+
+public class Main{
+	public static void main(String[] args){
+		// resource is opened inside try()
+		try(FileOutputStream output = new FileOutputStream("filename.txt")){
+			output.write("Hello world!.".getBytes());
+
+			// no need to call close() now
+			System.out.println("Successfully wrote to the fle.");
+		} catch(IOException e){
+			System.out.println("Error writing file.")
+		}
+	}
+}
+`
+
+
+#### why use try-with-resources?
+
+- safer - resources are always closed, even if an exception occurs.
+- cleaner - no need to write `close()` calls.
+- shorter code - less boilerplate, easier to read.
+
+- **rule of thumb:**
+	- whenever you work with files, streams, or database connections, use try-with-resources to make sure they are closed properly.
+
+
+
+
+## Files
+### File Handling
 ## I/O Streams
 ## Data Structures
 ## Advanced
