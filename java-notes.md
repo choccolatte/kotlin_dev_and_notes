@@ -5499,6 +5499,43 @@ File myFil = new File("C:\\Users\\MyName\\filename.txt");
 
 
 ### Write Files
+
+- if you're just starting with Java, the easiest way to write text to a file is by using the `FileWriter` class.
+- in the example below, we use `FileWriter` togetehr with its `write()` method to create and write some text into a file.
+- note: when you are done, you should close the writer with the `close()` method.
+- eg. -
+`
+import java.io.FileWriter;
+import java.io.IOException;
+
+public class WriteToFile{
+	public class void main(String[] args){
+		try{
+			FileWriter myWrit = new FileWriter("filename.txt");
+			myWrit.write("Hello World!");
+			myWrit.close(); // closing the file after use
+			System.out.println("Successfully wrote to file.")
+		} catch(IOException e){
+			System.out.println("An error occured.");
+			e.printStackTrace();
+		}
+	}
+}
+
+// output - successfully wrote to file 
+`
+
+- **explainaton:**
+	- this program tries to write some text into a file named `filename.txt`. If everything works, the program will print `Successfully wrote to file.` in the console. If something goes wrong(for example, the file cannot be opened), it will print `An error occured.` instead.
+
+
+#### Write to a File with try-with-resources
+
+- 
+
+#### Append to a File
+#### Other Ways to Write to Files
+
 ### Read Files
 ### Delete Files
 
