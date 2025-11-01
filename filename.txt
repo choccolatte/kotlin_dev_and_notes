@@ -1,1 +1,2 @@
-Hello World!
+Hello World from try with resources!
+Hello World after Appending new text file.

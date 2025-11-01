@@ -5531,12 +5531,129 @@ public class WriteToFile{
 
 #### Write to a File with try-with-resources
 
-- 
+- since java 7, you can use try-with-resources. This makes sure the writer is closed automatically, even if an error occurs.
+- eg. -
+`
+import java.io.FileWriter;
+import java.io.IOException;
+
+public class WriteToFile{
+	public static void main(String[] args){
+		// fileWriter will be closed automatically here
+		try(FileWriter myWrit = new FileWriter("filename.txt")){
+			myWrit.write("Hello World again!");
+			System.out.println("Successfully wrote to file.");
+		} catch(IOException e){
+			System.out.println("An error occured.");
+			e.printStackTrace();
+		}
+	}
+}
+
+// output - Successfully wrote to file.
+`
 
 #### Append to a File
+
+- normally, `FileWriter` will overwrite a file if it already exists. If you want to add new content at the end of the file (without deleting whats already there), you can use the two-argument constructor and pass `true` as the second parameter. This puts the writer into append mode.
+- eg. -
+`
+import java.io.FileWriter;
+import java.io.IOException;
+
+public class AppendToFile{
+	public static void main(String[] args){
+		// true = append mode
+		try(FileWriter myFil = new FileWriter("filename.txt", true)){
+			myFil.write("\nAppended text!");
+			System.out.println("Successfully appended.");
+		} catch(IOException e){
+			System.out.println("An error occured.");
+			e.printStackTrace();
+		}
+	}
+}
+
+// output - Appended text.
+`
+
+- explanation - this program adds the text "Appended text!" to end of `filename.txt` instead of replacing the file's content.
+- note: if the file does not already exist, java will create it before appending.
+
+
 #### Other Ways to Write to Files
 
+- there are several classes you can use to write files in java:
+	- `FileWriter` - easiet choice for basic text.
+	- `BufferedWriter` - better for large text files, because it is faster and supports handy features.
+	- `FileOutputStream` - best for binary data (images, audio, PDFs).
+
+
+
 ### Read Files
+
+- here, we use the `Scanner` class to read to contents of the text file we created in the earlier chapter.
+- eg. -
+`
+import java.io.File; // import the file class
+import java.io.FileNotFoundException; // importing this class to handle errors
+import java.util.Scanner; // import the scanner class to read text files
+
+public class ReadFile{
+	public static void main(String[] args){
+		File myObj = new File("filename.txt");
+
+		// try-with-resources: Scanner will be closed automatically
+		try(Scanner myReader = new Scanner(myObj)){
+			while(myReader.hasNextLine()){
+				String data = myReader.nextLine();
+				System.out.println(data);
+			}
+		} catch(FileNotFoundException e){
+			System.out.println("An error occured.");
+			e.printStackTrace();
+		}
+	}
+}
+`
+
+- explanation - this program above opens the file named `filename.txt` and reads it line by line using a `Scanner`. Each line is printed to the console. If the file cannot be found, the program will print `An error occured.` instead.
+
+
+#### Get File Information
+
+- to get more information about a file, use any of the `File` methods:
+- eg. -
+`
+import java.io.File;
+
+public class GetFileInfo{
+	public static void main(String[] args){
+		File myObj = new File("filename.txt");
+
+		if (myObj.exists()){
+			System.out.println("File name: " + myObj.getName());
+			System.out.println("Absolute path: " + myObj.getAbsolutePath());
+			System.out.println("Writable: " + myObj.canWrite());
+			System.out.println("Readable: " + myObj.canRead());
+			System.out.println("File size in bytes: " + myObj.length());
+		} else {
+			System.out.println("The file does not exist.");
+		}
+	}
+}
+`
+
+
+#### Other Ways to Read Files
+
+- there are several other classes you can use to read files in Java -
+	- `Scanner` - best for simple text and when you want to parse numbers or words easily.
+	- `BufferedReader` - best for large text files, because it is faster and reads line by line.
+	- `FileInputStream` - best for binary data (images, audio, PDFs) or when you need full control of raw bytes.
+
+
+
 ### Delete Files
 
 
