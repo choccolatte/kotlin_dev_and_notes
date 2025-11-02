@@ -5809,9 +5809,85 @@ public class CopyFile{
 
 ### FileOutputStream
 
+- the `FileOutputStream` class works in a similar way as a `FileWriter` class. But it writes the data as raw bytes. That means, you can use it not only for text files, but also for binary files (like images, PDFs and audio files).
+
+
+#### Write a Text File (Basic Example)
+
+- this examplee writes a short text string to a file using `FileOutputStream`.
+- **note**: if the file already exists, its contents will be replaced (overwritten).
+- eg. -
+`
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+public class Main{
+	public static void main(String[] args){
+		// the text we want to write
+		String text = "This is the new text we want to write on file."
+
+		// try-with-resources: stream will be closed automatically
+		try(FileOutputStream filOutput = new FileOutputStream("filename.txt")){
+			filOutput.write(text.getBytes()); // converts text to bytes and writes
+			System.out.println("File written successfully.")
+		} catch(IOException e){
+			System.out.println("an error occured while writing to file.")
+			e.printStackTrace();
+		}
+	}
+}
+`
+
+- explanation - here, this prorgram creates (or overwrites) `filename.txt` and writes our `text` material in the console(file). Otherwise, it shows an error message.
+
+
+#### Copy a Binary File (Real-World Example)
+
+- the real strength of `FileOutputStream` is that it can handle any file type, not just text. Here is an example that copies an image file.
+- eg. -
+`
+import java.io.FileOutputStream;
+import java.io.FileInputStream;
+import java.io.IOException;
+
+public class CopyFile{
+	public static void main(String[] args){
+		// copy img.jpg to copy.jpg
+		try(FileInputStream myInput = new FileInputStream("img.jpg");
+		FileOutputStream myOutput = new FileOutputStream("copy.jpg")){
+			
+			int b; // copy raw file data and store it here
+
+			while((b = myInput.read()) != -1){
+				myOutput.write(b); // write each raw byte to the new file
+			}
+			System.out.println("file copied successfully.");
+		}catch(IOException e){
+			System.out.println("Error occured while copying the file.");
+			e.printStackTrace();
+		}
+	}
+}
+`
+
+- explanation - this program reads `img.jpg` and writes it to `copy.jpg`. Since, it works with raw bytes, it can copy any kind of file - text, images, audio, PDFs, etc.
+
+
+#### Append a File
+#### Choosing the Right Class
+
 
 ### BufferedReader
+#### BufferedReader and BufferedWriter
+#### Read a Text File(Line by Line)
+#### Comparing File Reading Classes
+
+
+
 ### BufferedWriter
+#### Write to a Text File
+#### Append to a Text File
+#### Comparing File Writing Classes
 
 
 ## Data Structures

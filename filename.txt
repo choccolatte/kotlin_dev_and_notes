@@ -1,2 +1,1 @@
-Hello World from try with resources!
-Hello World after Appending new text file.
+This is the text we want to write in our file.
