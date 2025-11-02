@@ -5699,12 +5699,119 @@ public class DeleteFolder{
 
 
 
-## I/O Streams
-## I/O Streams
-## I/O Streams
-## I/O Streams
-## I/O Streams
-## I/O Streams
+## I/O Streams(Input/ Output Streams)
+
+- In java, there is an important difference between working with the `File` class and working with I/O Streams (input/output streams):
+	- the `File` class (from `java.io`) is used to get information about the files and directories.
+		- does the file exist?
+		- what is the name and size of the file?
+		- create or delete files and folders
+
+		- but the `File` class does not read or write the contents of the file.
+
+- So far, wehave used `Filewriter` class for writing text and `Scanner` class for reading text. These are easy to use, but they are mainly designed for simple text files.
+- I/O Streams are more flexible, because they work with text and binary data (like images, audio, PDFs).
+
+
+### Types of Streams
+
+- Byte Streams
+	- works with raw binary data (like images, audio, PDFs files).
+	- eg. - `FileInputStream`, `FileOutputStream`
+
+- Character Streams
+	- works with text(character adn strings). These streams automatically handle character encoding.
+	- eg. - `FileReader`, `FileWriter`, `BufferedReader`, `BufferedWriter`
+
+- tip:
+	- use character streams when working with text, adn byte streams when working with binary data.
+
+
+
+### FileInputStream
+
+- so far, we have used `Scanner` class to read text files. `Scanner` is very convenient for text because it can split input into lines, words, and numbers. However, sometimes, you need more control. For example, when reading binary data (like images, audio and PDFs), or when you need full control of raw bytes. In those cases, you use `FileInputSStream`.
+
+
+#### Read a Text File (Basic Example)
+
+- this example uses `FileInputStream` to read a text file, one byte at a time, and prints the result as characters.
+- eg. -
+`
+import java.io.FileInputStream;
+import java.io.IOException;
+
+public class Main{
+	public static void main(String[] args){
+		// try-with-resources: FileInputStream will be closed automatically
+		try(FileInputStream myFil = new FileInputStream("filename.txt")){
+			int i; // variable to store each byte that is read
+
+			// read one byte at a time until the end of the fioe (-1 here means "no more data")
+			while ((i = input.read()) != -1){
+				// convert the byte to a character and print it ot the console
+				System.out.println((char)i);
+			}
+		} catch(IOException e){
+			// if an error occurs (eg. file not found), print an error message
+			System.out.println("Error reading file.");
+			e.printStackTrace;
+		}
+	}
+}
+`
+
+- explanation - here, the program opens `filename.txt`,  reads it byte by byte, and prints the result as characters in the console.
+
+
+#### Copy a Binary File (Real-World Example)
+
+- the real strength of `FileInputStream` is that, it can handle any file type, not just text. Here is an example that copies an image file.
+- eg. -
+`
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+public class CopyFile{
+	public static void main(String[] args){
+		// copy image.jpg to copyImg.jpg
+		try(FileInputStream filInput = new FileInputStream("img.jpg");
+		FileOutputStream filOutput = new FileOutputStream("copyimg.jpg")){
+			int i; // where the copied data is kept
+
+			while ((i = filInput.read()) != -1){
+				filOutput.write(); // write the raw byte to the new file
+			}
+
+			System.out.println("File copied successfully!")
+		} catch(IOException e){
+			System.out.println("An error occured while copying file.");
+			e.printTraceStack;
+		}
+	}
+}
+`
+
+- explanation - this program reads `image.jpe` and writes it into `copyImage.jpg`. Since it works with raw bytes, it can copy any kind of file - text, images, audio, PDFs.
+
+- note: the program also uses `FileOutputStream`. While `FileInputStream` is used to read bytes from a file, `FileOutputStream` is used to write bytes to a file. Together, they make it possible to copy any kind of file.
+
+
+#### Choosing the Right Class
+
+- java gives you several ways to read files. Here's when to pick each one -
+	- `Scanner` - best for simple text and when you want to parse numbers or words easily. 
+	- `BufferedReader` - best for large text files, because it is faster and reads line by line.
+	- `FileInputStream` - best for binary data (images, audio, PDFs), or when you need full control of raw bytes.
+
+
+
+### FileOutputStream
+
+
+### BufferedReader
+### BufferedWriter
 
 
 ## Data Structures
