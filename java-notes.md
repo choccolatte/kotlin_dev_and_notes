@@ -5656,8 +5656,57 @@ public class GetFileInfo{
 
 ### Delete Files
 
+- to delete a file in Java, use the `delete()` method.
+- eg. -
+`
+import java.io.File;
+
+public class DeleteFile{
+	public static void main(String[] args){
+		File myFil = new FIle("filename.txt");
+
+		if (myFil.delete()){
+			System.out.println("File deleted successfully: "  + myFil.getName());
+		} else {
+			System.out.println("An error occured.");
+		}
+	}
+}
+
+// output - file deleted successfully.
+`
+
+
+#### Delete a Folder
+
+- you can also delete an entire folder. However, it must be empty.
+- eg. -
+`
+import java.io.File;
+
+public class DeleteFolder{
+	public class void main(String[] args){
+		File myFol = new File("C:\\Users\\MyName\\Test");
+
+		if (myFol.delete()){
+			System.out.println("Folder deleted successfully: " + myFol);
+		} else {
+			System.out.println("Folder can't be deleted.")
+		}
+	}
+}
+`
+
+
 
 ## I/O Streams
+## I/O Streams
+## I/O Streams
+## I/O Streams
+## I/O Streams
+## I/O Streams
+
+
 ## Data Structures
 ## Advanced
 ## Projects
