@@ -5874,10 +5874,45 @@ public class CopyFile{
 
 
 #### Append a File
+
+- by default, `FileOutputStream` overwrites the file if it already exists. To add(append) new content instead, pass `true` as the second argument:
+- eg. -
+`
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+public class Main{
+	public static void main(String[] args){
+		String newText = "Hello world!";
+
+		// true = append mode on(keeps existing content)
+		
+		try(FileOutputStream myFil = new FileOutputStream("filename.txt", true)){
+			myFil.write(newText.getBytes());
+			System.out.println("File appended successfully.");
+		}catch(IOException e){
+			System.out.println("An error occured while appending file.);
+			e.printStackTrace;
+		}
+	}
+}
+`
+
+- explanation - this program adds `Appended Text!` to the end of `filename.txt`, keeping the existing content.
+
+
 #### Choosing the Right Class
+
+- java gives you several ways to write to files. Here's when to pick each one:
+	- `FileWriter` - best for basic text files. Simple and easy to use.
+	- `BufferedWriter` - best for large text files, because it is faster and lets you add new lines easily.
+	- `FileOutputStream` - best for binary data (images, PDFs, audio) or when you need full control of raw bytes.
+
 
 
 ### BufferedReader
+
+- 
 #### BufferedReader and BufferedWriter
 #### Read a Text File(Line by Line)
 #### Comparing File Reading Classes
