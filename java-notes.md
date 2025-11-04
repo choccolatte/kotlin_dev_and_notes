@@ -6185,14 +6185,50 @@ public class Main{
 		| `TreeMap` - sorted map based on the natural order of keys.
 		| `LinkedHashMap` | maintains the order in which keys were inserted.
 
-- use `List` classes when you care about order, you may have duplicates, and want to access elements by index.
-- use `Set` classes when you need to store unique values only.
-- use `Map` classes when you need to store pairs of key and values, like a name and its phone number.
+- **note:**
+	- use `List` classes when you care about order, you may have duplicates, and want to access elements by index.
+	- use `Set` classes when you need to store unique values only.
+	- use `Map` classes when you need to store pairs of key and values, like a name and its phone number.
 
 
 
 ### Java List
+#### Java List Interface
+
+- the `List` interface is part of the Java Collections Framework and represents an ordered collection of elements.
+- you can access elements by their index, add duplicates, and maintain the insertion order.
+- since, List is an interface, you cannot create a List object directly.
+- instead, you use a class that implements the `List` interface, such as  -
+	- `ArrayList` - like a resizable array with fast random access.
+	- `LinkedList` - like a train of cars you can easily attach or remove.
+
+- **tip** - use `List` when you care about order, you may have duplicates, and want to access elements by index.
+
+
+#### Common List Methods
+
+- Method | Description
+----------------------
+- `add()` | adds an element to the end of the list. 
+- `get()` |  returns the element at the specified position.
+- `set()` |  replaces the element at the specified position.
+- `remove()` |  removes the element at the specified position.
+- `size()` | returns the number of elements in the list.
+
+
+#### List vs. Array
+
+- Array | List
+----------------
+- Fixed Size | Dynamic Size
+- Faster performance for raw data | more flexible and feature-rich
+- not part of Collections framework | Part of the Java Collections Framework
+
+
+
 ### ArrayList
+
+
 ### LinkedList
 ### List Sorting
 ### Set
