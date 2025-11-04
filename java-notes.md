@@ -6228,8 +6228,248 @@ public class Main{
 
 ### ArrayList
 
+- an `ArrayList` is like a resizable array.
+- It is part of the `java.util` package and implements the `List` interface.
+- the difference between a built-in array, and an `ArrayList` in Java is that the size of an array cannot be modified (if you want to add or remove elements to/from an array, you have to create a new one). While elements can be added and remove from an `ArrayList` whenever you want.
+
+
+#### Create an ArrayList
+
+- to use an `ArrayList`, you must first import it from `java.util`.
+- eg. - create an `ArrayList` object called cars that will store strings.
+`
+import java.util.ArrayList; // importing ArrayList class
+
+ArrayList<String> cars = new ArrayList<String>(); // creating an ArrayList object
+`
+
+- now, we can use methods like `add()`, `get()`, `set()` and `remove()` to manage our list of elements.
+
+
+#### Add Elements
+
+- to add elements to an `ArrayList`, use the `add()` method.
+- eg. -
+`
+import java.util.ArrayList;
+
+public class Main{
+	public static void main(String[] args){
+		ArrayList<String> cars = new ArrayList<String>();
+		cars.add("BMW");
+		cars.add("Volvo");
+		cars.add("Toyota");
+		System.out.println("Added successfully to: " + cars)
+	}
+}
+`
+
+- you can also add en element at a specified position by referring to the index number.
+- eg. -
+`
+import java.util.ArrayList;
+
+public class Main{
+	public static void main(String[] args){
+		ArrayList<String> cars = new ArrayList<String>();
+		cars.add("BMW");
+		cars.add("Volvo");
+		cars.add("Toyota");
+
+		cars.add(0, "Honda"); // insert element at the beginning of the list at index - 0
+
+		System.out.println(cars);
+	}
+}
+`
+
+- an `ArrayList` keeps the elements in the same order you add them, so the first item you add will be at index 0, the next at index 1, then 2, and so on.
+
+
+#### Access an Element
+
+- to access an element in the `ArrayList`, use the `get()` method and refer to the index number.
+- eg. -
+`
+cars.get(1); // gets the element at index 1
+`
+
+
+#### Change an Element
+
+- to modify an element, use the `set()` method and refer to the index number.
+- eg. -
+`
+cars.set(0, "Honda"); // it will replace the existing element at 0 with Honda
+`
+
+
+#### Remove an Element
+
+- to remove an element, use the `remove()` method and refer to the index number.
+- eg. -
+`
+cars.remove(0); // will remove the element at index 0.
+`
+
+- to remove all the element in the `ArrayList`, use the `clear()` method.
+- eg. -
+`
+cars.clear(); // remove all element
+`
+
+
+#### ArrayList Size
+
+- to find out how many elements an `ArrayList` has, use the `size()` method.
+- eg. -
+`
+cars.size(); // gives you the total count of the elements
+`
+
+
+#### Loop Through an ArrayList
+
+- loop through the elements of an `ArrayList` with a `for` loop, and use the `size()` method to specify how many times the loop should run.
+- eg. -
+`
+public class Main{
+	public static void main(String[] args){
+		ArrayList<String> cars = new ArrayList<String>();
+		cars.add("BMW");
+		cars.add("Ford");
+		cars.add("Honda");
+
+		for (int i = 0; i <= cars.size(); i++){
+			System.out.println(cars.get(i));
+		}
+	}
+}
+`
+
+- you can also loop through an `ArrayList` with the for-each loop.
+- eg. -
+`
+public class Main{
+	public static void main(String[] args){		ArrayList<String> cars = new ArrayList<String>();
+	cars.add("BMW");
+	cars.add("Ford");
+	cars.add("Honda");
+
+	for (String i : cars){
+		System.out.println(i);
+		}
+	}
+}
+`
+
+
+#### Other Types
+
+- elements in an `ArrayList` are actually objects. In the example above, we created elements (objects) of type "String". Remember that a `String` in java is an object (not a primitive type). To use other types, such as `int`, you must specify an equivalent wrapper class: `Integer`. For other primitive types, use: `Boolean` for booleans, `Character` for char, `Double` for double, etc.
+- eg. - create an `ArrayList` to store numbers (add elements of type `Integer`).
+`
+import java.util.ArrayList;
+
+public class Main{
+	public static void main(String[] args){
+		ArrayList<Integer> nums = new ArrayList<Integer>();
+		nums.add(1);
+		nums.add(2);
+		nums.add(3);
+		for (int i : nums){
+			System.out.println(i);
+		}
+	}
+}
+`
+
+
+#### Sort an ArrayList
+
+- another useful calss in the `java.util` package is the `Collections` class, which includes the `sort()` method for sorting lists alphabetically or numerically.
+- eg. - sort an ArrayList of Strings -
+`
+import java.util.ArrayList;
+import java.util.Collections;
+
+public class Main{
+	public static void main(String[] args){
+		ArrayList<String> cars = new ArrayList<String>();
+		cars.add("BMW");
+		cars.add("Volvo");
+		cars.add("Honda");
+
+		Collections.sort(cars); // sorts car
+		for (String i : cars){
+			System.out.println(i);
+		}
+	}
+}
+`
+
+- eg. - sort an ArrayList of integers.
+`
+import java.util.ArrayList;
+import java.util.Collections;
+
+public class Main{
+	public static void main(String[] args){
+		ArrayList<Integer> myNum = new ArrayList<Integer>();
+		myNum.add(110);
+		myNum.add(9);
+		myNum.add(90);
+		myNum.add(1);
+
+		Collections.sort(myNum);
+		for (int i : myNum){
+			System.out.println(i);
+		}
+	}
+}
+`
+
+
+#### The var keyword
+
+- from java 10, you can use the `var` keyword to declare an `ArrayList` variable without writing the type twice. The compiler figures out the type from the value you assign.
+- this makes the code shorter, but many developers still use the full type for clarity. Since `var` is valid java, you may see it in other code as well, so its good to know it exists.
+- eg. -
+`
+// without var
+ArrayList<String> cars = new ArrayList<String>();
+
+// with var
+var cars = new ArrayList<String>(); // both the syntax are the same and will do the same thing
+`
+
+
+#### The List Interface
+
+- note: sometimes, you will see both `List` and `ArrayList` in java code, like this -
+- eg. -
+`
+import java.util.List;
+import java.util.ArrayList;
+
+List<String> cars = new ArrayList<>();
+`
+
+- here, this means that the variable (cars) is declared as a `List` (the interface), but it stores an `ArrayList` object (the actual list). Since `ArrayList` implements the `List` interface, this is possible.
+- it works the same way, but some developers prefer this style because it gives them more flexibility to change the type later.
+
+
 
 ### LinkedList
+
+- 
+#### ArrayList vs LinkedList
+#### LinkedList Methods
+#### The var keyword
+#### The List Interface
+
+
+
 ### List Sorting
 ### Set
 ### HashSet
