@@ -6649,14 +6649,223 @@ public class Main{
 
 
 
-### Set
+### Set Interface
+
+- the `Set` interface is part of the java Collections Framework adn is used to store a collection of unique elements.
+- unlike a `List`, a `Set` does not allow duplicates, and it does not preserve the order of elements (unless you're using `TreeSet` or `LinkedHashSet`).
+- Common classes that implements `Set`:
+	- `HashSet` - fast and unordered
+	- `TreeSet` - sorted set
+	- `LinkedHashSet` - ordered by insertion
+
+- **tip:**
+	- use a `Set` when you need to store unique values only.
+
+	
+#### Common Set Methods
+
+- Method | Description 
+------------------------
+- `add()` | adds an element if its not already in the set. 
+- `remove()` | removes the element from the set
+- `contains()` | checks if the set contains the element
+- `size()` | returns the number of elemlents
+- `clear()` | removes all elements.
+
+
+#### Set vs List
+
+- List | Set
+------------
+- Allow duplicates | does not allow duplicates
+- Maintains Order | does not guarntee order
+- Access by index | no index-based access
+
+
+
 ### HashSet
+
+- a `HashSet` is a collection of elements where every element is unique.
+- it is part of the `java.util` package and implements the `Set` interface.
+
+
+#### Create a HashSet
+
+- here, we're creating a `HashSet` object called cars, that will store strings -
+- eg. -
+`
+import java.util.HashSet; // imports HashSet
+
+HashSet<String> cars = new HashSet<String>();
+`
+
+- now, you can use methods like `add()`, `contains()`, `remove()` to manage your collection of unique elements.
+
+
+#### Add Elements
+
+- to add elements to a `HashSet`, use the `add()` method.
+- eg. -
+`
+import java.util.HashSet;
+
+public class Main{
+	public static void main(String[] args){
+		HashSet<String> cars = new HashSet<String>();
+		cars.add("BMW");
+		cars.add("Ford");
+		cars.add("Honda");
+		cars.add("Honda");
+
+		System.out.println(cars);
+	}
+}
+`
+
+- note: in the example above, even though `Honda` is added twice, it only appears once in the set because sets do not allow duplicate elements.
+
+
+#### Check if an Element Exists
+
+- to check wehther an element exists in a `HashSet`, use the `contains()` method.
+- eg. -
+`
+cars.contains("BMW");
+`
+
+
+#### Remove an Element
+
+- to remove an element, use the `remove()` method.
+- eg. -
+`
+cars.remove("BMW");
+`
+
+- to remove all elements, use the `clear()` method.
+- eg. -
+`
+cars.clear();
+`
+
+
+#### HashSet Size
+
+- use `size()` to count how many unique elements are in the set.
+- eg. -
+`
+cars.size();
+`
+
+- note: duplicate values are not counted - only unique elements are included in the size of the set.
+
+
+#### Loop Through a Set
+
+- loop through the elements of an `HashSet` with a for-each loop.
+- eg. -
+`
+for (String i : cars){
+	System.out.println(cars)
+}
+`
+
+
+#### Other Types
+
+- elements in an `HashSet` are actually objects. In the example above, we created elements (objects) of type 'string'. remember that a `String` in java is an object (not a primitive type).
+- to use other types, such as `int`, you must specify an equivalent wrapper class: `Integer` for ints. For other primitive types, use `Boolean` for boolean, `Character` for char, `Double` for double, etc.
+- eg. - use a `HashSet` that stores `Integer` objects.
+`
+import java.util.HashSet;
+
+public class Main{
+	public static void main(String[] args){
+		// creating a HashSet called num
+		HashSet<Integer> num = new HashSet<Integer>();
+		
+		// adding values to HashSet
+		num.add(1);
+		num.add(2);
+		num.add(0);
+
+		// Show which numbers between 1 and 10 are in set
+		for (int i = 0; i < 10; i++){
+			if (num.contains(i)){
+				System.out.println(i + "was found in the Set.")
+			} else {
+				System.out.println(i + "was not found in the Set.")
+			}
+		}
+	}
+}
+`
+
+
+#### The var keyword
+
+- from java 10, you can use the `var` keyword to declare a `HashSet` variable without writing the type twice.
+- this makes the code shorter, but many developers still use the full type for clarity. since `var` is valid java, you may see it in other's code, so its good to know that it exists.
+- eg. -
+`
+// without var
+HashSet<String> cars = new HashSet<String>();
+
+// with var
+var cars = new HashSet<String>();
+`
+
+
+#### The Set Interface
+
+- sometimes, you will see both `Set` and `HashSet` in java code, like this.
+- eg. -
+`
+import java.util.Set;
+import java.util.HashSet;
+
+Set<String> cars = new HashSet<>();
+`
+
+- this means that the variable (cars) is declared as a `Set` (the interface), but it stores a `HashSet` object (the actual set). SInce `HashSet` implements the `Set` interface, this is possible.
+- it works the same way, but some developers prefer this style becausse it gives them more flexibility to change the type later.
+
+
+
 ### TreeSet
+#### Create a TreeSet
+#### Add Elements in the TreeSet
+#### Check If Elements Exists
+#### Remove an Element
+#### Remove ALL Element
+#### TreeSet Size
+#### Looping Through a TreeSet Elements
+#### Using TreeSet with Numbers
+#### HashSet vs TreeSet
+#### The var keyword 
+#### The Set Interface 
+
+
 ### LinkedHashSet
+#### Create a LinkedHashSet
+#### Add Elements in the LinkedHashSet
+#### Check If Elements Exists
+#### Remove an Element
+#### Remove ALL Element
+#### LinkedHashSet Size
+#### Looping Through a LinkedHashSet Elements
+#### Using LinkedHashSet with Numbers
+#### HashSet vs LinkedHashSet
+#### The var keyword
+#### The Set Interface 
+
+
 ### Map
 ### HashMap
 ### TreeMap
 ### LinkedHashMap
+
+
 ### Iterator
 ### Algorithms
 
