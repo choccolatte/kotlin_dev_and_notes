@@ -6462,15 +6462,193 @@ List<String> cars = new ArrayList<>();
 
 ### LinkedList
 
-- 
+- `LinkedList` class is almost identical to the `ArrayList`.
+- eg. -
+`
+// import the LinkedList class
+import java.util.LinkedList;
+
+public class Main{
+	public static void main(String[] args){
+		LinkedList<String> cars = new LinkedList<String>();
+		cars.add("BMW");
+		cars.add("Honda");
+		cars.add("Volvo");
+
+		for (String i : cars){
+			System.out.println(i);
+		}
+	}
+}
+`
+
+
 #### ArrayList vs LinkedList
+
+- the `LinkedList` class is a collection which can contain many objects of the same type, just like the `ArrayList`.
+- the `LinkedList` class has the same methods as `ArrayList` because both follow the `List`  interface. This means you can add, change, remove, or clear elements in a `LinkedList` just like you would with an `ArrayList`.
+- However, while the `ArrayList` class and the `LinkedList` class can be used in the same way, they are built very differently.
+
+
+##### How the ArrayList works?
+
+- the `ArrayList` class has a regualr array inside it. When an element is added, it is placed into the array. If the array is not big enough, a new, larger array is created to replace the old one adn the old one is removed.
+
+
+##### How the LinkedList works?
+
+- the `LinkedList` stores its elements in 'containers'. The list has a link to the first container and each container has a link to the next container in the list. To add an element to the list, the element is placed into a new container adn that container is linked to one of the other containers in the list.
+
+
+##### When to Use?
+
+- use an `ArrayList` for storing and accessing data, and `LinkedList` to manipulate data.
+
+
 #### LinkedList Methods
+
+- for many cases, the `ArrayList` is more efficient as it is common to need access to random elements in the list, but the `LinkedList` provides several methods to do certain operations more efficiently.
+- Method | Description
+----------------------
+- `addFirst()` - adds an element to the beginning of the list. 
+- `addLast()` - adds an element to the end of the list.
+- `removeFirst()` - removes an element from the beginning of the list. 
+- `removeLast()` - removes an element from the end of the list. 
+- `getFirst()` - get the element at the beginning of the list. 
+- `getLast()` - get the element at the end of the list.
+
+
 #### The var keyword
+
+- from java 10, you can use the `var` keyword to declare a `LinkedList` variable without writing the type twice. The compiler figures out the figures out the type from the value you assign.
+- this makes code shorter, but many developers still use the full type for clarity. Since `var` is valid java, you may see it in other code, so its good to know that it exists.
+- eg. -
+`
+// without var
+LinkedList<String> cars = new LinkedList<String>();
+
+// with var
+var cars = new LinkedList<String>();
+`
+
+
 #### The List Interface
+
+- note: sometimes, you will see both `List` and `LinkedList` in java code like this.
+- eg. -
+`
+import java.util.List;
+import java.util.LinkedList;
+
+List <String> cars = new LinkedList<>();
+`
+
+- this means the variable (cars) is declared as a `List` (the interface), but it stores a `LinkedList` object (the actual list). Since, `LinkedList` implements the `List` interface, this is possible.
+- it works the same way, but some developers prefer this style because it gives them more flexibility to change the style later.
 
 
 
 ### List Sorting
+
+- another useful class in the `java.util` package is the `Collections` class, which include the `sort()` method for sorting lists alphabetically or numerically.
+
+
+#### Sort an ArrayList
+
+- sort an ArrayList of Strings alphabetically in ascending order.
+- eg. -
+`
+import java.util.ArrayList;
+import java.util.Collections;
+
+public class Main{
+	public static void main(String[] args){
+		ArrayList<String> cars = new ArrayList<String>();
+		cars.add("Volvo");
+		cars.add("Honda");
+		cars.add("Audi");
+
+		Collections.sort(cars); // sorting cars
+
+		for (String i : cars){
+			System.out.println(i);
+		}
+	}
+}
+`
+
+- sorting an ArrayList of integers numerically in ascending order.
+- eg. - 
+`
+import java.util.ArrayList;
+import java.util.Collections;
+
+public class Main{
+	public static void main(String[] args){
+		ArrayList<Integer> myNum = new ArrayList<Integer>();
+		myNum.add(110);
+		myNum.add(11);
+		myNum.add(1);
+		
+		Collections.sort(myNum); // sorting myNum
+
+		for (String i : myNum){
+			System.out.println(i);
+		}
+	}
+}
+`
+
+
+#### Reverse the Order
+
+- you can also sort a list in reverse order, by using the `reverseOrder()` method.
+- in the following example, we sort an ArrayList of Strings alphabetically in reverse/descending order.
+- eg. -
+`
+import java.util.ArrayList;
+import java.util.Collections;
+
+public class Main{
+	public static void main(String[] args){
+		ArrayList<String> cars = new ArrayList<String>();
+		cars.add("Volvo");
+		cars.add("Honda");
+		cars.add("Audi");
+
+		Collections.sort(cars, Collections.reverseOrder()); // sorting cars
+
+		for (String i : cars){
+			System.out.println(i);
+		}
+	}
+}
+`
+
+- sorting an ArrayList of integers in reverse/descending order.
+- eg. -
+`
+import java.util.ArrayList;
+import java.util.Collections;
+
+public class Main{
+	public static void main(String[] args){
+		ArrayList<Integer> myNum = new ArrayList<Integer>();
+		myNum.add(110);
+		myNum.add(11);
+		myNum.add(1);
+		
+		Collections.sort(myNum, Collections.reverseOrder()); // sorting myNum
+
+		for (String i : myNum){
+			System.out.println(i);
+		}
+	}
+}
+`
+
+
+
 ### Set
 ### HashSet
 ### TreeSet
