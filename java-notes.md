@@ -6833,8 +6833,48 @@ Set<String> cars = new HashSet<>();
 
 
 ### TreeSet
+
+- a `TreeSet` is a collection that stores unique elements in sorted order.
+- it is part of the `java.util` package and implements the `Set` interface.
+- tip: Unlike `HashSet`, which has no order, `TreeSet` keeps its elements sorted automatically.
+
+
 #### Create a TreeSet
+
+- e.g. - create a `TreeSet` object called cars that will store strings:
+`
+import java.util.TreeSet; // importing treeset
+
+TreeSet<String> cars = new TreeSet<>();
+`
+
+- now, you can use the methods like add(), contains(), remove(), to manage your sorted set of elements.
+
+
 #### Add Elements in the TreeSet
+
+- to add elements to a `TreeSet`, use the `add()` method.
+- eg. -
+`
+import java.util.TreeSet;
+
+public class Main{
+	public static void main(String[] args){
+		TreeSet<String> cars = new TreeSet<>();
+		cars.add("BMW");
+		cars.add("Ford");
+		cars.add("BMW"); // duplicate
+		cars.add("Honda");
+
+		System.out.println(cars);
+	}
+}
+`
+
+- output - the elements will be sorted automatically (e.g. [BMW, Ford, Honda].)
+- note - Duplicates like "BMW" will only appear once.
+
+
 #### Check If Elements Exists
 #### Remove an Element
 #### Remove ALL Element
