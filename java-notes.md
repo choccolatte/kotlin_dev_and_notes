@@ -6992,17 +6992,140 @@ Set<String> cars = new TreeSet<>();
 
 
 ### LinkedHashSet
+
+- a `LinkedHashSet` is a collection that stores unique elements and remembers the order they were added.
+- It is part of the `java.util` package and implements the `Set` interface.
+- **Tip**
+	- use `LinkedHashSet` when you want a set that does not allow duplicates and keeps the original insertion order.
+
+
 #### Create a LinkedHashSet
+
+- eg. - create a `LinkedHashSet` object called cars that will store strings -
+`
+import java.util.LinkedHashSet; // imports LinkedHashSet class
+
+LinkedHashSet<String> cars = new LinkedHashSet<String>();
+`
+
+ now, you can use methods like `add()`, `contains()`, `remove()`, etc to manage your collection.
+
+
 #### Add Elements in the LinkedHashSet
+
+- to add elements to a `LinkedHashSet`, use the `add()` method.
+- eg. -
+`
+import java.util.LinkedHashSet;
+
+public class Main{
+	public static void main(String[] args){
+		LinkedHashSet<String> cars = new LinkedHashSet<>();
+		cars.add("Volvo");
+		cars.add("BMW");
+		cars.add("BMW"); // duplicate
+		cars.add("Honda");
+
+		System.out.println(cars);
+	}
+}
+`
+
+- output - the elements will appear in the order they were added (eg - Volvo, BMW, Honda).
+- note: Duplicates, like "BMW" are ignored, adn only one set will be printed.
+
+
 #### Check If Elements Exists
+
+- use the `contains()` to check for an element.
+- eg. -
+`
+cars.contains("BMW"); // returns true/false
+`
+
+
 #### Remove an Element
+
+- use `remove()` to remove an element.
+- eg. - 
+`
+cars.remove("Honda");
+`
+
+
 #### Remove ALL Element
+
+- use `clear()` to remove all elements.
+- eg. -
+`
+cars.clear();
+`
+
+
 #### LinkedHashSet Size
+
+- use `size()` to count how many unique elements are in the Set.
+- eg. -
+`
+cars.size(); // counts only unique elements
+`
+
+- note: duplicates values are not counted - only unique elements are included in the size.
+
+
 #### Looping Through a LinkedHashSet Elements
-#### Using LinkedHashSet with Numbers
+
+- loop through the elements of a `LinkedHashSet` with a for-each loop.
+- eg. -
+`
+LinkedHashSet<String> cars = new LinkedHashSet<>();
+// add elements
+
+// looping through
+for (String i : cars){
+	System.out.println(i);
+}
+`
+
+
 #### HashSet vs LinkedHashSet
+
+- Feature | `HashSet` | `LinkedHashSet`
+- Order | No guarnteed order | Insertion order preserved
+- Duplicates | not allowed | not allowed
+- Performance | faster | slightly slower (due to order tracking)
+
+- tip - use `HashSet` when you only care about uniqueness and speed. Use `LinkedHashSet` when the order matters.
+
+
 #### The var keyword
+
+- from java 10l, you can use the `var` keyword to declare a `LinkedHashSet` variable without writing the type twice. The compiler figures out the type from the values you assign.
+- this makes code shorter, but many devs still use the full type for clarity. Since `var` is valid java, you may see it in other code, so its good to know that it exists.
+- eg. - 
+`
+// without var
+LinkedHashSet<String> cars = new LinkedHashSet<String>();
+
+// with var
+var cars = new LinkedHashSet<String>();
+`
+
+
 #### The Set Interface 
+
+- note: sometimes, you will see both `Set` and `LinkedHashSet` in java code, like this - 
+- eg. -
+`
+import java.util.Set;
+import java.util.LinkedHashSet;
+
+Set<String> cars = new LinkedHashSet<String>();
+`
+
+- this just means the variable (cars) is declared as a `Set` (the interface), but it stores a `LinkedHashSet` object (the actual set). Since, `LinkedHashSet` implements the `Set` interface, this is possible.
+- it works the same way, but some devs prefer this style because it gives them more flexibility to change the type later.
+
 
 
 ### Map
