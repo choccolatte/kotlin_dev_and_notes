@@ -6876,14 +6876,119 @@ public class Main{
 
 
 #### Check If Elements Exists
+
+- use `contains()` to check if an element exists.
+- eg. -
+`
+cars.contains("BMW");
+`
+
+
 #### Remove an Element
+
+- use `remove()` to remove an element.
+- eg. -
+`
+cars.remove("BMW");
+`
+
+
 #### Remove ALL Element
+
+- use `clear()` to remove all elements.
+- eg. -
+`
+cars.clear();
+`
+
+
 #### TreeSet Size
+
+- use `size()` to count how many unique elements are in the set.
+- eg. -
+`
+cars.size();
+`
+
+- note: duplicate values are not counted - only unique elements are included in the size.
+
+
 #### Looping Through a TreeSet Elements
+
+- loop through the elements of a `TreeSet` with a for-each loop.
+- eg. -
+`
+TreeSet<String> cars = new TreeSet<>();
+// add elements...
+
+// loop through
+for (String i : cars){
+	System.out.println(i);
+}
+`
+
+
 #### Using TreeSet with Numbers
+
+- `TreeSet` also works with numbers and sorts them from smallest to largest.
+- eg. -
+`
+import java.util.TreeSet;
+
+public class Main{
+	public static void main(String[] args){
+		TreeSet<Integer> nums = new TreeSet<>();
+		nums.add(1);
+		nums.add(1000);
+		nums.add(100);
+
+		for(int n : nums){
+			System.out.println(n);
+		}
+	}
+}
+`
+
+- output - the numbers will be printed in sorted order (1, 100, 1000).
+
+
 #### HashSet vs TreeSet
+
+- Feature | `HashSet` | `TreeSet`
+- Order | No guarnteed order | Sorted (natural order)
+- Duplicates | Not allowed | Not allowed
+- Performance | Faster (no sorting) | Slower (due to sorting)
+
+- tip: Use `HashSet` when you care about speed, and `TreeSet` when you need sorted elements.
+
+
 #### The var keyword 
+
+- from java 10, you can use the `var` keyword to declare a `TreeSet` variable without writing the type twice. The compiler figures out the type from the value you assign.
+- this makes the code shorter, but many devs still use the full type for clarity. Since, `var` is valid java you may see it in other's code, so its good to know that it exists.
+- eg. -
+`
+// without var
+TreeSet<String> cars = new TreeSet<String>();
+
+// with var
+var cars = new TreeSet<String>();
+`
+
+
 #### The Set Interface 
+
+- note: Sometimes, you will see both the `Set` and `TreeSet` in java code, like this -
+`
+import java.util.Set;
+import java.util.TreeSet;
+
+Set<String> cars = new TreeSet<>();
+`
+
+- this means the variable (cars) is declared as a `Set`(the interface), but it stores a `TreeSet` object (the actual set). Since, `TreeSet` implements the `Set` interface, this is possible.
+- It works the same way, but some devs prefer this stylee because it gives them more flexibility to change the type later.
+
 
 
 ### LinkedHashSet
