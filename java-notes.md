@@ -7164,14 +7164,80 @@ Set<String> cars = new LinkedHashSet<String>();
 ### HashMap
 
 - a `HashMap` stores items in keys/value pairs, where each key maps to a specific value.
-- It is part of the `java.util` package and implements the `Map` 
+- It is part of the `java.util` package and implements the `Map` interface.
+- instead of accecssing elements by an index (like with ArrayList), you use a key to retrieve its associated value.
+- A `HashMap` can store many different combinations, such as:
+	- `String` keys and `Integer` values
+	- `String` keys and `String` values
+
 
 #### Create a HashMap
 
+- create a `HashMap` object called `capitalCities` that will store `String` keys and `String` values:
+- eg. -
+`
+import java.util.HashMap; // importing the HashMap class
+
+HashMap<String, String> capitalCities = new HashMap<>();
+`
+
+- now, you can use methods like `put()` to add key/value pairs, `get()` to retrieve a value by key, and `remove()` to delete an entry - all by using keys instead of index numbers.
+
+
 #### Add Items to a HashMap
+
+- to add items to a `HashMap`, use the `put()` method:
+`
+// import the HashMap class
+import java.util.HashMap;
+
+public class Main{
+	public static void main(String() args){
+		// create a HashMap object called capitalCities
+		HashMap<String, String> capitalCities = new HashMap<String, String>();
+
+		// add keys and values (Country, City)
+		capitalCities.put("India", "Delhi");
+		capitalCities.put("Norway", "Oslo");
+		capitalCities.put("Norway", "Oslo"); //duplicate
+		capitalCities.put("USA", "Washington DC");
+
+		System.out.println(capitcalCities);
+	}
+}
+`
+
+- note: in the example above, if the same key (like "Norway") is added more than once, the latest value will overwritten the previous one, because keys in a `HashMap` must be unique.
+
+
 #### Access Item in a HashMap
+
+- to access a value in the `HashMap`, use the `get()` method and refer to its key:
+- eg. -
+`
+capitalCities.get("India");
+` 
+
+
 #### Remove Items from a HashMap
+
+- to remove an item, use the `remove()` method and refer to its key.
+- eg. -
+`
+capitalCities.remmove("India");
+`
+
+- to remove all items, use the `clear()` method.
+- eg. -
+`
+capitcalCities.clear();
+`
+
+
 #### HashMap Size
+
+- 
+
 #### Loop Through a HashMap
 #### Other Types
 #### When Order Matters?
