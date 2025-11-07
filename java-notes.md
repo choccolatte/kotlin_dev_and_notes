@@ -7129,9 +7129,83 @@ Set<String> cars = new LinkedHashSet<String>();
 
 
 ### Map
+#### Map Interface
+
+- the `Map` interface is a part of the java collections framework and is used to store key-value pairs. Each key must be unique, but the values can be duplicated.
+- a `Map` is useful when you want to associate a key (like a name or ID) with a value (like an age or description).
+- Common classes that implement `Map`:
+	- `HashMap` - fast adn unordered
+	- `TreeMap` - sorted by key
+	- `LinkedHashMap` - ordered by insertion
+
+- tip: use a `Map` when you want to associate values with unieuq keys, like storing use IDs with names.
+
+
+#### Common Map Methods
+
+- Method | Description
+- `put()` | Adds or updates a key-value pair
+- `get()` | returns the value for a given key
+- `remove()` | removes the key and its value
+- `containsKey()` | checks if the map contains the key
+- `keySet()` | returns a set of all keys
+
+
+#### Map vs Set vs List
+
+- Feature | List | Set | Map
+-----------------------------
+- Duplicates Allowed? | Yes | No | Keys: No, Values: Yes
+- Stores key-value pairs? | No | No | Yes
+- Maintains order? | Yes | No (unless using TreeSet or LinkedHashSet) | No (unless using TreeMap or LinkedHashMap)
+
+
+
 ### HashMap
+
+- a `HashMap` stores items in keys/value pairs, where each key maps to a specific value.
+- It is part of the `java.util` package and implements the `Map` 
+
+#### Create a HashMap
+
+#### Add Items to a HashMap
+#### Access Item in a HashMap
+#### Remove Items from a HashMap
+#### HashMap Size
+#### Loop Through a HashMap
+#### Other Types
+#### When Order Matters?
+#### The var keyword
+#### The Map Interface
+
+
+
 ### TreeMap
+#### Create a HashMap
+#### Add Items to a HashMap
+#### Access Item in a HashMap
+#### Remove Items from a HashMap
+#### HashMap Size
+#### Loop Through a HashMap
+#### Other Types
+#### When Order Matters?
+#### The var keyword
+#### The Map Interface
+
+
+
 ### LinkedHashMap
+#### Create a HashMap
+#### Add Items to a HashMap
+#### Access Item in a HashMap
+#### Remove Items from a HashMap
+#### HashMap Size
+#### Loop Through a HashMap
+#### Other Types
+#### When Order Matters?
+#### The var keyword
+#### The Map Interface
+
 
 
 ### Iterator
