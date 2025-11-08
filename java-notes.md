@@ -7332,20 +7332,157 @@ Map<String, String> newStr = new HashMap<>();
 
 
 ### TreeMap
-#### Create a HashMap
-#### Add Items to a HashMap
-#### Access Item in a HashMap
-#### Remove Items from a HashMap
-#### HashMap Size
-#### Loop Through a HashMap
-#### Other Types
-#### When Order Matters?
+
+- a `TreeMap` is a collection that stores key/value pairs in sorted order by key.
+- it is part of the `java.util` package and implements the `Map` interface.
+- tip: unlike `HashMap`, which does not maintain order, `TreeMap` keeps its keys stored.
+
+
+#### Create a TreeMap
+
+- create a `TreeMap` that stores `String` keys and `String values:
+- eg. -
+`
+import java.util.TreeMap; // imporitng TreeMap class
+
+TreeMap<String, String> myCar = new TreeMap<String, String>();
+`
+
+- now, you can use methods like `put()`, `get()`, `remove()`, etc, to manage sorted key/value pairs.
+
+
+#### Add Items to a TreeMap
+
+- use the `put()` method to add key/value pairs.
+- eg. -
+`
+import java.util.TreeMap;
+
+public class Main{
+	public static void main(String[] args){
+		TreeMap<String, String> cars = new TreeMap<>();
+		cars.put("India", "Delhi");
+		cars.put("Norway", "Oslo");
+		cars.put("Norway", "Oslo");
+		cars.put("England", "London");
+
+		System.out.println(cars);
+	}
+}
+`
+
+- output: the keys are sorted alphabetically (e.g. - {England = London, India = Delhi, Norway = Oslo}).
+- note: Duplicates like "Norway" will only appear once.
+
+
+#### Access Item in a TreeMap
+
+- use `get()` with the key to access its value:
+- eg. - 
+`
+cars.get("India");
+`
+
+
+#### Remove Items from a TreeMap
+
+- use `remove()` to delete a key/value pair by key:
+- eg. -
+`
+cars.remove("India");
+`
+
+- use `clear()` to remove all items in the TreeMap.
+- eg. -
+`
+cars.clear();
+`
+
+
+#### TreeMap Size
+
+- use `size()` to count the number of key/value pairs.
+- eg. -
+`
+cars.size();
+`
+
+- note: the size only counts unique keys, if a key is added more than once, only the latest value is kept.
+
+
+#### Loop Through a TreeMap
+
+- loop through the items of a `TreeMap` with a for-each loop.
+- note: use the `keySet()` method if you only want the keys, and use the `values()` method if you only want the values.
+- eg. -
+`
+// print keys
+for (String i :cars.keySet()){
+	System.out.println(i);
+}
+`
+
+- eg. -
+`
+// print values
+for (String i :cars.values()){
+	System.out.println(i);
+}
+`
+
+- eg. -
+`
+// print keys and values
+for (String i :cars.keySet()){
+	System.out.println("Key: " + i + ", Value: " + cars.get(i));
+}
+`
+
+
+#### TreeMap vs HashMap
+
+- Feature | `HashMap` | `TreeMap`
+-----------------------------------
+- Order | No guarnteed order | Sorted by keys
+- Null Keys | Allows one null key | Does not allow null keys
+- Performance | Faster (no sorting) | Slower (maintains sorted order)
+
+- tip: Use `HashMap` for performance, and `TreeMap` when you need sorted keys.
+
+
 #### The var keyword
+
+- from java 10, you can use the `var` keyword to declare a `TreeMap` variable without writing the type twice. The compiler figures out the type from the value you assign.
+- This makes the code shorter, but many devs still use the full type for clarity. Since `var` is valid java, you may see it in other code, so its good to know that it exists.
+- eg. -
+`
+// without var
+TreeMap<String, String> cars = new TreeMap<String, String>();
+
+// with var
+var cars = new TreeMap<String, String>();
+`
+
+
 #### The Map Interface
+
+- note: sometimes, you will see both `Map` and `TreeMap` in java code, like this -
+- eg. - 
+`
+import java.util.Map;
+import java.util.TreeMap;
+
+Map<String, String> cars = new TreeMap<>();
+`
+
+- this means that, the variable (cars) is declared as a `Map` (the interface), but it stores a `TreeMap` object (the actual map). Since `TreeMap` implements the `Map` interface, this is possible.
+- it works the same way, but some devs prefer this style because it gives them more flexibility to change the type later.
 
 
 
 ### LinkedHashMap
+
+
 #### Create a HashMap
 #### Add Items to a HashMap
 #### Access Item in a HashMap
