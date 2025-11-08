@@ -7236,13 +7236,98 @@ capitcalCities.clear();
 
 #### HashMap Size
 
-- 
+- to find out how many items there are, use the `size()` method.
+- eg. - 
+`
+capicalCities.size();
+`
+
+- note: the size only counts unique keys, if a key is added more than once, only the latest value is kept.
+
 
 #### Loop Through a HashMap
+
+- loop through the items of a HashMap with a for-each loop.
+- note: Use the `keySet()` method if you only want the keys, and use the `values()` method if you only want the values.
+- eg. -
+`
+// print keys
+for (String i : capitalCities.keySet()){
+	System.out.println(i);
+}
+
+// print values only
+for (String j : capitalCities.values()){
+	System.out.println(j);
+}
+
+// print both key, value pairs
+for (String k : capitalCities.keySet()){
+	System.out.println("Key: " + k + " : Value : " + capitalCities.get(k));
+}
+`
+
+
 #### Other Types
+
+- keys and values in a `HashMap` are actually objects. In the example above, we used objects of type 'String'. Remember that a `String` in java is an object (not a primitive type). To use other types, such as `int`, you must specify an equivalent wrapper class: `Integer` for ints. For other primitive data types, such as `Boolean` for boolean values, `Character` for chars, `Double` for double values, etc. 
+- eg. -
+`
+// import HashMap class
+import java.util.HashMap;
+
+public class Main{
+	public static void main(String[] args){
+		// creating a new Int HashMap object
+		HashMap<String, Integer> myNum = new HashMap<String, Integer>();
+
+		// add key value pairs
+		myNum.put("John", 20);
+		myNum.put("Joe", 50);
+		myNum.put("Kyle", 25);
+
+		// printing the key value pairs
+		for (String i : myNum){
+			System.out.println("Name: " + i + " Age: " + myNum.get(i));
+		}
+	}
+}
+`
+
+
 #### When Order Matters?
+
+- when order matters, we use a `TreeMap` instead of a `HashMap`. A `TreeMap` stores key/value pairs in sorted order by key.
+
+
 #### The var keyword
+
+
+- from java 10, you can use the `var` keyword to declare a `HashMap` variable without writing the type twice. The compiler figures out the type from the value you assign.
+- This makes the code shorter, but many devs still use the full type for clarity. SInce `var` is valid java, you may see it in other codes, so its good to know that it exists.
+- eg. -
+`
+// without var
+HashMap<String, String> myStr = new HashMap<String, String>();
+
+// with var
+var myStr = new HashMap<String, String>();
+`
+
+
 #### The Map Interface
+
+- note: sometimes, you will see both `Map` and `HashMap` in java code, likek this-
+- eg. -
+`
+import java.util.Map;
+import java.util.HashMap;
+
+Map<String, String> newStr = new HashMap<>();
+`
+
+- this just means that the variable (newStr) is declared as a `Map` (the interface), but it stores a `HashMap` object (the actual map). Since, `HashMap` implements the `Map` interface, this is possible.
+- it works the same way, but some devs prefer this style because it gives them more flexibility to change the type later.
 
 
 
