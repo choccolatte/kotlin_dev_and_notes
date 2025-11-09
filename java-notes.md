@@ -7480,19 +7480,157 @@ Map<String, String> cars = new TreeMap<>();
 
 
 
+
 ### LinkedHashMap
 
+- a `LinkedHashMap` stores keys adn values, and keeps them in the same order you put them in.
+- it is part of the `java.util` package and implements the `Map` interface.
+- tip: use `LinkedHashMap` when you want predictable iteration order (insertion order).
 
-#### Create a HashMap
-#### Add Items to a HashMap
-#### Access Item in a HashMap
-#### Remove Items from a HashMap
-#### HashMap Size
-#### Loop Through a HashMap
-#### Other Types
-#### When Order Matters?
+
+#### Create a LinkedHashMap
+
+- create a LinkedHashMap`LinkedHashMap` object called `capitalCities` that will store `String` keys and `String` values.
+- eg. -
+`
+import java.util.LinkedHashMap; // imports LinkedHashMap class
+
+LinkedHashMap<String, String> capitalCities = new LinkedHashMap<>();
+`
+
+- now you can use methods like `put()` to add key/value pairs, `get()` to retrive a value by key, and `remove()` to delete an entry - all while maintaining insertion order.
+
+
+#### Add Items to a LinkedHashMap
+
+- use the `put()` method to add items to the `LinkedHashMap`.
+- eg. -
+`
+// import the LinkedHashMap class
+import java.util.LinkedHashMap;
+
+public class Main{
+	public static void main(String[] args){
+		LinkedHashMap<String, String> capitalCities = new LinkedHashMap<>();
+
+		capitalCities.put("England", "london");
+		capitalCities.put("India", "delhi");
+		capitalCities.put("England", "london"); // dduplicate
+		capitalCities.put("Norway", "oslo");
+
+		System.out.println(capitalCities);
+	}
+}
+`
+
+- output: the items will appear in the order they were added (e.g. {England = london, India = delhi, Norwat = orlo}).
+- note: duplicates like "England" are ignored.
+
+
+#### Access Item in a LinkedHashMap
+
+- use `get()` with a key to get its associated value.
+- eg -
+`
+capitalCities.get("India");
+`
+
+
+#### Remove Items from a LinkedHashMap
+
+- use `remove()` to remove an item by key.
+- eg. -
+`
+capitalCities.remove("India");
+`
+
+- use `clear()` to remove all items.
+- eg. -
+`
+capitalCities.clear();
+`
+
+
+#### LinkedHashMap Size
+
+- use `size()` to check how many key/value pairs are in the map.
+- eg. -
+`
+capitalCities.size();
+`
+
+- note: the size only counts unique keys. If a key is added more than once, only the latest value is kept.
+
+
+#### Loop Through a LinkedHashMap
+
+- you can loop through a `LinkedHashMap` using a for-each loop. Use;
+	- `keySet()` - to get all keys
+	- `values()` - to get all values
+
+- eg. -
+`
+// print keys
+for (String i : capitalCities.keySet()){
+	System.out.println(i);
+}
+` 
+
+- eg. -
+`
+// print values
+for (String j : capitalCities.values()){
+	System.out.println(j)
+}
+`
+
+- eg. -
+`
+// print key adn values both
+for (String key : capitaiCities.keySet()){
+	System.out.println("Key: " + key + ", Value: " + capitalCities.get(key));
+}
+`
+
+
+#### HashMap vs LinkedHashMap
+
+- Feature | `HashMap` | `LinkedHashMap`
+--------------------------------------
+- Order | No guarnteed order | Insertion order preserved
+- Performance | Faster for random access | Slightly slower due to ordering
+- Duplicates | Keys must be unique | Keys must be unique
+
+- tip: use `LinkedHashMap` when you want the map to remember the order in which entries were added.
+
+
 #### The var keyword
+
+- from java 10, you can use the `var` keyword to declare a `LinkedHashMap` variable without writing the type twice. The compiler figures out the type from the value you assign.
+- this makes the code shorter, but many devs still use the full type for clarity. Since `var` is valid java, you must see it in other code, so its good to know it exists.
+- eg. -
+`
+// without var
+LinkedHashMap<String, String> cars = new LinkedHashMap<String, String>();
+
+// with var
+var cars = new LinkedHashMap<String, String>();
+`
+
+
 #### The Map Interface
+
+- note: sometimes, you will see both `Map` and `LinkedHashMap` in java code. Like this.
+- eg. -
+`
+import java.util.Map;
+import java.util.LinkedHashMap;
+
+Map<String, String> cars = new LinkedHashMap<>();
+`
+
+- this means that the variable (cars) is declared as a `Map` (the interface), but it stores a `LinkedHashMap` object (the actual Map). Sinec, `LinkedHashMap` implements the `Map` interface, it is possible.
+- it works the same way, but some devs prefer this style because it gives them more flexibility to change the type later.
 
 
 
