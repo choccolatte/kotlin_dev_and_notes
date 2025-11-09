@@ -7635,6 +7635,102 @@ Map<String, String> cars = new LinkedHashMap<>();
 
 
 ### Iterator
+
+- an `Iterator` is an object that can be used to loop through collections, like `ArrayList` and `HashSet`.
+- it is called an `Iterator` because 'iterating' is the technical term for looping.
+- to use an iterator, you must import it from the `java.util` package.
+
+
+#### Getting an Iterator
+
+- the `iterator()` method can be eused to get an `iterator` for any collection.
+- eg. -
+`
+// importing the ArrayList and iterator class
+import java.util.ArrayList;
+import java.util.Iterator;
+
+public class Main{
+	public static void main(String[] args){
+		// make a collection
+		ArrayList<String> cars = new ArrayList<String>();
+		cars.add("BMW");
+		cars.add("Volvo");
+		cars.add("Honda");
+		cars.add("Mazda");
+
+		// get the iterator
+		Iterator<String> iter = cars.iterator();
+
+		// print the first item
+		System.out.println(iter.next());
+	}
+}
+`
+
+
+#### Looping Through a Collection
+
+- to loop through a collection, use the `hasNext()` and `next()` methods of the iterator.
+- eg. -
+`
+while (iter.hasNext()){ // gives true/false
+	System.out.println(iter.next());
+}
+`
+
+
+#### Removing Items from a Collection
+
+- iterators are designed to easily change the collections that they loop through. The `remove()` method can remove items from a collection while looping.
+- eg. - use an iterator to remove numbers less than 10 from a collection.
+`
+import java.util.ArrayList;
+import java.util.Iterator;
+
+public class Main{
+	public static void  main(String[] args){
+		ArrayList<Integer> nums = new ArrayList<Integer>();
+
+		nums.add(19);
+		nums.add(9);
+		nums.add(1);
+		nums.add(0);
+
+		Iterator<Integer> newNum = nums.iterator();
+
+		while(newNum.hasNext()){
+			Integer i = newNum.next();
+			if (i < 10){
+				newNum.remove();
+			}
+		}
+
+		System.out.println(nums);
+	}
+}
+`
+
+- note: trying to remove items using a for loop or a for-each loop would not work correctly because the collection is changing its size at the same time that the code is trying to loop.
+
+
+#### The var keyword with Iterators
+
+- you can also use the `var` keyword with iterators. This avoids repeating the long type name `Iterator<String>`, since the compiler already knows the type from the collection.
+- this makes the code shorter, but many devs still use the full type for clarity. since `var` is valid from java version 10, you may see it in other code, so its good to know that it exists.
+- eg. -
+`
+// without var
+Iterator<Integer> iter = nums.iterator();
+
+// with var
+var iter = nums.iterator(); 
+` 
+
+- here, `var` makes the iterator declaration shorter, but the actual type is still `Iterator<Integer>`.
+
+
+
 ### Algorithms
 
 
