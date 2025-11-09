@@ -7733,6 +7733,38 @@ var iter = nums.iterator();
 
 ### Algorithms
 
+- Earlier, we saw that, data structures like arraylist, hashmaps are used to store and organize data.
+- algorithms are used to solve problems by sorting, searching, and manipulating data structures.
+- in java, many useful algorithms are already built into the `Collections` class (found in `java.util` package), so you dont have to write them from scratch.
+
+
+#### Searching Algorithms
+
+- to find elements in a list, java provides helper methpds. The most common one is `Collections.binarySearch()`, which makes searches in a sorted list:
+- eg. -
+`
+import java.util.*;
+
+public class Main{
+	public static void main(String[] args){
+		ArrayList<String> names = new ArrayList<>();
+		names.add("John");
+		names.add("Joe");
+		names.add("Jill");
+		names.add("Johnson");
+		names.add("Rich");
+
+		Collections.sort(names); // must be sorted first
+		int index = Collections.binarySearch(names, "Jill");
+		System.out.println("Jill is at index: " + index);
+	}
+}
+`
+
+#### Sorting Algorithms
+#### Other Useful Algorithms
+#### Summary
+
 
 ## Advanced
 ### Wrapper Classes
