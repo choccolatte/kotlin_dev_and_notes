@@ -7885,11 +7885,87 @@ public class Main{
 }
 `
 
+- eg. - randomly shuffle an `ArrayList`:
+`
+import java.util.*;
+
+public class Main{
+	public static void main(String[] args){
+		ArrayList<String> cards = new ArrayList<>();
+
+		cards.add("Ace");
+		cards.add("King");
+		cards.add("Queen");
+		cards.add("Jack");
+		cards.add("Joker");
+
+		System.out.println("Unshuffled cards: " + cards)
+		Collections.shuffle(cards);
+		System.out.println("Shuffled cards: " + cards);
+	}
+}
+`
+
+- `Collections.frequency()` counts how many times an element appears in a list:
+- eg. -
+`
+import java.util.*;
+
+public class Main{
+	public static void main(String[] args){
+		ArrayList<String> fruits = new ArrayList<>();
+
+		fruits.add("Apple");
+		fruits.add("Banana");
+		fruits.add("Orange");
+		fruits.add("Banana");
+		fruits.add("Mango");
+
+		int count = Collections.frequency(fruits, "Banana");
+		System.out.println("Banana appears: " + count + " number of times.")
+	}
+}
+`
+
+- `Collections.swap()` swaps two elements in a list:
+- eg. -
+`
+import java.util.*;
+
+public class Main{
+	public static void main(String[] args){
+		ArrayList<String> fruits = new ArrayList<>();
+
+		fruits.add("Apple");
+		fruits.add("Banana");
+		fruits.add("Orange");
+		fruits.add("Banana");
+		fruits.add("Mango");
+
+		Collections.swap(fruits, 0, 4); // swap first with last element
+
+		System.out.println(fruits);
+	}
+}
+`
+
 
 #### Summary
 
+- an algorithm is a procedure to solve a problem.
+- java provides built-in algorithms in the `Collections` class.
+- common algorithms includes searching, sorting, iterating, and finding min/max.
+- algorithms work together with data structures (like `ArrayList`, `HashSet`, etc) to make your programs more powerful and efficient.
+
+
+
+
 ## Advanced
 ### Wrapper Classes
+#### Creating Wrapper Objects
+
+
+
 ### Generics
 ### Annotations
 ### RegEx
