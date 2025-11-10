@@ -7761,10 +7761,132 @@ public class Main{
 }
 `
 
-#### Sorting Algorithms
-#### Other Useful Algorithms
-#### Summary
 
+#### Sorting Algorithms
+
+- sorting is one of the most common algorithms. With `ArrayList`, you can use `Collections.sort()` to sort the elements.
+- eg. - sort a list of numbers.
+`
+import java.util.*;
+
+public class Main{
+	public static void main(String[] args){
+		ArrayList<Integer> numb = new ArrayList<>(); 
+		numb.add(5);
+		numb.add(0);
+		numb.add(10);
+		numb.add(50);
+		numb.add(15);
+
+		Collections.sort(numb);
+		System.out.println(numb); // the numbers will be sorted
+	}
+}
+`
+
+- you can also sort in reverse order with `Collections.sort(list, Collections.revereseOrder()):
+- eg. - sort an `ArrayList` in descending order:
+`
+import java.util.*;
+
+public class Main{
+	public static void main(String[] args){
+		ArrayList<Integer> numbn = new ArrayList<>();
+
+		numbn.add(5);
+		numbn.add(50);
+		numbn.add(15);
+		numbn.add(52);
+		numbn.add(534);
+
+		Collections.sort(numbn, Collections.reverseOrder());
+		System.out.println(numbn); // will be sorted in reverse
+	}
+}
+`
+
+
+#### Iterating
+
+- iterating (looping) through elements is anotehr algorithm. You can use for-each loop or the `Iterator` interface:
+- eg. - loop through an `ArrayList` using for-each -
+`
+import java.util.*;
+
+public class Main{
+	public static void main(String[] args){
+		ArrayList<Integer> nums = new ArrayList<>();
+
+		nums.add(10);
+		nums.add(1);
+		nums.add(100);
+		nums.add(11210);
+		nums.add(1023);
+
+		for (Integer n : nums){
+			System.out.println(n);
+		}
+	}
+}
+`
+
+- eg. - loop through an `ArrayList` using an `Iterator`.
+`
+import java.util.*;
+
+public class Main{
+	public static void main(String[] args){
+		ArrayList<String> colors = new ArrayList<>();
+
+		colors.add("Red");
+		colors.add("Green");
+		colors.add("Blue");
+
+		Iterator<String> iter = colors.iterator();
+
+		while(iter.hasNext()){
+			System.out.println(iter.next());
+		}
+	}
+}
+`
+
+
+#### Other Useful Algorithms
+
+- the `Collections` class contains many more algorithms, such as -
+	- `Collections.max()` - finds the largest element
+	- `Collections.min()` - finds the smallest element
+	- `Collections.shuffle()` - randomly shuffles element 
+	- `Collections.frequency()` - counts how many times an element appears
+	- `Collections.swap()` - swap two elements in a list
+
+- here, we use `Collections.max()` and `Collections.min()` to find the largest and the smallest element in an `ArrayList`:
+- eg. -
+`
+import java.util.*;
+
+public class Main{
+	public static void main(String[] args){
+		ArrayList<Integer> nums = new ArrayList<>();
+
+		nums.add(5); 
+		nums.add(50); 
+		nums.add(534); 
+		nums.add(5343); 
+		nums.add(521212);
+
+		Integer max = Collections.max(nums);
+		Integer min = Collections.min(nums);
+
+		System.out.println("Max: " + max); 
+		System.out.println("Min: " + min); 
+	}
+}
+`
+
+
+#### Summary
 
 ## Advanced
 ### Wrapper Classes
