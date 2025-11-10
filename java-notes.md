@@ -7962,11 +7962,97 @@ public class Main{
 
 ## Advanced
 ### Wrapper Classes
+
+- wrapper classes provide a way to use primitive data types (`int`, `boolean`, etc..) as objects.
+- the table below shows the primitive type and the equivalent wrapper classes:
+- Primitive Data Type | Wrapper Class
+-------------------------------------
+- byte | Byte
+- short | Short
+- int | Integer
+- long | Long
+- float | Float
+- double | Double
+- boolean | Boolean
+- char | Character
+
+- sometimes, you must use the wrapper classes, for example, when working with Collection objects, such as `ArrayList`, where primitive types cannot be used (theh list can only store objects).
+- eg. -
+`
+ArrayList<int> myNum = new ArrayList <int>(); //invalid
+
+ArrayList<Integer> myNum = new ArrayList<Integer>(); // valid
+`
+
+
 #### Creating Wrapper Objects
+
+- to create a wrapper object, use the wrapper class instead of the primitive type. To get the value, you can just print the object.
+- eg. -
+`
+public class Main{
+	public static void main(String[] args){
+		Integer myInt = 3;
+		Double myDou = 3.33;
+		Character myChar = 'a';
+
+		System.out.println(myInt);
+		System.out.println(myDoub);
+		System.out.println(myChar);
+	}
+}
+`
+
+- since, we're now working with objects, we can use certain methods to get information about the specific object.
+- for example, the following methods are used to get the value associated with the corresponding wrapper object: `intValue()`, `byteValue()`, `shortValue()`, `floatValue()`, `doubleValue()`, `charValue()`, `booleanValue()`.
+- this example, will output the same result as the example above:
+- eg. -
+`
+public class Main{
+	public static void main(String[] args){
+		Integer myInt = 3;
+		Double myDou = 3.33;
+		Character myChar = 'a';
+
+		System.out.println(myInt.intValue());
+		System.out.println(myDoub.doubleValue());
+		System.out.println(myChar.charValue());
+	}
+}
+`
+
+- another useful method is the `toString()` method, which is used to convert wrapper objects to strings.
+- in the following example, we convert an `Integer` to a `String`, and use the `length()` method of the `String` class to output the length of the 'string':
+- eg. -
+`
+public class Main{
+	public static void main(String[] args){
+		Integer myInt = 5;
+		String myString = myInt.toString();
+		System.out.println(myString);
+	}
+}
+`
 
 
 
 ### Generics
+
+- Generics allows you to write classes, interfaces, and methods that work with different data types, without having to specify the exact type in advance.
+- this makes your code more flexible, reusable, and type-safe.
+
+
+#### Why use Generics?
+
+- 
+#### Generics Class Example
+#### Generics Method Example
+#### Bounded Types
+#### Generic Collections
+#### Summary
+
+
+
 ### Annotations
 ### RegEx
 ### Lambda
