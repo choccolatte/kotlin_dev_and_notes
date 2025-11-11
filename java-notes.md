@@ -8044,10 +8044,88 @@ public class Main{
 
 #### Why use Generics?
 
-- 
+- code reusability - write one class or method that works with different data types.
+- type safety - catch type errors at compile time instead of runtime.
+- cleaner code - no need for casting when retrieving objects.
+
+
 #### Generics Class Example
+
+- you can create a class that works with different data types using generics:
+- eg. -
+`
+class Box<T>{
+	T value; // T is a placeholder for any data type
+
+	void set(T value){
+		this.value = value;
+	}
+
+	T get(){
+		return value;
+	}
+}
+
+public class Main{
+	public static void main(String[] args){
+		// create a box to hold a String
+		Box<String> stringBox = new Box<>();
+		stringBox.set("Hello");
+		System.out.println("Value: " + stringBox.get());
+
+		// create a box to hold an integer
+		Box<Integer> intBox = new Box<>();
+		intBox.set(500);
+		System.out.println("Value: " + intBox.get());
+	}
+}
+`
+
+- `T` here, is a generic type parameter. Its like a placeholder for a data type -
+	- When you create a `Box<String>`, `T` becomes `String`.
+	- When you create a `Box<Integer>`, `T` becomes `Integer`.
+
+- this way, the same class can be reused with different data types without writing the code.
+
+
 #### Generics Method Example
+
+- you can also create methods that work with any data type using generics:
+- eg. -
+`
+public class Main{
+	// generic method: works with any type T
+	public static <T> void printArray(T[] array){
+		for (T item : array){
+			System.out.println(item);
+		}
+	}
+
+	public static void main(String[] args){
+		// array of strings
+		String[] names = {"Joe", "John"};
+
+		// array of integers
+		Integer[] nums = {1, 2, 3};
+
+		// call the generic method with both arrays
+		printArray(names);
+		printArray(nums);
+	}
+}
+` 
+
+- example explained -
+	- `<T>`is a generic type parameter - it means the method can work with any data type - `String`, `Integer`, `Double`, etc.
+	- The method `printArray()` takes an array of type `T` and prints every element.
+	- When you call the method, Java figures out what `T` should be based on the argument you pass in.
+
+- this is useful when you want to write one method that works with multiple types, instead of repeating code for each one.
+
+
 #### Bounded Types
+
+- 
 #### Generic Collections
 #### Summary
 
