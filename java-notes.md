@@ -8125,14 +8125,77 @@ public class Main{
 
 #### Bounded Types
 
-- 
+- you can use the `extends` keyword to limit the types a generic class or method can except.
+- for example, you can reqire the type must be a subclass of `Number`:
+- eg. -
+`
+class Stats<T extends Number>{
+	T[] nums;
+
+	// constructor
+	Stats(T[] nums){
+		this.nums = nums;
+	}
+
+	// calculate average
+	double average(){
+		double sum = 0;
+		for (T num : nums){
+			sum += num.doubleValue();
+		}
+
+		return sum / nums.length;
+	}
+}
+
+public class Main{
+	public static void main(String[] args){
+		// use with integer
+		Integer[] intNums = {10, 20, 30, 40, 50};
+		Stats<Integer> intStats = new Stats<>(intNums);
+		System.out.println("Integer avg: " + intStats.average());
+
+		// use with double
+		Double[] doubleNums = {1.5, 2.5, 3.5, 4.5, 5.0};
+		Stats<Double> doubleStats = new Stats<>(DoubleNums);
+		System.out.println("Double avg: " + doubleStats.average());
+	}
+}
+`
+
+- even though `int` values are used in the first case, the `.doubleValue()` method converts them to double, so the result is shown with a decimal point.
+
+- Example explained:
+	- `<T extends Number>`: restricts `T` to only work with numeric types like `Integer`, `Double`, or `Float`.
+	- `.doubleValue()`: converts any number to a `double` for calculation.
+	- works for any array of numbers as long as the elements are subclasses of `Number`.
+
+
 #### Generic Collections
+
+- Java Collections like `ArrayList` and `HashMap` use generics internally.
+- eg. -
+`
+ArrayList<String> list = new ArrayList<>();
+list.add("Apple");
+String fruit = list.get(0); //no need to cast
+`
+
+
 #### Summary
+
+- generics make your code flexible and type-safe.
+- use `T` or another letter to define a type placeholder.
+- genrics can be applied to classes, methods, and interfaces.
+- use bounds to limit what types are allowed.
 
 
 
 ### Annotations
+
+
 ### RegEx
+
 ### Lambda
 ### Threads
 ### Advanced Sorting
