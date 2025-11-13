@@ -8193,6 +8193,128 @@ String fruit = list.get(0); //no need to cast
 
 ### Annotations
 
+- Annotations are special notes you add to your java code. They start with the `@` symbol.
+- they dont change how your program runs, but they give extra information to the compiler or tools.
+
+
+#### Built-in Annotations
+
+- java includes several built-in annotations. Here are some of the most commonly used:
+- Annotations | Description
+---------------------------
+- `@Override` | Indicates that a method overrides a method in a superclass.
+- `@Deprecated` | Marks a method or class as outdated or discouraged from use.
+- `@SuppressWarnings` | Tells the compiler to ignore certain warnings.
+
+
+#### @Override Annotations
+
+- the `@Override` annotation helps the compiler check that a method really overrides a method from a superclass.
+- its not required, but its highly recommended because it helps catch errors.
+- In this example, we clearly indicate that we are overriding a method:
+- eg. -
+`
+class Animal{
+	void makeSound(){
+		System.out.println("Animal sound.");
+	}
+}
+
+class Dog extends Animal{
+	@Override
+	void makeSound(){
+		System.out.println("Woof!");
+	}
+}
+`
+
+- if you accidently write the wrong method name (eg. `makeSound()`), the compiler will show an error like this - 
+- eg. -
+`
+class Animal{
+	void makeSound(){
+		System.out.println("Animal Sound!");
+	}
+}
+
+class Dog extends Animal{
+	@Override
+	void makesound(){ // typo here! - didnt use Capital letter - S
+		System.out.println("Woof!");
+	}
+}
+
+public class Main{
+	public static void main(String[] args){
+		Animal myDog = new Dog();
+		myDog.makeSound();
+	}
+}
+`
+
+- output - Main.java:8: error: method does not override or implement a method from a supertype
+  @Override
+  ^
+1 error
+
+
+- thats the power of `@Override` - it prevents silent mistakes.
+- if you try to remove `@Override` line in the example above, the compiler wont warn you, and the method wont override anything. Your program may still run, but it could behave unexpectedly because the intended method was never actually overridden.
+
+
+#### @Deprecated Annotations
+
+- the `@Deprecated` annotation warns the deveopers not to use a method because it may be removed or replaced in the future.
+- eg. -
+`
+public class Main{
+	@Deprecated
+	static void oldMethod(){
+		System.out.println("This method is outdated.");
+	}
+
+	public static void main(String[] args){
+		oldMethod(); // this will show a warning in most IDEs
+	}
+}
+`
+
+- even though the method runs and prints the message, most IDEs or compilers will show a message/warning like this -
+`
+warning: [deprecation] oldMethod() in Main has been deprecated
+`
+
+
+#### @SuppressWarnings Annotations
+
+- the `@SuppressWarnings` annotation tells the comiler to ignore specific warnings, like, 'unchecked' or 'deprecation'.
+- eg. -
+`
+import java.util.ArrayList;
+
+public class Main{
+	@SuppressWarnings ("unchecked")
+	public static void main(String[] args){
+		ArrayList newArr = new ArrayList<>();
+		newArr.add("Volvo");
+		System.out.println(newArr);
+	}
+}
+
+- output - [Volvo]
+`
+
+- using raw types like `ArrayList` without specifying a type (eg. - `ArrayList<String>`) usually causes an 'unchecked' warning.
+- this annotation `@SuppressWarnings("unchecked")` tells the compiler to ignore that warning. This is useful when working with old code or when you're sure the operation is safe.
+- however, instead of hiding the warning, you can fix it like this -
+`
+ArrayList<String> newArr = new ArrayList<>();
+`
+
+- this approach is type-safe and avoids the need for suppression.
+
+
+
 
 ### RegEx
 
