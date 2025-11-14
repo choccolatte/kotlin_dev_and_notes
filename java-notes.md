@@ -8358,14 +8358,182 @@ public class Main{
 
 #### Flags
 
-- 
+- flags in the `compile()` method change how the search is performed. Here are a few of them -
+	- `Pattern.CASE_INSENSITIVE` - the case of letters will be ignored when performing a search.
+	- `Pattern.LITERAL` - special characters in the pattern will not have any special meaning and will be treated as ordinary characters when performing a search.
+	- `Pattern.UNICODE_CASE` - use it together with the `CASE_INSENSITIVE` flag to also ignore the case of letters outside of the ENglish alphabet.
+
 
 #### Regular Expressions Patterns
+
+- the first parameter of the `Pattern.compile()` method is the pattern. It describes what is being searched for.
+- brackets are used to find a range of characters -
+	- Expression | Description
+	--------------------------
+	- [abc] - find one character from the options between the brackets. 
+	- [^abc] - find one character NOT between the brackets.
+	- [0-9] - find one character from the range 0 to 9.
+
+
 #### Metacharacters
+
+- metacharacters are characters with a special meaning -
+- Metacharacter | Description
+---------------------------------
+- | - find a match for any one of the patterns seperated by | as in: cat|dog|fish.
+- . - find just one instance of any character.
+- ^ - finds a match as the beginning of a string as in: ^Hello
+- $ - finds a match at the end of the string as in: World$
+- \d - find a digit
+- \s - find a whitespace character
+- \b - find a match at the beginning of a word like this: \bWORD, or at the end of a word like this: WORD\b
+- \uxxxx - find the Unicode character specified by the hexadecimal number xxxx.
+
+
 #### Quantifiers
 
-### Lambda
+- quantifiers define quantities:
+- Quantifier | Description
+---------------------------
+- n+ | matches any string that contains at least one n
+- n* | matches any string that contains zero or more occurances of n
+- n? | matches any string that contains zero or one occurances of n
+- n{x} | matches any string that contains a sequence of X n's
+- n{x, y} | matches any string that contains a sequence of X to Y n's
+- n{x,} | matches any string that contains a sequence of at least X n's
+
+
+
 ### Threads
+
+- threads allows a program to operate more efficiently by doing multiple things at the same time.
+- threads can beb used to perform complicated tasks in the background without interrupting the main program.
+
+
+#### Creating a Thread
+
+- there are two ways to create a thread.
+- it can be created by extending the `Thread` class and overriding its `run()` method.
+- extend syntax
+`
+public class Main extends Thread{
+	public void run(){
+		System.out.println("This code is running in a Thread.);
+	}
+}
+`
+
+- another way to create a thread is to implement the `Runnable` interface:
+- implement syntax -
+`
+public class Main implements Runnable{
+	public void run(){
+		System.out.println("This code is running in a Thread.");
+	}
+}
+`
+
+
+#### Runnig Threads
+
+- if the class extends the `Thread` class, the thread can be run by creating an instance of the class and call its `start()` method:
+- extend example -
+`
+public class Main extends Thread{
+	public static void main(String[] args){
+		Main thread = new Main();
+		thread.start();
+		System.out.println("This code is outside the thread");
+	}
+
+	public void run(){
+		System.out.println("This code is inside the thread.");
+	}
+}
+`
+
+- if the class implements the `Runnable` interface, the thread can be run by passing an instance of the class to a `Thread` object's constructor and then calling the thread's `start()` method:
+- implements example -
+`
+public class Main implements Runnable{
+	public static void main(String[] args){
+		Main obj = new Main();
+		Thread thread = new Thread(obj);
+		thread.start();
+		System.out.println("This code is outside of the thread.");
+	}
+
+	public void run(){
+		System.out.println("This code is inside of the thread.");
+	}
+} 
+`
+
+- **differences between 'extending' and 'implementing' Threads**
+- the major difference is that when a class extends the Thread class, you cannot extend any other class, but by implementing the Runnable interface, it is possible to extend from another class as well, like: class `MyClass extends OtherClass implements Runnable`.
+
+
+#### Concurrency Problems
+
+- because threads run at the same time as other parts of the program, there is no way to know in which ordeer the code will run. When the threads and main program adn writing the same variables, the values are unpredictable. The problems that result from this are called concurrency problems.
+- eg. - a code example where the value of the variable amount is unpredictable.
+`
+public class Main extends Thread{
+	public static int amount = 0;
+
+	public static void main(String[] args){
+		Main thread = new Main();
+		thread.start();
+		System.out.println(amount);
+
+		amount++;
+		System.out.println(amount);
+	}
+
+	public void run(){
+		amount++;
+	}
+}
+`
+
+- to avoid concurrency problems, it is best to share a few attributes between threads as possible. If attributes need to be shared, one possible solution is to use the `isAlive()` method of the thread to check whether the thread has finished running before using any attributes that the thread can change.
+- eg. - use `isAlive()` to prevent concurrency problems -
+`
+public class Main extends Thread{
+	public static int amount = 0;
+
+	public static void main(String[] args){
+		Main thread = new Main();
+		thread.start();
+		
+		// wait for the thread to finish
+		while(thread.isAlive()){
+			System.out.println("Waiting.....");
+		}
+
+		// update the amount and print its value
+		System.out.println("Main: " + amount);
+		amount++;
+		System.out.println("Main: " + amount);
+	}
+
+	public void run(){
+		amount++;
+	}
+}
+`
+
+
+
+### Lambda
+#### Lambda Expressions
+#### Lambda Syntax
+#### Using Lambda Expressions
+#### Lambda in Variables
+#### Lambda as Method Parameters
+#### Anonymous Class vs Lambda Expression
+
+
 ### Advanced Sorting
 
 ## Projects
