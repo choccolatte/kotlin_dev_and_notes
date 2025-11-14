@@ -8317,6 +8317,52 @@ ArrayList<String> newArr = new ArrayList<>();
 
 
 ### RegEx
+#### Regular Expressions
+
+- a Regular Expression is a sequence of characters that forms a search pattern. When you search for data in a text, you can use this search pattern to describe what you're searching for.
+- a regular expression can be a single character, or a more complicated pattern.
+- Regular Expressions can be used to perform all types of text search and text replace operations.
+- java does not have a built-in Regular Expressions class, but we can import the `java.util.regex` package to work with regular expressions. The package includes the following classes-
+	- `Pattern` class - defines a pattern (to be used in a search).
+	- `Matcher` class - used to search for the pattern.
+	- `PatternSyntaxException` class - indicates syntax error in a regular expression pattern.
+- eg. - find out if there are any occurances of the word "World" in a sentence.
+`
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+public class Main{
+	public static void main(String[] args){
+		Pattern myPat = Pattern.compile("World", Pattern.CASE_INSENSITIVE);
+		Matcher myMat = myPat.matcher("Hello world!");
+
+		boolean matchFound = matcher.find();
+
+		if (matchFound){
+			System.out.println("Match found");
+		} else {
+			System.out.println("Match not found.")
+		}
+	}
+}
+
+// outputs - match found
+`
+
+- **example explained** 
+- here, in this example, the word "world" is being searched for in a sentence.
+- first, the pattern is created using the `Pattern.compile()` method. The first parameter indicates which pattern is being searched for and the second paramter has a flag to indicate that the search should be case-insensitive. The second parameter is optional.
+- the `matcher()` method is used to search for the pattern in a string. It returns a Matcher object which contains information about the search that was performed.
+- the `find()` method then returns true if the pattern was found in the string and false if it was not found. 
+
+
+#### Flags
+
+- 
+
+#### Regular Expressions Patterns
+#### Metacharacters
+#### Quantifiers
 
 ### Lambda
 ### Threads
