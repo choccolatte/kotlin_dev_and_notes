@@ -8527,14 +8527,155 @@ public class Main extends Thread{
 
 ### Lambda
 #### Lambda Expressions
+
+- Lambda Expressions were added in java 8.
+- a Lambda Expression is a short block of code that takes in parameters and returns a value. Lambdas look similar to methods, but they do not need a name, and they can be written right inside a method body.
+
+
 #### Lambda Syntax
+
+- the simplest lambda expression contains a single parameter and an expression:
+`
+parameter -> expression
+`
+
+- to use more than one parameter, wrap them in parantheses:
+`
+(parameter1, parameter2) -> expression
+`
+
+- simple expressions must return a value immediately. They cannot contain multiple statements, such as loops or `if` conditions. To do more complex work, use a code block with curly braces. If the lambda should return a value, use the `return` keyword:
+`
+(parameter1, parameter2) -> {
+	// code block
+	return result;
+}
+`
+
+
 #### Using Lambda Expressions
+
+- Lambdas are often passed as arguments to methods. For example, you can use a Lambda in the `forEach()` method of an `ArrayList`:
+- eg.-
+`
+import java.util.ArrayList;
+
+public class Main{
+	public static void main(String[] args){
+		ArrayList<Integer> nums = new ArrayList<Integer>();
+		nums.add(5);
+		nums.add(50);
+		nums.add(500);
+		nums.add(5000);
+		nums.add(500000);
+
+		nums.forEach((n) -> { System.out.println(n); })
+	}
+}
+`
+
+
 #### Lambda in Variables
+
+- a Lambda Expression can be stored in a variable. The variable's type must be an interface with exactly one method (a functional interface). The Lambda must match that method's parameters and return type.
+- java includes many built-in functional interfaces, such as `Consumer` (from the `java.util` package) used with lists.
+- eg. -
+`
+import java.util.ArrayList;
+import java.util.function.Consumer;
+
+public class Main{
+	public static void main(String[] args){
+		ArrayList<Integer> nums = new ArrayList<Integer>();
+		nums.add(5);
+		nums.add(50);
+		nums.add(500);
+		nums.add(5000);
+		nums.add(500000);
+
+		Consumer<Integer> method = (n) -> { System.out.println(n); };
+		nums.forEach(method);
+	}
+}
+`
+
+
 #### Lambda as Method Parameters
+
+- you can also pass a Lambda Expression to a method. the method's parameter must be a functional interface. Calling the interface's method will then run the Lambda Expression:
+- eg. -
+`
+interface StringFunction{
+	String run(String str);
+}
+
+public class Main{
+	public static void main(String[] args){
+		StringFunction exclaim = (s) -> s + "!";
+		StringFunction ask = (s) -> s + "?";
+		printFormatted("Hello", exclaim);
+		printFormatted("Hello", ask);
+	}
+
+	public static void printFormatted(String str, StringFunction format){
+		String result = format.run(str);
+		System.out.println(result);
+	}
+}
+`
+
+
 #### Anonymous Class vs Lambda Expression
 
+- in java 8+, you can often replace an anonymous class with a Lambda Expression - but only if the interface is a functional interface (one abstract method).
+- example: same task, two ways (interface with one method):
+- eg. - Anonymous Class
+`
+// functional interface (one abstract method)
+interface Greeting{
+	void sayHello();
+}
 
-### Advanced Sorting
+public class Main{
+	public static void main(String[] args){
+		Greeting g = new Greeting(){
+			public void sayHello(){
+				System.out.println("Hello from anon class.");
+			}
+		}
+
+		g.sayHello();
+	}
+}
+`
+
+- eg. - Lambda Expressions
+`
+// same functional interface
+interface Greeting{
+	void sayHello();
+}
+
+public class Main{
+	public static void main(String[] args){
+		Greeting g = () -> System.out.println("Hello from lambda interface."_;
+		g.sayHello();
+	}
+}
+`
+
+- rule of thumb:
+	- use a `lambda` for short, single-method interfaces. USe an anonymous class when you need to override multiple methods, add fields, or extend a class.
+
+
+
+### Advanced Sorting (Comparator and Comparable)
+#### Advanced Sorting
+#### Comparators
+#### The Comparable Interface
+#### Comparator vs. Comparable
+
+
 
 ## Projects
 ## How To's
