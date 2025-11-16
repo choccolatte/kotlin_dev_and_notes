@@ -8671,7 +8671,100 @@ public class Main{
 
 ### Advanced Sorting (Comparator and Comparable)
 #### Advanced Sorting
+
+- in the list sorting chapter, we learned how to sort lists alphabetically and numerically, but what if the list has objects in it?
+- to sort objects, we need to specify a rule that decides how objects should be sorted. For example, if you have a list of cars you might want to sort them by the year, the rule could be that cars with an earlier year go first.
+- the `Comparator` and `Comparable` interfaces allow you to specify what rule is used to sort objects.
+- being able to specify a sorting rule allows you to change how strings and numbers are sorted.
+
+
 #### Comparators
+
+- an object that implements the `Comparator` interface is called a Comparator.
+- the `Comparator` interface allows you to create a class with a `compare()` method that compares two objects to decide which one should go first in a list.
+- the `compare()` method should return a number which is :
+	- negative if the first object should go first in a list.
+	- positive, if the second object should go first in a list.
+	- zero, if the order does not matter.
+- a class that implements the `Comparator` interface might look something like this-
+- eg. -
+`
+// sort Car objects by year
+class SortByYear implements Comparator{
+	public int compare(Object obj1, Object obj2){
+		// make sure that the objects are Car objects
+		Car a = (Car) obj1;
+		Car b = (Car) obj2;
+
+		// compare the objects
+		if (a.year < b.year) return -1; // the first car has a smaller year
+		if (a.year > b.year) return 1; // the first car has a larger year
+		return 0; // both cars have the same year
+	}
+}
+`
+
+- to use the comparator, pass it as an argument into a sorting method:
+- eg. -
+`
+Comparator mycomparator = new SortByYear();
+Collections.sort(myCars, mycomparator);
+`
+
+- here is a complete example using a comparator to sort a list of cars by the year:
+- eg. -
+`
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+
+// define a car class
+class Caar{
+	public String brand;
+	public String model;
+	public int year;
+
+	public Car(String b, String m, int y){
+		brand = b;
+		model = m;
+		year = y;
+	}
+}
+
+// create a comparator
+class SortByYear implements Comparator{
+	public int compare(Object obj1, Object obj2){
+		// ensure that the objects are car objects
+		Car a = (Car) obj1;
+		Car b = (Car) obj2;
+
+		// compare the year of both objects
+		if (a.year < b.year) return -1; // the first car has a lesser year
+		if (a.year > b.year) return 1; // the first car has a bigger year
+		return 0;
+	}
+}
+
+public class Main{
+	public static void main(String[] args){
+		// create a list of cars
+		ArrayList<Car> myCars = new ArrayList<>();
+		myCars.add("Honda", "NSX", "2025");
+		myCars.add("Ford", "Mustang GTD", "2026");
+		myCars.add("Toyota", "Supra", "2024");
+
+		// use a comparator to sort the cars
+		Comparator mycomparator = new SortByYear();
+		Collections.sort(myCars, mycomparator);
+
+		// display the cars
+		for (Car c : myCars){
+			System.out.println(c.brand + " " + c.model + " " + c.year);
+		}
+	}
+}
+`
+
 #### The Comparable Interface
 #### Comparator vs. Comparable
 
