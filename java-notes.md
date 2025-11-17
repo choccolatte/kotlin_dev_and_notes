@@ -8765,7 +8765,114 @@ public class Main{
 }
 `
 
+- **using aLambda Expression**
+
+- to make the code shorter, the comparator can be replaced with a lambda expression which has the same arguments and return value as the `compare()` method:
+- eg. - use a lamdda expression as a comparator:
+`
+Collections.sort(mySort, (obj1, obj2) -> {
+	Car a = (Car) obj1;
+	Car b = (Car) obj2;
+
+	if (a.year < b.year) return -1;
+	if (a.year > b.year) return 1;
+	return 0;
+});
+`
+
+- **Special Sorting Rules**
+
+- comparators can also be used to make special sorting rules for strings and numbers. In this example, we use a comparator to list all of the even numbers before the odd ones:
+- eg. -
+`
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+
+class SortEventFirst implements Comparator{
+	public int compare (Object obj1, Object obj2){
+		// make sure the objects are integers
+		Integer a = (Integer)obj1;
+		Integer b = (Integer)obj2;
+
+		// check each number to see if it is even
+		// a number is even if the remainder when dividing by 2 is 0
+		boolean aIsEven = (a % 2) == 0;
+		boolean bIsEven = (b % 2) == 0;
+
+		if (aIsEven == bIsEven){
+			// if both numbers are even or both are odd then use normal sorting rules
+			if (a < b) return -1;
+			if (a > b) return 1;
+			return 0;
+		} else {
+			// if a is even then it goes first, otherwise b goes first
+			if (aIsEven){
+				return -1;
+			} else {
+				return 1;
+			}
+		}
+	}
+}
+
+public class Main{
+	public static void main(String[] args){
+		ArrayList<Integer> myNum = new ArrayList<Integer>();
+		myNum.add(30);
+		myNum.add(300);
+		myNum.add(3);
+		myNum.add(13);
+		myNum.add(3003);
+
+		Comparator myComparator = new SortEvenFirst();
+		Collections.sort(myNum, myComparator);
+
+		for (int i : myNum){
+			System.out.println(i);
+		}
+	}
+}
+`
+
+
+
 #### The Comparable Interface
+
+- the `Comparable` interface allows an object to specify its own sorting rule with a `compareTo()` method.
+- the `compareTo()` method takes an object as an argument and compares the comparable with the argument to decide which one should go first in a list.
+- like the comparator, the `compareTo()` method returns a number which is:
+	- negative, if the comparable should go first in a list.
+	- positive, if the other object should go first in a list.
+	- zero, if the order does not matter.
+
+- **note:**
+	- many native java classes implement the `Comparable` interface, such as `String` and `Integer`.
+	- This is why strings and numbers do not need a comparator to be sorted.
+
+- an object that implements the `Comparable` interface might look something like this:
+`
+class Car implements Comparable{
+	public String brand;
+	public String model;
+	public int year;
+
+	// decide how this object compares to other objects
+	public int compareTo(Object obj){
+		Car other = (Car)obj;
+		if (year < other.year) return -1; // this object is smaller than the other one
+		if (year > other.year) return 1; // this object is larger than the other one
+		return 0; // both objects are the same
+	}
+}
+`
+
+- here's the same example as before but using the `Comparable` interface instead of a comparator:
+- eg. -
+`
+
+`
+
 #### Comparator vs. Comparable
 
 
