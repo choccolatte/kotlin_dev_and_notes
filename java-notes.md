@@ -8870,10 +8870,77 @@ class Car implements Comparable{
 - here's the same example as before but using the `Comparable` interface instead of a comparator:
 - eg. -
 `
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
+// define a Car class which is comparable
+class Car implements Comparable {
+	public String brand;
+	public String model'
+	public int year;
+
+	public Car(String b, String m, int y){
+		brand = b;
+		model = m;
+		year = y;
+	}
+
+	// decide how this object compares to other objects
+	public int compareTo(Object obj){
+		Car other = (Car) obj;
+		if (year < other.year) return -1; // this object is smaller than the other one 
+		if (year > other.year) return 1; // this object is larger than the other one 
+		return 0; // both objects are the same
+	}
+}
+
+public class Main{
+	public static void main(String[] args){
+		// create a list of cars
+		ArrayList<Car> myCar = new ArrayList<Car>();
+		myCar.add(new Car("BMW", "X5", 2023));
+		myCar.add(new Car("Audi", "R8", 2024));
+		myCar.add(new Car("Toyota", "Supra", 2025));
+		myCar.add(new Car("Honda", "Civic", 2026));
+		myCar.add(new Car("Mustang", "GTD", 2020));
+
+		// sort the cars
+		Collections.sort(myCar);
+
+		// display the cars
+		for (Car c : myCar){
+			System.out.println(c.brand + " " + c.model + " " + c.year);
+		}
+	}
+}
 `
 
+- **A Common Sorting Trick**
+	- the most obvious way to sort two numbers naturally is to write something like this -
+	`
+	if (a.year < b.year) return -1; // a is less than b
+	if (a.year > b.year) return -1; // a is greater than b
+	return 0; // a is equal to b
+	`
+
+	- but it can actually be done with just a single line:
+	`
+	return a.year - b.year;
+	`
+
+	- this trick can also be used to easily sort things in reverse:
+	`
+	return b.year - a.year;
+	`
+
+
 #### Comparator vs. Comparable
+
+- a comparator is an object with one method that is used to compare two different objects.
+- a comparable is an object which can compare itself with other objects.
+- it is easier to use the `Comparable` interface when possible, but the `Comparator` interface is more powerful because it allows you to sort any kind of object even if you cannot change its code.
+
 
 
 
