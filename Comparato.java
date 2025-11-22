@@ -37,13 +37,23 @@ public class Comparato {
 		myCar.add(new Car("Ford", "GTD", 2026));
 		myCar.add(new Car("Toyota", "Supra", 2024));
 
-		// use a comparator to sort the cars
-		Comparator myComparator = new SortCarByYear();
-		Collections.sort(myCar, myComparator);
+		// // use a comparator to sort the cars
+		// Comparator myComparator = new SortCarByYear();
+		// Collections.sort(myCar, myComparator);
 
-		// display the cars
-		for (Car c : myCar){
-			System.out.println(c.brand + " " + c.model + " " + c.year);
-		}
+		// // display the cars
+		// for (Car c : myCar){
+		// 	System.out.println(c.brand + " " + c.model + " " + c.year);
+		// }
+
+	// using lambda exp instead of comparator
+	Collections.sort(myCar, (obj1, obj2) -> {
+		Car a = (Car) obj1;
+		Car b = (Car) obj2;
+
+		if (a.year < b.year) return -1;
+		if (a.year > b.year) return 1;
+		return 0;
+	});
 	}	
 }
