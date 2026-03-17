@@ -61,3 +61,65 @@ val result = when(day){
 	else -> "Invalid Day"
 }
 println(result)
+
+// arrays in Kotlin
+val cars = arrayOf("BMW", "Toyota", "Honda")
+if ("Honda" in cars){
+	println("Exists")
+} else {
+	println("Doesnt exist")
+}
+
+// looping through array
+for(x in cars){
+	println(x)
+}
+
+// ranges
+val x = 59
+for(y in 1..100){
+	if (x  == y){
+		println(y)
+		break
+	}
+}
+
+// funcs
+fun exists(){
+	// ranges
+	val x = 59
+	for(y in 1..100){
+		if (x  == y){
+			println(y)
+			break
+		}
+	}	
+}
+
+exists()
+
+// with parameters
+fun myFunc(fName: String, lName: String, age: Int){
+	println(fName + " " + lName + " "+ "is" + " "+ age + " years old.")
+	return 0
+}
+
+myFunc("John", "Doe", 1000)
+
+// class creation
+class Student{
+	var name = " "
+	var grade = ' '
+	var roll = 0
+
+	fun grade(marks: Int){
+		
+	}
+}
+
+val john = Student()
+john.name = "John"
+john.grade = 'A'
+john.roll = 10
+
+println(john)
