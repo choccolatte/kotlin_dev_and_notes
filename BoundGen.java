@@ -19,7 +19,7 @@ class Stats <T extends Numbers> {
 public class BoundGen {
 	public static void main(String[] args){
 		// use with int
-		Integer[] intNums = {10, 20, 30, 40, 50};
+		Int[] intNums = {10, 20, 30, 40, 50};
 		Stats<Integer> intStats = new Stats<>(intNums);
 		System.out.println("Int average: " + intStats.average());
 

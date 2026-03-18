@@ -110,10 +110,10 @@ myFunc("John", "Doe", 1000)
 class Student{
 	var name = " "
 	var grade = ' '
-	var roll = 0
+	final var roll = 0
 
 	fun grade(marks: Int){
-		
+
 	}
 }
 
@@ -123,3 +123,4 @@ john.grade = 'A'
 john.roll = 10
 
 println(john)
+
