@@ -124,3 +124,19 @@ john.roll = 10
 
 println(john)
 
+// a user class 
+class User{
+	var userName = " "
+	val userId = 0
+	val dateOfJoin = 0
+	var userLocation = " "
+	var userLogin = false
+
+	fun userLogin(){
+		if(userLogin){
+			// enter the app
+			// login successful
+			println("Welcome ${userName}")
+		}
+	}
+}
