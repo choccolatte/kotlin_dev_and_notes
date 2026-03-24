@@ -34,16 +34,29 @@ public class Prac {
 	// System.out.println("Lowest number: " + minx);
 
 	// recursion
-	public static int sum(int k){
-		if (k > 0){
-			return k + sum(k -1);
-		} else {
-			return 0;
+	// public static int sum(int k){
+	// 	if (k > 0){
+	// 		return k + sum(k -1);
+	// 	} else {
+	// 		return 0;
+	// 	}
+	// }
+
+	// public static void main(String[] args){
+	// 	int res = sum(10);
+	// 	System.out.println(res);
+	// }
+
+	// factorial using recursion
+	static int factorial(int n){
+		if(n > 1){
+			return n * factorial(n-1);
+		} else{
+			return 1;
 		}
 	}
 
-	public static void main(String[] args){
-		int res = sum(10);
-		System.out.println(res);
+	static void main(String[] args){
+		System.out.println(factorial(10));
 	}
 }
