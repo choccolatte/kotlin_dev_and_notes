@@ -24,7 +24,7 @@ public class Prac {
 		Prac myCar = new Prac("Mustang");
 
 		// car with 2 paras
-		Prac myCar2 = new Prac(2026, "Mustang");
+		Prac myCar2 = new Prac(2026, "Corvette");
 
 		myCar.printInfo();
 		myCar2.printInfo();
