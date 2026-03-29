@@ -17,6 +17,8 @@ public class ScanE implements ScaneAni{
 
 class Main{
 	public static void main(String[] args){
-		
+		ScanE myScan = new ScanE(); // new object
+		myScan.animalSound();
+		myScan.sleep();
 	}
 }
