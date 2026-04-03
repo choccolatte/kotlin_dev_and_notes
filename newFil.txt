@@ -1,2 +1,3 @@
 This is a dummy text file with dummy text values.
 NNow, this is the new appended text.
+This is the appended line.
