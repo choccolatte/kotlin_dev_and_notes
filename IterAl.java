@@ -15,6 +15,9 @@ public class IterAl {
 		Iterator<String> iter = alist.iterator();
 
 		// iterate through the list using the iterator
+		while(iter.hasNext()){
+			System.out.println(iter.next()); // use next() here else it will turn into a forever loop
+		}
 	}
 	
 }
