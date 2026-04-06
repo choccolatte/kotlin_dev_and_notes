@@ -13,7 +13,5 @@ public class HasMapping {
 		carCars.put("Honda", "Civic");
 
 		System.out.println(carCars);
-
-		// iterating over HashMap
 	}
 }
