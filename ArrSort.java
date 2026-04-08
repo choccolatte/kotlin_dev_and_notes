@@ -3,7 +3,8 @@ import java.util.Collections;
 
 public class ArrSort {
 	public static void main(String[] args){
-		ArrayList<String> cars = new ArrayList<String>();
+		// ArrayList<String> cars = new ArrayList<String>();
+		var cars = new ArrayList<String>();
 		cars.add("Honda");
 		cars.add("Ford");
 		cars.add("BMW");
@@ -15,8 +16,11 @@ public class ArrSort {
 
 		// sorting list
 		Collections.sort(cars);
+
 		for (String i : cars){
 			System.out.println(i); // printing one at a time
 		}
+
+		System.out.println("Array Size:" + cars.size());
 	}
 }
